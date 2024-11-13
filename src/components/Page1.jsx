@@ -40,7 +40,7 @@ function Page1() {
                 <p className="text-sm md:text-md mt-2">
                     Vadodara’s Premier Interior Designers - Expertise in Spatial Planning & Furniture Curation
                 </p>
-                <button className="bg-[#D3AA62] text-white px-4 py-2 rounded-md mt-4">Explore Our Work</button>
+                <Link to="/services" className="bg-[#D3AA62] text-white px-4 py-2 rounded-md mt-4">Explore Our Work</Link>
             </div>
         </div>
     );
