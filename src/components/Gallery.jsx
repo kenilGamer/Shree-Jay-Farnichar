@@ -4,12 +4,12 @@ import Topbar from '../partials/Topbar'
 
 function Gallery() {
     const [data, setData] = useState([
-        { src: "/public/img1.jpg", alt: "Image 1" },
-        { src: "/public/img2.jpg", alt: "Image 2" },
-        { src: "/public/img3.jpg", alt: "Image 3" },
-        { src: "/public/img4.jpg", alt: "Image 4" },
-        { src: "/public/img5.jpg", alt: "Image 5" },
-        { src: "/public/img6.jpg", alt: "Image 6" },
+        { src: "/img1.jpg", alt: "Image 1" },
+        { src: "/img2.jpg", alt: "Image 2" },
+        { src: "/img3.jpg", alt: "Image 3" },
+        { src: "/img4.jpg", alt: "Image 4" },
+        { src: "/img5.jpg", alt: "Image 5" },
+        { src: "/img6.jpg", alt: "Image 6" },
     ])
 
   return (

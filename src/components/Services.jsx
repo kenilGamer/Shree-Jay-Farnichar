@@ -5,32 +5,32 @@ function Services() {
   const services = [
     {
       title: "Living Room Design",
-      image: "/public/img1.jpg",
+      image: "/img1.jpg",
       description: "Transform your living room with custom furniture, lighting, and layout solutions.",
     },
     {
       title: "Bedroom Interiors",
-      image: "/public/img2.jpg",
+      image: "/img2.jpg",
       description: "Stylish and cozy bedroom designs tailored to your taste and comfort.",
     },
     {
       title: "Modular Kitchens",
-      image: "/public/img3.jpg",
+      image: "/img3.jpg",
       description: "Efficient and modern kitchen layouts with high-quality finishes.",
     },
     {
       title: "Office Spaces",
-      image: "/public/img4.jpg",
+      image: "/img4.jpg",
       description: "Functional and professional office designs to enhance productivity.",
     },
     {
       title: "Commercial Interiors",
-      image: "/public/img5.jpg",
+      image: "/img5.jpg",
       description: "Elegant and efficient designs for showrooms, shops, and more.",
     },
     {
       title: "Outdoor Furniture",
-      image: "/public/img6.jpg",
+      image: "/img6.jpg",
       description: "Durable and stylish outdoor setups for your patios and gardens.",
     },
   ];
