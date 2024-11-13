@@ -11,7 +11,7 @@ function Page3() {
     ]);
 
   return (
-    <div className="h-screen mb-96 p-20" id="services">
+    <div className="h-[80vh] max-md:mb-96 p-20" id="services">
         <h1 className="text-white text-3xl font-black uppercase text-center mb-10">Our Services</h1>
         <div className="flex items-center justify-center gap-8 flex-wrap">
             {data.map((item, index) => (

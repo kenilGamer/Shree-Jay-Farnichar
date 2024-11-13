@@ -3,16 +3,18 @@ import { FiLinkedin, FiFacebook, FiYoutube, FiInstagram } from 'react-icons/fi';
 
 function Footer() {
   return (
-    <div className='bg-[#1D1D1D] py-10 text-white max-md:mt-[600px] relative'>
+    <div className='bg-[#1D1D1D] py-10 text-white max-md:mt-[1600px]  relative'>
       <div className='container mx-auto px-6 md:px-12'>
         {/* Contact Information */}
         <div className='flex flex-col md:flex-row justify-between items-start gap-10'>
           <div>
-            <h1 className='text-2xl font-black uppercase mb-4'>Pranay Shah Designs</h1>
-            <p>401-B Mangal Sai Apartment, Opp. Baroda High School, 84 Alkapuri,<br />
-              Vadodara - 390007, Gujarat, India.</p>
-            <p>Email: <a href='mailto:info@pranayshahdesigns.com' className='text-[#D3AA62]'>info@pranayshahdesigns.com</a></p>
-            <p>Phone: <a href='tel:+919998769186' className='text-[#D3AA62]'>+91 9998769186</a></p>
+            <h1 className='text-2xl font-black uppercase mb-4'>Shree Jay Farnichar</h1>
+            <p>Ahmedabad Gandhinagar Kalol Kadi Surat Vadodara Palanpur Siddhpur Mehsana Nadiad Morbi Rajkot Bhuj Bharuch Vapi Ankleshwar Gandhidham Kheda Dholka Dhandhuka Sanand Bacharaji Surendranagar Patan Harij Radhanpur in all Gujarat In Our agency has been working for 30 years, through good experience, we will prepare each of our projects 
+            </p>
+            <p>Email: <a href='mailto:info@ShreeJayFarnichar.com' className='text-[#D3AA62]'>info@ShreeJayFarnichar.com</a></p>
+            <p>Phone: <a href='tel:+9228104285' className='text-[#D3AA62]'>+91 98250 42850</a></p>
+            <p>Phone: <a href='tel:+9624538770' className='text-[#D3AA62]'>+91 9624538770</a></p>
+            <p>Phone: <a href='tel:+9909858710' className='text-[#D3AA62]'>+91 98250 42850</a></p>
           </div>
 
           {/* Services */}
@@ -31,10 +33,10 @@ function Footer() {
           <div>
             <h2 className='text-xl font-semibold mb-4'>Useful Links</h2>
             <ul className='space-y-2'>
-              <li><a href='#testimonials' className='hover:text-[#D3AA62]'>Testimonials</a></li>
-              <li><a href='#why-psd' className='hover:text-[#D3AA62]'>Why PSD?</a></li>
-              <li><a href='#projects' className='hover:text-[#D3AA62]'>Projects</a></li>
-              <li><a href='#contact-us' className='hover:text-[#D3AA62]'>Contact Us</a></li>
+              <li><a href='/testimonials' className='hover:text-[#D3AA62]'>Testimonials</a></li>
+              <li><a href='/why-psd' className='hover:text-[#D3AA62]'>Why PSD?</a></li>
+              <li><a href='/projects' className='hover:text-[#D3AA62]'>Projects</a></li>
+              <li><a href='/contact' className='hover:text-[#D3AA62]'>Contact Us</a></li>
             </ul>
           </div>
         </div>
