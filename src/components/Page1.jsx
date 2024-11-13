@@ -1,5 +1,6 @@
 import React from 'react';
 import Crad from '../partials/Crad';
+import { Link } from 'react-router-dom';
 
 function Page1() {
     const data = [
