@@ -3,7 +3,7 @@ import { FiLinkedin, FiFacebook, FiYoutube, FiInstagram } from 'react-icons/fi';
 
 function Footer() {
   return (
-    <div className='bg-[#1D1D1D] py-10 text-white mt-[600px] relative'>
+    <div className='bg-[#1D1D1D] py-10 text-white mt-[100px] relative'>
       <div className='container mx-auto px-6 md:px-12'>
         {/* Contact Information */}
         <div className='flex flex-col md:flex-row justify-between items-start gap-10'>
