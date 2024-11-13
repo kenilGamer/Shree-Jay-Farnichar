@@ -23,7 +23,16 @@ function Services() {
       image: "/img4.jpg",
       description: "Functional and professional office designs to enhance productivity.",
     },
-
+    {
+      title: "Commercial Interiors",
+      image: "/img5.jpg",
+      description: "Elegant and efficient designs for showrooms, shops, and more.",
+    },
+    {
+      title: "Outdoor Furniture",
+      image: "/img6.jpg",
+      description: "Durable and stylish outdoor setups for your patios and gardens.",
+    },
   ];
 
   return (
