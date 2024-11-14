@@ -15,7 +15,6 @@ function Services() {
   };
 
   useEffect(() => {
-    data2();
     fetchData();
   }, []);
 
