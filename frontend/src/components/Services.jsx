@@ -8,7 +8,7 @@ function Services() {
   const [services, setServices] = useState([]); // Added state for services
 
   const fetchData = async () => {
-    const response = await axios.get(`http://localhost:3000/gallery`);
+    const response = await axios.get(`https://shree-jay-farnichar.onrender.com/gallery`);
     setData(response.data);
     console.log(response.data);
     setServices(response.data); // Set services state with fetched data
@@ -18,10 +18,7 @@ function Services() {
     data2();
     fetchData();
   }, []);
- const data2 = async ()=>{
-  const data = await axios.get(`https://shree-jay-farnichar-vusx-p67l351fj-kenils-projects-6ad47f80.vercel.app/gallery/gallery`);
-  console.log(data);
- }
+
   return (
     <div>
       <TopNav />

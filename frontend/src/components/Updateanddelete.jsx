@@ -15,7 +15,7 @@ function Updateanddelete() {
    
     useEffect(() => {
         const fetchData = async () => {
-            const response = await axios.get(`http://localhost:3000/gallery`); // Adjust the route if needed
+            const response = await axios.get(`https://shree-jay-farnichar.onrender.com/gallery`); // Adjust the route if needed
             setData(response.data);
         };
         fetchData();
@@ -24,7 +24,7 @@ function Updateanddelete() {
     // Handle delete action
     const handleDelete = async (id) => {
         try {
-            await axios.delete(`http://localhost:3000/gallery/${id}`);
+            await axios.delete(`https://shree-jay-farnichar.onrender.com/gallery/${id}`);
             setData(data.filter(item => item._id !== id)); // Remove item from state after delete
         } catch (error) {
             console.error('Error deleting item:', error);
@@ -54,7 +54,7 @@ function Updateanddelete() {
         if (updatedData.video) formData.append('video', updatedData.video);
 
         try {
-            const response = await axios.put(`http://localhost:3000/gallery/${selectedItem._id}`, formData, {
+            const response = await axios.put(`https://shree-jay-farnichar.onrender.com/gallery/${selectedItem._id}`, formData, {
                 headers: { 'Content-Type': 'multipart/form-data' }
             });
             setData(data.map(item => (item._id === selectedItem._id ? response.data : item))); // Update the item in state

@@ -17,7 +17,7 @@ function Dashboard() {
       try {
         setUploading(true);
         setUploadProgress(0);  // Reset progress
-        await axios.post('http://localhost:3000/gallery', formData, {
+        await axios.post('https://shree-jay-farnichar.onrender.com/gallery', formData, {
           headers: { 'Content-Type': 'multipart/form-data' },
           onUploadProgress: (progressEvent) => {
             const progress = Math.round((progressEvent.loaded / progressEvent.total) * 100);
@@ -44,7 +44,7 @@ function Dashboard() {
       try {
         setUploading(true);
         setUploadProgress(0);  // Reset progress
-        await axios.post('http://localhost:3000/upload', formData, {
+        await axios.post('https://shree-jay-farnichar.onrender.com/upload', formData, {
           headers: { 'Content-Type': 'multipart/form-data' },
           onUploadProgress: (progressEvent) => {
             const progress = Math.round((progressEvent.loaded / progressEvent.total) * 100);
