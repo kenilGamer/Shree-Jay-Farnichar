@@ -51,7 +51,7 @@ function Package() {
   ]);
 
   return (
-    <div className="min-h-screen p-5 md:p-20 bg-[#202020] text-white">
+    <div className="min-h-screen p-3 bg-[#202020] text-white">
       <h1 className="text-2xl md:text-3xl font-black uppercase text-center mt-3 mb-6">Our Packages</h1>
       <div className="flex flex-wrap justify-center  mx-auto gap-10">
         {data.map((item, index) => (
