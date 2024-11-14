@@ -102,7 +102,7 @@ app.post('/login', async (req, res) => {
       secure: process.env.NODE_ENV === 'production', // Use HTTPS in production
       maxAge: 3600000   // 1 hour expiration
     });
-    res.status(200).json({ message: 'Login successful' });
+    res.status(200).json({ message: 'Login successful', role: user.role, token: token });
   } catch (error) {
     console.error('Error logging in:', error);
     res.status(500).json({ message: 'Internal Server Error' });
