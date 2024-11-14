@@ -11,7 +11,7 @@ function Navbar() {
     { name: "Services", link: "/services" },
     { name: "Gallery", link: "/gallery" },
     { name: "Blog", link: "/blog" },
-    // { name: "Login", link: "/login" },  
+    { name: "Login", link: "/login" },  
     ...(localStorage.getItem('role')==='admin' ? [{ name: "Dashboard", link: "/dashboard" }] : [])
   ];
 
