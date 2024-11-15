@@ -27,8 +27,8 @@ function Package() {
       ]
     },
     {
-      title: "3 BHK Flat – Starting ₹12.5 Lakh",
-      price: "12.5 Lakh",
+      title: "3 BHK Flat – Starting ₹11.5 Lakh",
+      price: "11.5 Lakh",
       description: [
         "Full Furnishing with Wooden Furniture",
         "Color POP Work and Electrical Setup",
@@ -38,8 +38,8 @@ function Package() {
       ]
     },
     {
-      title: "4 BHK Flat – Starting ₹16.5 Lakh",
-      price: "16.5 Lakh",
+      title: "4 BHK Flat – Starting ₹14.5 Lakh",
+      price: "14.5 Lakh",
       description: [
         "Fully Furnished with Designer Wooden Furniture",
         "Customized POP Work and Lighting Solutions",

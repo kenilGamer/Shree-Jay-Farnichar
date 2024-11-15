@@ -7,10 +7,9 @@ import Services from "./components/Services";
 import Login from "./components/Login";
 import Dashboard from "./components/Dashboard";
 import Updateanddelete from "./components/Updateanddelete";
-import groovyWalkAnimation from "../public/loader.json";
-import Lottie from "lottie-react";
 import LocomotiveScroll from "locomotive-scroll";
 import { useState, useEffect } from "react";
+import Loader from "./components/Loader";
   function App() {
     
   const locomotiveScroll = new LocomotiveScroll({
@@ -34,29 +33,24 @@ import { useState, useEffect } from "react";
     },
   });
   const [isLoading, setIsLoading] = useState(true);
-  const [isAnimationComplete, setIsAnimationComplete] = useState(false);
   useEffect(() => {
-    setTimeout(() => {
+    const timeout = setTimeout(() => {
       setIsLoading(false);
-      setIsAnimationComplete(true);
-    }, 2100);
+
+    }, 2000);
+
+   clearTimeout(timeout)
   }, []);
 
   return (
     <div
       className="bg-black w-full"
-      onLoad={() => setIsLoading(false)}
-      onAnimationEnd={() => setIsAnimationComplete(true)}
-      // onLoadCapture={() => setIsLoading(false)cvccv
     >
-      {isLoading ? (
-        <div className="flex justify-center items-center h-screen">
-          <Lottie
-            animationData={groovyWalkAnimation}
-            onComplete={() => setIsAnimationComplete(true)}
-          />
-        </div>
-      ) : (
+        {isLoading && (
+          <div className="flex absolute top-0 left-0 w-full h-screen justify-center items-center ">
+            <Loader /> 
+          </div>
+        )}
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/gallery" element={<Gallery />} />
@@ -68,7 +62,7 @@ import { useState, useEffect } from "react";
           <Route path="/updateanddelete" element={<Updateanddelete />} />
           <Route path="*" element={<h1>404 - Page Not Found</h1>} />
         </Routes>
-      )}
+      
     </div>
   );
 }
