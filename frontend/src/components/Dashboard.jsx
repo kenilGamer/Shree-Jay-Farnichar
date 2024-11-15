@@ -27,7 +27,7 @@ function Dashboard() {
     try {
       setUploading(true);
       setUploadProgress(0);
-      await axios.post("https://www.shreejayfurniture.store/gallery", formData, {
+      await axios.post("https://shree-jay-farnichar.onrender.com/gallery", formData, {
         headers: { "Content-Type": "multipart/form-data" },
         onUploadProgress: (progressEvent) => {
           const progress = Math.round(
@@ -59,7 +59,7 @@ function Dashboard() {
     try {
       setUploading(true);
       setUploadProgress(0);
-      await axios.post("https://www.shreejayfurniture.store/gallery", formData, {
+      await axios.post("https://shree-jay-farnichar.onrender.com/gallery", formData, {
         headers: { "Content-Type": "multipart/form-data" },
         onUploadProgress: (progressEvent) => {
           const progress = Math.round(
