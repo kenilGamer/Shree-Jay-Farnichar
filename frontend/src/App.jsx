@@ -47,7 +47,7 @@ import { useState, useEffect } from "react";
       className="bg-black w-full"
       onLoad={() => setIsLoading(false)}
       onAnimationEnd={() => setIsAnimationComplete(true)}
-      onLoadCapture={() => setIsLoading(false)}
+      // onLoadCapture={() => setIsLoading(false)cvccv
     >
       {isLoading ? (
         <div className="flex justify-center items-center h-screen">
