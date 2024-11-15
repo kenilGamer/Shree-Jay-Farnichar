@@ -14,7 +14,7 @@ function Gallery() {
     ])
     const [gallery, setGallery] = useState([]);
     const fetchData = async ()=>{
-        const data = await axios.get(`https://shree-jay-farnichar.onrender.com/show`);
+        const data = await axios.get(`https://shree-jay-farnichar.onrender.com/gallery`);
         console.log(data);
         setGallery(data.data.map(item=>item.image));
     }
