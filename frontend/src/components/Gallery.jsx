@@ -14,7 +14,7 @@ function Gallery() {
     ])
     const [gallery, setGallery] = useState([]);
     const fetchData = async ()=>{
-        const data = await axios.get(`http://localhost:3000/show`);
+        const data = await axios.get(`https://shree-jay-farnichar.onrender.com/show`);
         console.log(data);
         setGallery(data.data.map(item=>item.image));
     }
@@ -30,7 +30,7 @@ function Gallery() {
             {gallery.map((item, index)=>(
                 console.log(item),
                 <div key={index} className='w-[400px] h-[300px] bg-[#1D1D1D] p-4 flex flex-col  gap-[14px] relative rounded-lg border-4 border-[#282828] '>
-                    <img src={`http://localhost:3000/uploads/${item}`} alt={item.alt} className='w-full h-full object-cover' />
+                    <img src={`https://shree-jay-farnichar.onrender.com/uploads/${item}`} alt={item.alt} className='w-full h-full object-cover' />
                 </div>
             ))}
         </div>
