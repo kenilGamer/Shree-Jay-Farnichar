@@ -4,8 +4,8 @@ import Crad from '../partials/Crad';
 function Package() {
   const [data] = useState([
     {
-      title: "1 BHK Flat – Only ₹4.5 Lakh",
-      price: "4.5 Lakh",
+      title: "1 BHK Flat – Starting ₹6.5 Lakh",
+      price: "6.5 Lakh",
       description: [
         "Full Wooden Furniture",
         "Full POP Work",
@@ -16,8 +16,8 @@ function Package() {
       ]
     },
     {
-      title: "2 BHK Flat – Only ₹7 Lakh",
-      price: "7 Lakh",
+      title: "2 BHK Flat – Starting ₹9.5 Lakh",
+      price: "9.5 Lakh",
       description: [
         "Complete Interior Design with Customizable Furniture",
         "High-Quality Wood and Finishes",
@@ -27,8 +27,8 @@ function Package() {
       ]
     },
     {
-      title: "3 BHK Flat – Only ₹9 Lakh",
-      price: "9 Lakh",
+      title: "3 BHK Flat – Starting ₹12.5 Lakh",
+      price: "12.5 Lakh",
       description: [
         "Full Furnishing with Wooden Furniture",
         "Color POP Work and Electrical Setup",
@@ -38,8 +38,8 @@ function Package() {
       ]
     },
     {
-      title: "4 BHK Flat – Only ₹10.9 Lakh",
-      price: "10.9 Lakh",
+      title: "4 BHK Flat – Starting ₹16.5 Lakh",
+      price: "16.5 Lakh",
       description: [
         "Fully Furnished with Designer Wooden Furniture",
         "Customized POP Work and Lighting Solutions",
