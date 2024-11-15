@@ -12,9 +12,9 @@ function Footer() {
             <p>Ahmedabad Gandhinagar Kalol Kadi Surat Vadodara Palanpur Siddhpur Mehsana Nadiad Morbi Rajkot Bhuj Bharuch Vapi Ankleshwar Gandhidham Kheda Dholka Dhandhuka Sanand Bacharaji Surendranagar Patan Harij Radhanpur in all Gujarat In Our agency has been working for 30 years, through good experience, we will prepare each of our projects 
             </p>
             <p>Email: <a href='mailto:info@ShreeJayFarnichar.com' className='text-[#D3AA62]'>info@ShreeJayFarnichar.com</a></p>
-            <p>Phone: <a href='tel:+9228104285' className='text-[#D3AA62]'>+91 98250 42850</a></p>
+            <p>Phone: <a href='tel:+9228104285' className='text-[#D3AA62]'>+91 9228104285</a></p>
             <p>Phone: <a href='tel:+9624538770' className='text-[#D3AA62]'>+91 9624538770</a></p>
-            <p>Phone: <a href='tel:+9909858710' className='text-[#D3AA62]'>+91 98250 42850</a></p>
+            <p>Phone: <a href='tel:+9909858710' className='text-[#D3AA62]'>+91 9909858710</a></p>
           </div>
 
           {/* Services */}
