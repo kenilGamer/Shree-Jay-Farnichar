@@ -2,26 +2,24 @@ import React, { useEffect, useState } from 'react'
 import Navbar from '../partials/Navbar'
 import Topbar from '../partials/Topbar'
 import axios from 'axios';
-
+import Lottie from 'lottie-react';
+import groovyWalkAnimation from '../../public/Animation - 1731667421897.json';
 function Gallery() {
-    const [data, setData] = useState([
-        { src: "/img1.jpg", alt: "Image 1" },
-        { src: "/img2.jpg", alt: "Image 2" },
-        { src: "/img3.jpg", alt: "Image 3" },
-        { src: "/img4.jpg", alt: "Image 4" },
-        { src: "/img5.jpg", alt: "Image 5" },
-        { src: "/img6.jpg", alt: "Image 6" },
-    ])
+    const [isLoading, setIsLoading] = useState(false);
     const [gallery, setGallery] = useState([]);
     const fetchData = async ()=>{
         const data = await axios.get(`https://shree-jay-farnichar.onrender.com/gallery`);
         console.log(data);
         setGallery(data.data.map(item=>item.image));
+        if(data.data.length>0){
+            setIsLoading(false);
+        }
     }
     useEffect(()=>{
         fetchData();
     },[]);
   return (
+    gallery.length>0 ? <div className='h-screen flex justify-center items-center'><Lottie animationData={groovyWalkAnimation} /></div> :
     <div className='h-screen '>
         <Topbar/>
         <Navbar/>
