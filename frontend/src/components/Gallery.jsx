@@ -3,7 +3,7 @@ import Navbar from '../partials/Navbar'
 import Topbar from '../partials/Topbar'
 import axios from 'axios';
 import Lottie from 'lottie-react';
-import groovyWalkAnimation from '../../public/Animation - 1731667421897.json';
+import groovyWalkAnimation from '/loader.json';
 function Gallery() {
     const [isLoading, setIsLoading] = useState(false);
     const [gallery, setGallery] = useState([]);
