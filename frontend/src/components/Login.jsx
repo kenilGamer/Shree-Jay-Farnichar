@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
@@ -13,7 +13,7 @@ function Login() {
         e.preventDefault();
         setLoading(true);
         setError('');
-
+ 
         try {
             const response = await axios.post('http://localhost:3000/login', { email, password }, { withCredentials: true });
             console.log(response);
