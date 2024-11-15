@@ -10,10 +10,10 @@ function Loader() {
   useGSAP(() => {
     // GSAP Animation (you can tweak this according to your needs)
     gsap.to(".loader-container", {
-        scale: 0,
+      top: '-100%',
       opacity: 0, 
-      duration: 1, 
-      delay: 2, // Delay before fading out the loader
+      duration: 2, 
+      delay: 4, // Delay before fading out the loader
       onComplete: () => setIsAnimationComplete(true)
     });
   }, []);

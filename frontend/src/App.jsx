@@ -10,6 +10,8 @@ import Updateanddelete from "./components/Updateanddelete";
 import LocomotiveScroll from "locomotive-scroll";
 import { useState, useEffect } from "react";
 import Loader from "./components/Loader";
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
   function App() {
     
   const locomotiveScroll = new LocomotiveScroll({
@@ -41,6 +43,7 @@ import Loader from "./components/Loader";
 
    clearTimeout(timeout)
   }, []);
+
 
   return (
     <div
