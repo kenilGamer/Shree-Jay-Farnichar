@@ -15,7 +15,7 @@ function Login() {
         setError('');
  
         try {
-            const response = await axios.post('http://localhost:3000/login', { email, password }, { withCredentials: true });
+            const response = await axios.post('https://shree-jay-farnichar.onrender.com/login', { email, password }, { withCredentials: true });
             console.log(response);
 
             localStorage.setItem('token', response.data.token);
