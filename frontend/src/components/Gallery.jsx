@@ -3,23 +3,19 @@ import Navbar from '../partials/Navbar'
 import Topbar from '../partials/Topbar'
 import axios from 'axios';
 import Lottie from 'lottie-react';
-import groovyWalkAnimation from '../public/loader.json';
+// import groovyWalkAnimation from '/public/loader.json';
 function Gallery() {
-    const [isLoading, setIsLoading] = useState(false);
+        const [isLoading, setIsLoading] = useState(false);
     const [gallery, setGallery] = useState([]);
     const fetchData = async ()=>{
-        const data = await axios.get(`https://shree-jay-farnichar.onrender.com/gallery`);
-        console.log(data);
+        const data = await axios.get(`https://shree-jay-farnichar.onrender.com/gallery`)
         setGallery(data.data.map(item=>item.image));
-        if(data.data.length>0){
-            setIsLoading(false);
-        }
     }
     useEffect(()=>{
         fetchData();
     },[]);
   return (
-    gallery.length>0 ? <div className='h-screen flex justify-center items-center'><Lottie animationData={groovyWalkAnimation} /></div> :
+   
     <div className='h-screen '>
         <Topbar/>
         <Navbar/>
