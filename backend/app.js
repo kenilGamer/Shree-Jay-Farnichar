@@ -138,7 +138,6 @@ app.post('/gallery', verifyToken, upload.fields([{ name: 'image', maxCount: 1 },
   if (!req.files) {
     return res.status(400).json({ message: 'No files were uploaded.' });
   }
-  const category = req.body.category;
   // Check uploaded fields
   if (req.files.image) {
     console.log('Image uploaded:', req.files.image);

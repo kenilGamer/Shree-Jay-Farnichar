@@ -12,6 +12,7 @@ import { useState, useEffect } from "react";
 import Loader from "./components/Loader";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
+import AuthGuard from "./components/AuthGuard";
   function App() {
     
  
@@ -40,7 +41,7 @@ import { useGSAP } from "@gsap/react";
           <Route path="/about" element={<About />} />
           <Route path="/services" element={<Services />} />
           <Route path="/login" element={<Login />} />
-          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/dashboard" element={<AuthGuard><Dashboard /></AuthGuard>} />
           <Route path="/updateanddelete" element={<Updateanddelete />} />
           <Route path="*" element={<h1>404 - Page Not Found</h1>} />
         </Routes>
