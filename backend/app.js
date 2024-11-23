@@ -119,11 +119,11 @@ app.post('/login', async (req, res) => {
     if (user.role !== 'admin') {
       return res.status(401).json({ message: 'Unauthorized access' });
     }
-    const token = jwt.sign({ userId: user._id }, process.env.JWT_SECRET, { expiresIn: '1h' });
+    const token = jwt.sign({ userId: user._id }, process.env.JWT_SECRET, { expiresIn: '1d' });
     res.cookie('authToken', token, {
       httpOnly: true,   // Cookie is not accessible via JavaScript
       secure: process.env.NODE_ENV === 'production', // Use HTTPS in production
-      maxAge: 3600000   // 1 hour expiration
+      maxAge: 86400000   // 1 day expiration
     });
     res.status(200).json({ message: 'Login successful', role: user.role, token: token });
   } catch (error) {
