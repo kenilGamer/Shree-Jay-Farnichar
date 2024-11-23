@@ -179,7 +179,9 @@ app.post('/gallery', verifyToken, upload.fields([{ name: 'image', maxCount: 1 },
       description: req.body.description
     });
     await gallery.save();
+    console.log(gallery);
     res.status(201).json(gallery);
+
   } catch (error) {
     console.error('Error adding gallery item:', error);
     res.status(500).json({ message: 'Internal Server Error' });
