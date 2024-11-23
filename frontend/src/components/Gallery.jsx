@@ -24,7 +24,16 @@ function Gallery() {
             {gallery.map((item, index)=>(
                 console.log(item),
                 <div key={index} className='w-[400px] h-[300px] bg-[#1D1D1D] p-4 flex flex-col  gap-[14px] relative rounded-lg border-4 border-[#282828] '>
-                    <img src={`https://shree-jay-farnichar.onrender.com/uploads/${item}`} alt={item.alt} className='w-full h-full object-cover' />
+                    {
+                        item.image && (
+                            <img src={`https://shree-jay-farnichar.onrender.com/uploads/${item.image}`} alt={item.alt} className='w-full h-full object-cover' />
+                        )
+                    }
+                    {
+                        item.video && (
+                            <video src={`https://shree-jay-farnichar.onrender.com/uploads/${item.video}`} controls className='w-full h-full object-cover' />
+                        )
+                    }
                 </div>
             ))}
         </div>

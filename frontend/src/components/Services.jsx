@@ -27,7 +27,16 @@ function Services() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
           {services.map((service, index) => (
             <div key={index} className="bg-[#1D1D1D] p-4 rounded-lg border-4 border-[#282828] shadow-lg">
-              <img src={`https://shree-jay-farnichar.onrender.com/uploads/${service.image}`} alt={service.title} className="w-full h-48 object-cover rounded-md" />
+              {
+                service.image && (
+                  <img src={`https://shree-jay-farnichar.onrender.com/uploads/${service.image}`} alt={service.title} className="w-full h-48 object-cover rounded-md" />
+                )
+              }
+              {
+                service.video && (
+                  <video src={`https://shree-jay-farnichar.onrender.com/uploads/${service.video}`} controls className="w-full h-48 object-cover rounded-md" />
+                )
+              }
               <div className="p-4">
                 <h2 className="text-xl font-bold text-[#D3AA62] mb-2">{service.title}</h2>
                 <p className="text-white text-md">{service.description}</p>
