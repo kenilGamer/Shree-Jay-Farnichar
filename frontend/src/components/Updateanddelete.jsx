@@ -7,6 +7,7 @@ function Updateanddelete() {
     const [data, setData] = useState([]);
     const [serviceStatus, setServiceStatus] = useState(true);
     const [selectedItem, setSelectedItem] = useState(null);
+    const [category, setCategory] = useState(null);
     const [updatedData, setUpdatedData] = useState({
         title: '',
         description: '',
@@ -17,8 +18,11 @@ function Updateanddelete() {
    
     useEffect(() => {
         const fetchData = async () => {
-            const response = await axios.get(`https://shree-jay-farnichar.onrender.com/gallery`); // Adjust the route if needed
+            const response = await axios.get(`https://shree-jay-farnichar.onrender.com/gallery`, {
+                headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
+            }); // Adjust the route if needed
             setData(response.data);
+            setCategory(response.data[0].category);
         };
         fetchData();
     }, []);
@@ -26,7 +30,9 @@ function Updateanddelete() {
     // Handle delete action
     const handleDelete = async (id) => {
         try {
-            await axios.delete(`https://shree-jay-farnichar.onrender.com/gallery/${id}`);
+            await axios.delete(`https://shree-jay-farnichar.onrender.com/gallery/${id}`, {
+                headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
+            });
             setData(data.filter(item => item._id !== id)); // Remove item from state after delete
         } catch (error) {
             console.error('Error deleting item:', error);
@@ -52,12 +58,14 @@ function Updateanddelete() {
         const formData = new FormData();
         formData.append('title', updatedData.title);
         formData.append('description', updatedData.description);
+        formData.append('serviceStatus', updatedData.serviceStatus.toString());
+        formData.append('category', category);
         if (updatedData.image) formData.append('image', updatedData.image);
         if (updatedData.video) formData.append('video', updatedData.video);
 
         try {
-            const response = await axios.put(`http://localhost:3000/gallery/${selectedItem._id}`, formData, {
-                headers: { 'Content-Type': 'multipart/form-data' }
+            const response = await axios.put(`https://shree-jay-farnichar.onrender.com/gallery/${selectedItem._id}`, formData, {
+                headers: { 'Content-Type': 'multipart/form-data', Authorization: `Bearer ${localStorage.getItem('token')}` }
             });
             setData(data.map(item => (item._id === selectedItem._id ? response.data : item))); // Update the item in state
             setSelectedItem(null); // Clear selected item after update
@@ -66,7 +74,9 @@ function Updateanddelete() {
             console.error('Error updating item:', error);
         }
     };
-
+    const handleCategoryChange = (e) => {
+        setCategory(e.target.value);
+    };
     return (
         <div className='h-screen text-white'>
             <Topbar/>
@@ -79,12 +89,12 @@ function Updateanddelete() {
     <h2>{item.title}</h2>
     <p>{item.description}</p>
     {item.image ? (
-      <img src={`http://localhost:3000/uploads/${item.image}`} alt={item.title} className="w-32 h-32" />
+      <img src={`https://shree-jay-farnichar.onrender.com/uploads/${item.image}`} alt={item.title} className="w-32 h-32" />
     ) : (
       <p>No image available</p>
     )}
     {item.video ? (
-      <video src={`http://localhost:3000/uploads/${item.video}`} controls className="w-32 h-32"></video>
+      <video src={`https://shree-jay-farnichar.onrender.com/uploads/${item.video}`} controls className="w-32 h-32"></video>
     ) : (
       <p>No video available</p>
     )}
@@ -93,7 +103,8 @@ function Updateanddelete() {
         setSelectedItem(item);
         setUpdatedData({
           title: item.title,
-          description: item.description
+          description: item.description,
+          serviceStatus: item.serviceStatus
         });
       }}
       className="bg-blue-500 text-white px-4 py-2 mt-2 mr-2"
@@ -101,7 +112,7 @@ function Updateanddelete() {
       Update
     </button>
     <button
-      onClick={() => setServiceStatus(!serviceStatus)}
+      onClick={() => setServiceStatus(item.serviceStatus === true ? false : true)}
       className="bg-green-500 text-white px-4 py-2 mt-2 mr-2"
     >
       {serviceStatus ? 'Deactivate' : 'Activate'}
@@ -122,6 +133,18 @@ function Updateanddelete() {
                 <div className="mt-6 text-black">
                     <h2 className="text-xl mb-2">Update Gallery Item</h2>
                     <form onSubmit={handleUpdate}>
+                        <select
+                            name="category"
+                            value={category}
+                            onChange={handleCategoryChange}
+                            className="mb-2 p-2 w-full"
+                        >
+                            {/* <option value="Gallery">Gallery</option> */}
+                            <option value="Furniture">Furniture</option>
+                            <option value="Carpets">Carpets</option>
+                            <option value="Wooden Furniture">Wooden Furniture</option>
+                            <option value="Interior Design">Interior Design</option>
+                        </select>
                         <input
                             type="text"
                             name="title"

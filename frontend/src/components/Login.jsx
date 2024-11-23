@@ -18,7 +18,8 @@ function Login() {
             const response = await axios.post(
                 'https://shree-jay-farnichar.onrender.com/login',
                 { email, password },
-                { withCredentials: true }
+                { withCredentials: true },
+                { headers: { Authorization: `Bearer ${localStorage.getItem('token')}` } }
             );
 
             localStorage.setItem('token', response.data.token);

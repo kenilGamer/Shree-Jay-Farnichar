@@ -49,11 +49,34 @@ const upload = multer({
 
 app.use(cors({
   origin: ['https://www.shreejayfurniture.store',"http://localhost:5173"], // Adjust according to your frontend URL
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  allowedHeaders: ['Content-Type', 'Authorization','dataType','methods','serviceStatus'],
   credentials: true
 }));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
+
+app.use(express.json({ limit: '50mb' }));
+app.use(express.urlencoded({ extended: true, limit: '50mb' }));
+
+const verifyToken = (req, res, next) => {
+  const token = req.header('Authorization')?.replace('Bearer ', '');  // Get the token from the Authorization header
+  
+  if (!token) {
+    return res.status(401).json({ message: 'No token, authorization denied' });
+  }
+
+  try {
+    // Verify the token using the same secret key
+    const decoded = jwt.verify(token, process.env.JWT_SECRET);  // Ensure this is the same secret as used in signing
+    req.user = decoded;  // Attach the user info to the request object
+    next();
+  } catch (error) {
+    console.error('Error verifying token:', error);
+    return res.status(400).json({ message: 'Token is not valid' });
+  }
+};
 
 // Route for registering a new user
 app.post('/register', async (req, res) => {
@@ -110,11 +133,12 @@ app.post('/login', async (req, res) => {
 });
 
 // Route for handling file upload
-app.post('/upload', upload.fields([{ name: 'image', maxCount: 1 }, { name: 'video', maxCount: 1 }]), (req, res) => {
+app.post('/gallery', verifyToken, upload.fields([{ name: 'image', maxCount: 1 }, { name: 'video', maxCount: 1 }]), (req, res) => {
+
   if (!req.files) {
     return res.status(400).json({ message: 'No files were uploaded.' });
   }
-
+  const category = req.body.category;
   // Check uploaded fields
   if (req.files.image) {
     console.log('Image uploaded:', req.files.image);
@@ -128,7 +152,7 @@ app.post('/upload', upload.fields([{ name: 'image', maxCount: 1 }, { name: 'vide
 });
 
 // Route to serve uploaded files
-app.get('/uploads/:file', (req, res) => {
+app.get('/gallery/:file', (req, res) => {
   const file = req.params.file;
   const filePath = path.join(__dirname, 'uploads', file);
   if (fs.existsSync(filePath)) {
@@ -139,7 +163,7 @@ app.get('/uploads/:file', (req, res) => {
 });
 
 // Route for adding a new gallery item
-app.post('/gallery', upload.fields([{ name: 'image', maxCount: 1 }, { name: 'video', maxCount: 1 }]), async (req, res) => {
+app.post('/gallery', verifyToken, upload.fields([{ name: 'image', maxCount: 1 }, { name: 'video', maxCount: 1 }]), async (req, res) => {
   try {
     if (!req.files.image && !req.files.video) {
       return res.status(400).json({ message: 'No files were uploaded' });
@@ -159,18 +183,18 @@ app.post('/gallery', upload.fields([{ name: 'image', maxCount: 1 }, { name: 'vid
 });
 
 // Route for getting all gallery items
-app.get('/gallery', async (req, res) => {
+app.get('/gallery/:page/:limit',verifyToken, async (req, res) => {
   try {
-    const galleries = await Gallery.find();
-    res.status(200).json(galleries);
-  } catch (error) {
-    console.error('Error fetching galleries:', error);
-    res.status(500).json({ message: 'Internal Server Error' });
-  }
-});
-
+    const galleries = await Gallery.find().skip((req.params.page - 1) * req.params.limit).limit(req.params.limit);
+      res.status(200).json(galleries);
+    } catch (error) {
+      console.error('Error fetching galleries:', error);
+      res.status(500).json({ message: 'Internal Server Error' });
+    }
+  });
+ 
 // Route for updating a gallery item
-app.put('/gallery/:id', upload.fields([{ name: 'image', maxCount: 1 }, { name: 'video', maxCount: 1 }]), async (req, res) => {
+app.put('/gallery/:id', verifyToken, upload.fields([{ name: 'image', maxCount: 1 }, { name: 'video', maxCount: 1 }]), async (req, res) => {
   try {
     
     const gallery = await Gallery.findById(req.params.id);
@@ -187,10 +211,10 @@ app.put('/gallery/:id', upload.fields([{ name: 'image', maxCount: 1 }, { name: '
     
     gallery.title = req.body.title || gallery.title;
     gallery.description = req.body.description || gallery.description;
-
+    gallery.category = req.body.category || gallery.category;
     // Add code to update serviceStatus
     gallery.serviceStatus = req.body.serviceStatus || gallery.serviceStatus;
-
+    console.log(gallery);
     await gallery.save();
     res.status(200).json(gallery);
   } catch (error) {
@@ -200,7 +224,7 @@ app.put('/gallery/:id', upload.fields([{ name: 'image', maxCount: 1 }, { name: '
 });
 
 // Route for deleting a gallery item
-app.delete('/gallery/:id', async (req, res) => {
+app.delete('/gallery/:id', verifyToken, async (req, res) => {
   try {
     const gallery = await Gallery.findByIdAndDelete(req.params.id);
     if (!gallery) {

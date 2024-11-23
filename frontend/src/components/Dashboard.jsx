@@ -11,6 +11,7 @@ function Dashboard() {
   const [videoTitle, setVideoTitle] = useState("");
   const [videoDescription, setVideoDescription] = useState("");
   const [uploadProgress, setUploadProgress] = useState(0);
+  const [category, setCategory] = useState(null);
   const [uploading, setUploading] = useState(false);
   const navigate = useNavigate();
   const handleImageUpload = async () => {
@@ -23,12 +24,12 @@ function Dashboard() {
     formData.append("image", selectedImage);
     formData.append("title", imageTitle);
     formData.append("description", imageDescription);
-
+    formData.append("category", category);
     try {
       setUploading(true);
       setUploadProgress(0);
       await axios.post("https://shree-jay-farnichar.onrender.com/gallery", formData, {
-        headers: { "Content-Type": "multipart/form-data" },
+        headers: { "Content-Type": "multipart/form-data", Authorization: `Bearer ${localStorage.getItem('token')}` },
         onUploadProgress: (progressEvent) => {
           const progress = Math.round(
             (progressEvent.loaded / progressEvent.total) * 100
@@ -59,8 +60,8 @@ function Dashboard() {
     try {
       setUploading(true);
       setUploadProgress(0);
-      await axios.post("https://shree-jay-farnichar.onrender.com/gallery", formData, {
-        headers: { "Content-Type": "multipart/form-data" },
+        await axios.post("https://shree-jay-farnichar.onrender.com/gallery", formData, {
+        headers: { "Content-Type": "multipart/form-data", Authorization: `Bearer ${localStorage.getItem('token')}` },
         onUploadProgress: (progressEvent) => {
           const progress = Math.round(
             (progressEvent.loaded / progressEvent.total) * 100
@@ -156,6 +157,22 @@ function Dashboard() {
             <p className="text-gray-500">Drag & drop an image, or click to select</p>
           </div>
           {selectedImage && <p className="mt-2 text-gray-700">File: {selectedImage.name}</p>}
+          <select
+            name="category"
+            value={category}
+            onChange={(e) => setCategory(e.target.value)}
+            className="mb-2 p-2 w-full"
+          >
+            <option value="Gallery">Gallery</option>
+            <option value="Furniture">Furniture</option>
+            <option value="Carpets">Carpets</option>
+            <option value="Wooden Furniture">Wooden Furniture</option>
+            <option value="Interior Design">Interior Design</option>
+            <option value="Painting">Painting</option>
+            <option value="Plumbing">Plumbing</option>
+            <option value="Electrical">Electrical</option>
+            <option value="Carpentry">Carpentry</option>
+          </select>
           <input
             type="text"
             placeholder="Image Title"
@@ -182,6 +199,22 @@ function Dashboard() {
             <p className="text-gray-500">Drag & drop a video, or click to select</p>
           </div>
           {selectedVideo && <p className="mt-2 text-gray-700">File: {selectedVideo.name}</p>}
+          <select
+            name="category"
+            value={category}
+            onChange={(e) => setCategory(e.target.value)}
+            className="mb-2 p-2 w-full"
+          >
+            <option value="Gallery">Gallery</option>
+            <option value="Furniture">Furniture</option>
+            <option value="Carpets">Carpets</option>
+            <option value="Wooden Furniture">Wooden Furniture</option>
+            <option value="Interior Design">Interior Design</option>
+            <option value="Painting">Painting</option>
+            <option value="Plumbing">Plumbing</option>
+            <option value="Electrical">Electrical</option>
+            <option value="Carpentry">Carpentry</option>
+          </select>
           <input
             type="text"
             placeholder="Video Title"

@@ -14,26 +14,7 @@ import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
   function App() {
     
-  const locomotiveScroll = new LocomotiveScroll({
-    lenisOptions: {
-      autoResize: true,
-      smoothScrolling: true,
-      // wrapper: window,
-      // content: document.documentElement,
-      lerp: 0.7,
-      firefoxMultiplier: 10,
-      resetNativeScroll: true,
-      duration: 4.2,
-      orientation: "vertical",
-      gestureOrientation: "vertical",
-      smoothWheel: true,
-      smoothTouch: true,
-      wheelMultiplier: 1.3,
-      touchMultiplier: 2,
-      normalizeWheel: true,
-      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-    },
-  });
+ 
   const [isLoading, setIsLoading] = useState(true);
   useEffect(() => {
     const timeout = setTimeout(() => {
