@@ -24,7 +24,7 @@ function Updateanddelete() {
         const fetchData = async () => {
             setIsLoading(true);
             try {
-                const response = await axios.get(`http://localhost:3000/gallery/${page}/${limit}`, {
+                const response = await axios.get(`https://shree-jay-farnichar.onrender.com/gallery/${page}/${limit}`, {
                     headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
                 });
                 if (response.data.length > 0) {
