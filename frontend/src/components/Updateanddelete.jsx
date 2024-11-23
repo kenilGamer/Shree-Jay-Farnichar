@@ -83,7 +83,7 @@ function Updateanddelete() {
             <Navbar/>
             <h1 className='text-center text-2xl mb-4'>Update and Delete Gallery Items</h1>
             
-            <div >
+            <div className='flex flex-wrap'>
             {data.map(item => (
   <div key={item._id} className="border p-4 mb-4">
     <h2>{item.title}</h2>
