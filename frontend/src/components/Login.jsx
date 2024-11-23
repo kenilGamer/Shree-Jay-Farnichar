@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 
 function Login() {
     const [email, setEmail] = useState('');
@@ -13,13 +13,17 @@ function Login() {
         e.preventDefault();
         setLoading(true);
         setError('');
- 
+
         try {
-            const response = await axios.post('https://shree-jay-farnichar.onrender.com/login', { email, password }, { withCredentials: true });
-            console.log(response);
+            const response = await axios.post(
+                'https://shree-jay-farnichar.onrender.com/login',
+                { email, password },
+                { withCredentials: true }
+            );
 
             localStorage.setItem('token', response.data.token);
             localStorage.setItem('role', response.data.role);
+
             if (response.data.token) {
                 navigate('/dashboard');
             } else {
@@ -32,53 +36,58 @@ function Login() {
         }
     };
 
+    const handleGoogleLogin = () => {
+        console.log('Google login functionality not implemented yet.');
+    };
+
     return (
-        <div className="min-h-screen bg-gray-100 flex items-center justify-center">
-            <div className="bg-white p-8 rounded-lg shadow-lg max-w-sm w-full">
-                <p className='text-center text-gray-800 mb-6'>login for admin</p>
-                <h2 className="text-2xl font-bold text-center text-gray-800 mb-6">Login</h2>
+        <div className="w-full h-screen flex items-center justify-center bg-cover bg-center bg-gradient-to-r from-blue-500 via-indigo-600 to-purple-700">
+            <div className="w-[20em] h-[32em] bg-[#ffffff68] rounded-xl backdrop-blur-lg bg-opacity-50 shadow-lg flex flex-col items-center justify-center p-6">
                 
-                <form onSubmit={handleSubmit}>
-                    <div className="mb-4">
-                        <label htmlFor="email" className="block text-gray-700">Email</label>
+                <h1 className="text-2xl font-bold text-white mb-6">Admin Login </h1>
+                {error && <p className="text-red-500 text-sm mb-4">{error}</p>}
+                <form
+                    onSubmit={handleSubmit}
+                    className="space-y-4 flex flex-col items-center w-full"
+                >
+                    <div className="w-full">
                         <input
-                            type="email"
+                            type="text"
+                            name="email"
                             id="email"
-                            placeholder="Enter your email"
+                            className="mt-1 p-2 w-full text-black rounded-md border-gray-300 shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
                             value={email}
+                            placeholder="Username or Email"
                             onChange={(e) => setEmail(e.target.value)}
-                            className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                            required
                         />
                     </div>
-
-                    <div className="mb-6">
-                        <label htmlFor="password" className="block text-gray-700">Password</label>
+                    <div className="w-full">
                         <input
                             type="password"
+                            name="password"
                             id="password"
-                            placeholder="Enter your password"
+                            className="mt-1 p-2 w-full text-black rounded-md border-gray-300 shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
                             value={password}
+                            placeholder="Password"
                             onChange={(e) => setPassword(e.target.value)}
-                            className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                            required
                         />
                     </div>
-
+                    <Link to="/forgot-password" className="text-white text-sm hover:underline">
+                        Forgot Password?
+                    </Link>
                     <button
                         type="submit"
                         disabled={loading}
-                        className={`w-full py-2 text-white font-semibold rounded-md ${loading ? 'bg-gray-400' : 'bg-blue-500 hover:bg-blue-600'} transition duration-200`}
+                        className={`w-full py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white ${
+                            loading ? 'bg-gray-400' : 'bg-indigo-600 hover:bg-indigo-700'
+                        } focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500`}
                     >
                         {loading ? 'Logging in...' : 'Login'}
                     </button>
                 </form>
 
-                {error && <div className="mt-4 text-red-600 text-center">{error}</div>}
-
-                <div className="mt-4 text-center">
-                    <p className="text-sm text-gray-600">
-                        Don't have an account? <a href="/signup" className="text-blue-500 hover:underline">Sign up</a>
-                    </p>
-                </div>
             </div>
         </div>
     );

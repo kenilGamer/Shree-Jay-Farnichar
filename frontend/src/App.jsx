@@ -18,8 +18,8 @@ import { useGSAP } from "@gsap/react";
     lenisOptions: {
       autoResize: true,
       smoothScrolling: true,
-      wrapper: window,
-      content: document.documentElement,
+      // wrapper: window,
+      // content: document.documentElement,
       lerp: 0.7,
       firefoxMultiplier: 10,
       resetNativeScroll: true,

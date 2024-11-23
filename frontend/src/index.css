@@ -10,3 +10,6 @@
 body{
   background-color: black;
 }
+* {
+  pointer-events: auto !important; /* For testing only */
+}
