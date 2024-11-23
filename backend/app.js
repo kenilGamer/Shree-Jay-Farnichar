@@ -16,11 +16,16 @@ const Gallery = require('./models/Gallery');
 // Multer storage configuration
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
-    cb(null, path.join(__dirname, 'uploads')); // Specify upload directory
+    const uploadDir = path.join(__dirname, 'uploads');
+    if (!fs.existsSync(uploadDir)) {
+      fs.mkdirSync(uploadDir); // Create the 'uploads' directory if it doesn't exist
+    }
+    cb(null, uploadDir); // Specify upload directory
   },
   filename: function (req, file, cb) {
-    // Using the original file extension
-    cb(null, file.fieldname + '-' + Date.now() + path.extname(file.originalname));
+    const filename = file.fieldname + '-' + Date.now() + path.extname(file.originalname);
+    console.log('Uploaded filename:', filename); // Debug log to check the file name
+    cb(null, filename);
   }
 });
 
@@ -48,7 +53,7 @@ const upload = multer({
 });
 
 app.use(cors({
-  origin: ['https://www.shreejayfurniture.store',"http://localhost:5173"], // Adjust according to your frontend URL
+  origin: ['https://www.shreejayfurniture.store', "http://localhost:5173"], // Adjust according to your frontend URL
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   allowedHeaders: ['Content-Type', 'Authorization','dataType','methods','serviceStatus'],
   credentials: true
@@ -57,8 +62,8 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 
-app.use(express.json({ limit: '50mb' }));
-app.use(express.urlencoded({ extended: true, limit: '50mb' }));
+// Serve static files from the 'uploads' directory
+app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
 const verifyToken = (req, res, next) => {
   const token = req.header('Authorization')?.replace('Bearer ', '');  // Get the token from the Authorization header
@@ -132,77 +137,44 @@ app.post('/login', async (req, res) => {
   }
 });
 
-// Route for handling file upload
-// app.post('/gallery', verifyToken, upload.fields([{ name: 'image', maxCount: 1 }, { name: 'video', maxCount: 1 }]), async (req, res) => {
-//   const gallery = req.body;
-//   // console.log(gallery);
-//   const user = await Gallery.findById(gallery._id);
-//   await user.save();
-  
-
-//   if (!req.files) {
-//     return res.status(400).json({ message: 'No files were uploaded.' });
-//   }
-//   // Check uploaded fields
-//   if (req.files.image) {
-//     console.log('Image uploaded:', req.files.image);
-//     res.status(200).json({ message: 'Image uploaded successfully', image: req.files.image });
-//   } else if (req.files.video) {
-//     console.log('Video uploaded:', req.files.video);
-//     res.status(200).json({ message: 'Video uploaded successfully', video: req.files.video });
-//   } else {
-//     res.status(200).json({ message: 'Files uploaded successfully' });
-//   }
-// });
-
-// Route to serve uploaded files
-app.get('/gallery/:file', (req, res) => {
-  const file = req.params.file;
-  const filePath = path.join(__dirname, 'uploads', file);
-  if (fs.existsSync(filePath)) {
-    res.sendFile(filePath);
-  } else {
-    res.status(404).json({ message: 'File not found' });
-  }
-});
-
 // Route for adding a new gallery item
 app.post('/gallery', verifyToken, upload.fields([{ name: 'image', maxCount: 1 }, { name: 'video', maxCount: 1 }]), async (req, res) => {
   try {
     if (!req.files.image && !req.files.video) {
       return res.status(400).json({ message: 'No files were uploaded' });
     }
+
     const gallery = new Gallery({
       image: req.files.image ? req.files.image[0].filename : null,
       video: req.files.video ? req.files.video[0].filename : null,
       title: req.body.title,
       description: req.body.description
     });
+    
     await gallery.save();
-    console.log(gallery);
     res.status(201).json(gallery);
-
   } catch (error) {
     console.error('Error adding gallery item:', error);
     res.status(500).json({ message: 'Internal Server Error' });
   }
 });
 
-// Route for getting all gallery items
-app.get('/gallery/:page/:limit',verifyToken, async (req, res) => {
+// Route for getting all gallery items with pagination
+app.get('/gallery/:page/:limit', async (req, res) => {
   try {
-    const galleries = await Gallery.find().skip((req.params.page - 1) * req.params.limit).limit(req.params.limit);
-      res.status(200).json(galleries);
-    } catch (error) {
-      console.error('Error fetching galleries:', error);
-      res.status(500).json({ message: 'Internal Server Error' });
-    }
-  });
- 
+    const page = parseInt(req.params.page, 10);
+    const limit = parseInt(req.params.limit, 10);
+    const galleries = await Gallery.find().skip((page - 1) * limit).limit(limit);
+    res.status(200).json(galleries);
+  } catch (error) {
+    console.error('Error fetching galleries:', error);
+    res.status(500).json({ message: 'Internal Server Error' });
+  }
+});
+
 // Route for updating a gallery item
 app.put('/gallery/:id', verifyToken, upload.fields([{ name: 'image', maxCount: 1 }, { name: 'video', maxCount: 1 }]), async (req, res) => {
   try {
-    
     const gallery = await Gallery.findById(req.params.id);
     if (!gallery) {
       return res.status(404).json({ message: 'Gallery item not found' });
@@ -214,13 +186,12 @@ app.put('/gallery/:id', verifyToken, upload.fields([{ name: 'image', maxCount: 1
     if (req.files.video) {
       gallery.video = req.files.video[0].filename;
     }
-    
+
     gallery.title = req.body.title || gallery.title;
     gallery.description = req.body.description || gallery.description;
     gallery.category = req.body.category || gallery.category;
-    // Add code to update serviceStatus
     gallery.serviceStatus = req.body.serviceStatus || gallery.serviceStatus;
-    console.log(gallery);
+
     await gallery.save();
     res.status(200).json(gallery);
   } catch (error) {
