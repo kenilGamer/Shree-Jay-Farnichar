@@ -40,8 +40,6 @@ import { useGSAP } from "@gsap/react";
       setIsLoading(false);
 
     }, 2000);
-
-  //  clearTimeout(timeout)
   }, []);
 
 
