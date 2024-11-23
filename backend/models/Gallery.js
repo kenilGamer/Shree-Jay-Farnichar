@@ -19,7 +19,12 @@ const gallerySchema = new mongoose.Schema({
     {
       type: [],
     }
-  ]
+  ],
+  createdAt: { type: Date, default: Date.now },
+  updatedAt: { type: Date, default: Date.now },
+  isDeleted: { type: Boolean, default: false },
+  deletedAt: { type: Date, default: null },
+  isActive: { type: Boolean, default: true },
 });
 
 const Gallery = mongoose.model('Gallery', gallerySchema);

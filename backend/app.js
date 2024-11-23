@@ -172,6 +172,7 @@ app.get('/gallery', async (req, res) => {
 // Route for updating a gallery item
 app.put('/gallery/:id', upload.fields([{ name: 'image', maxCount: 1 }, { name: 'video', maxCount: 1 }]), async (req, res) => {
   try {
+    
     const gallery = await Gallery.findById(req.params.id);
     if (!gallery) {
       return res.status(404).json({ message: 'Gallery item not found' });
@@ -186,6 +187,9 @@ app.put('/gallery/:id', upload.fields([{ name: 'image', maxCount: 1 }, { name: '
     
     gallery.title = req.body.title || gallery.title;
     gallery.description = req.body.description || gallery.description;
+
+    // Add code to update serviceStatus
+    gallery.serviceStatus = req.body.serviceStatus || gallery.serviceStatus;
 
     await gallery.save();
     res.status(200).json(gallery);

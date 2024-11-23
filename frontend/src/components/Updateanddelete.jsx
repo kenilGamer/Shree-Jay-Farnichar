@@ -5,12 +5,14 @@ import Topbar from '../partials/Topbar';
 
 function Updateanddelete() {
     const [data, setData] = useState([]);
+    const [serviceStatus, setServiceStatus] = useState(true);
     const [selectedItem, setSelectedItem] = useState(null);
     const [updatedData, setUpdatedData] = useState({
         title: '',
         description: '',
         image: null,
-        video: null
+        video: null,
+        serviceStatus: serviceStatus
     });
    
     useEffect(() => {
@@ -97,6 +99,12 @@ function Updateanddelete() {
       className="bg-blue-500 text-white px-4 py-2 mt-2 mr-2"
     >
       Update
+    </button>
+    <button
+      onClick={() => setServiceStatus(!serviceStatus)}
+      className="bg-green-500 text-white px-4 py-2 mt-2 mr-2"
+    >
+      {serviceStatus ? 'Deactivate' : 'Activate'}
     </button>
     <button
       onClick={() => handleDelete(item._id)}

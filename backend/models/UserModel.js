@@ -9,7 +9,10 @@ const userSchema = new mongoose.Schema({
   email: String,
   phone: String, 
   password: String,
-  role: String
+  role: String,
+  createdAt: { type: Date, default: Date.now },
+  updatedAt: { type: Date, default: Date.now },
+ 
 });
 
 const User = mongoose.model('User', userSchema);
