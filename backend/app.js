@@ -133,27 +133,27 @@ app.post('/login', async (req, res) => {
 });
 
 // Route for handling file upload
-app.post('/gallery', verifyToken, upload.fields([{ name: 'image', maxCount: 1 }, { name: 'video', maxCount: 1 }]), async (req, res) => {
-  const gallery = req.body;
-  // console.log(gallery);
-  const user = await Gallery.findById(gallery._id);
-  await user.save();
+// app.post('/gallery', verifyToken, upload.fields([{ name: 'image', maxCount: 1 }, { name: 'video', maxCount: 1 }]), async (req, res) => {
+//   const gallery = req.body;
+//   // console.log(gallery);
+//   const user = await Gallery.findById(gallery._id);
+//   await user.save();
   
 
-  if (!req.files) {
-    return res.status(400).json({ message: 'No files were uploaded.' });
-  }
-  // Check uploaded fields
-  if (req.files.image) {
-    console.log('Image uploaded:', req.files.image);
-    res.status(200).json({ message: 'Image uploaded successfully', image: req.files.image });
-  } else if (req.files.video) {
-    console.log('Video uploaded:', req.files.video);
-    res.status(200).json({ message: 'Video uploaded successfully', video: req.files.video });
-  } else {
-    res.status(200).json({ message: 'Files uploaded successfully' });
-  }
-});
+//   if (!req.files) {
+//     return res.status(400).json({ message: 'No files were uploaded.' });
+//   }
+//   // Check uploaded fields
+//   if (req.files.image) {
+//     console.log('Image uploaded:', req.files.image);
+//     res.status(200).json({ message: 'Image uploaded successfully', image: req.files.image });
+//   } else if (req.files.video) {
+//     console.log('Video uploaded:', req.files.video);
+//     res.status(200).json({ message: 'Video uploaded successfully', video: req.files.video });
+//   } else {
+//     res.status(200).json({ message: 'Files uploaded successfully' });
+//   }
+// });
 
 // Route to serve uploaded files
 app.get('/gallery/:file', (req, res) => {
