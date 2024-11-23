@@ -42,7 +42,7 @@ function Login() {
 
     return (
         <div className="w-full h-screen flex items-center justify-center bg-cover bg-center bg-gradient-to-r from-blue-500 via-indigo-600 to-purple-700">
-            <div className="w-[20em] h-[32em] bg-[#ffffff68] rounded-xl backdrop-blur-lg bg-opacity-50 shadow-lg flex flex-col items-center justify-center p-6">
+            <div className="w-[20em] h-[60vh] bg-[#ffffff68] rounded-xl backdrop-blur-lg bg-opacity-50 shadow-lg flex flex-col items-center justify-center p-6">
                 
                 <h1 className="text-2xl font-bold text-white mb-6">Admin Login </h1>
                 {error && <p className="text-red-500 text-sm mb-4">{error}</p>}
