@@ -48,7 +48,7 @@ const upload = multer({
 });
 
 app.use(cors({
-  origin: 'https://www.shreejayfurniture.store', // Adjust according to your frontend URL
+  origin: ['https://www.shreejayfurniture.store',"http://localhost:5173"], // Adjust according to your frontend URL
   credentials: true
 }));
 app.use(express.json());
