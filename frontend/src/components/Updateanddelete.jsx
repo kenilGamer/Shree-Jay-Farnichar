@@ -123,13 +123,7 @@ function Updateanddelete() {
     >
       Delete
     </button>
-  </div>
-))}
-
-            </div>
-
-            {/* Update Form */}
-            {selectedItem && (
+    {selectedItem && (
                 <div className="mt-6 text-black">
                     <h2 className="text-xl mb-2">Update Gallery Item</h2>
                     <form onSubmit={handleUpdate}>
@@ -178,6 +172,13 @@ function Updateanddelete() {
                     </form>
                 </div>
             )}
+  </div>
+))}
+
+            </div>
+
+            {/* Update Form */}
+           
         </div>
     );
 }
