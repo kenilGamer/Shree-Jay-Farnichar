@@ -79,12 +79,12 @@ function Updateanddelete() {
     <h2>{item.title}</h2>
     <p>{item.description}</p>
     {item.image ? (
-      <img src={`http://localhost:3000/uploads/${item.image}`} alt={item.title} className="w-32 h-32" />
+      <img src={`https://shree-jay-farnichar.onrender.com/uploads/${item.image}`} alt={item.title} className="w-32 h-32" />
     ) : (
       <p>No image available</p>
     )}
     {item.video ? (
-      <video src={`http://localhost:3000/uploads/${item.video}`} controls className="w-32 h-32"></video>
+      <video src={`https://shree-jay-farnichar.onrender.com/uploads/${item.video}`} controls className="w-32 h-32"></video>
     ) : (
       <p>No video available</p>
     )}
