@@ -133,7 +133,12 @@ app.post('/login', async (req, res) => {
 });
 
 // Route for handling file upload
-app.post('/gallery', verifyToken, upload.fields([{ name: 'image', maxCount: 1 }, { name: 'video', maxCount: 1 }]), (req, res) => {
+app.post('/gallery', verifyToken, upload.fields([{ name: 'image', maxCount: 1 }, { name: 'video', maxCount: 1 }]), async (req, res) => {
+  const gallery = req.body;
+  // console.log(gallery);
+  const user = await Gallery.findById(gallery._id);
+  await user.save();
+  
 
   if (!req.files) {
     return res.status(400).json({ message: 'No files were uploaded.' });
