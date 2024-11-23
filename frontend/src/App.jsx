@@ -41,7 +41,7 @@ import { useGSAP } from "@gsap/react";
 
     }, 2000);
 
-   clearTimeout(timeout)
+  //  clearTimeout(timeout)
   }, []);
 
 
