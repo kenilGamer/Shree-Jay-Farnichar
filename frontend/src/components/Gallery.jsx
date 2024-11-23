@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import Navbar from '../partials/Navbar'
 import Topbar from '../partials/Topbar'
 import axios from 'axios';
-import Lottie from 'lottie-react';
+// import Lottie from 'lottie-react';
 // import groovyWalkAnimation from '/public/loader.json';
 function Gallery() {
         const [isLoading, setIsLoading] = useState(false);

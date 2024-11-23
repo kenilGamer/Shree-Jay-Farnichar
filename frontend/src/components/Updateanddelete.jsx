@@ -56,7 +56,7 @@ function Updateanddelete() {
         if (updatedData.video) formData.append('video', updatedData.video);
 
         try {
-            const response = await axios.put(`https://shree-jay-farnichar.onrender.com/gallery/${selectedItem._id}`, formData, {
+            const response = await axios.put(`http://localhost:3000/gallery/${selectedItem._id}`, formData, {
                 headers: { 'Content-Type': 'multipart/form-data' }
             });
             setData(data.map(item => (item._id === selectedItem._id ? response.data : item))); // Update the item in state
@@ -79,12 +79,12 @@ function Updateanddelete() {
     <h2>{item.title}</h2>
     <p>{item.description}</p>
     {item.image ? (
-      <img src={`https://shree-jay-farnichar.onrender.com/uploads/${item.image}`} alt={item.title} className="w-32 h-32" />
+      <img src={`http://localhost:3000/uploads/${item.image}`} alt={item.title} className="w-32 h-32" />
     ) : (
       <p>No image available</p>
     )}
     {item.video ? (
-      <video src={`https://shree-jay-farnichar.onrender.com/uploads/${item.video}`} controls className="w-32 h-32"></video>
+      <video src={`http://localhost:3000/uploads/${item.video}`} controls className="w-32 h-32"></video>
     ) : (
       <p>No video available</p>
     )}
