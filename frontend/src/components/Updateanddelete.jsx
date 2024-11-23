@@ -123,7 +123,7 @@ function Updateanddelete() {
     >
       Delete
     </button>
-    {selectedItem && (
+    { item._id === selectedItem?._id && (
                 <div className="mt-6 text-black">
                     <h2 className="text-xl mb-2">Update Gallery Item</h2>
                     <form onSubmit={handleUpdate}>
