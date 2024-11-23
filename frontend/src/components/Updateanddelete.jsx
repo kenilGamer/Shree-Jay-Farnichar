@@ -15,18 +15,38 @@ function Updateanddelete() {
         video: null,
         serviceStatus: serviceStatus
     });
-   
-    useEffect(() => {
-        const fetchData = async () => {
-            const response = await axios.get(`https://shree-jay-farnichar.onrender.com/gallery`, {
-                headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
-            }); // Adjust the route if needed
-            setData(response.data);
-            setCategory(response.data[0].category);
-        };
-        fetchData();
-    }, []);
+    const [isLoading, setIsLoading] = useState(false);
+    const [hasMore, setHasMore] = useState(true);
+    const [page, setPage] = useState(1);
+    const [limit, setLimit] = useState(10);
 
+    
+        const fetchData = async () => {
+            setIsLoading(true);
+            try {
+                const response = await axios.get(`http://localhost:3000/gallery/${page}/${limit}`, {
+                    headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
+                });
+                if (response.data.length > 0) {
+                    setData(prevState => [...prevState, ...response.data]);
+                    setPage(page + 1);
+                } else {
+                    setHasMore(false);
+                    setIsLoading(false);
+                }
+            } catch (error) {
+                console.error("Error fetching gallery: ", error);
+            } finally {
+                setIsLoading(false);
+            }
+        };
+        if (hasMore) {
+            fetchData();
+        }
+ 
+    useEffect(()=>{
+        fetchData();
+    },[page, limit, hasMore]);
     // Handle delete action
     const handleDelete = async (id) => {
         try {
