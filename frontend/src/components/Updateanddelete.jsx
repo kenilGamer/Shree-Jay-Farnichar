@@ -112,7 +112,7 @@ function Updateanddelete() {
       Update
     </button>
     <button
-      onClick={() => setServiceStatus( item._id === selectedItem?._id ? item.serviceStatus === true ? false : true : item.serviceStatus === true ? false : true)}
+      onClick={() => setServiceStatus(item._id === selectedItem?._id ? !serviceStatus : serviceStatus)}
       className="bg-green-500 text-white px-4 py-2 mt-2 mr-2"
     >
       {serviceStatus ? 'Deactivate' : 'Activate'}
