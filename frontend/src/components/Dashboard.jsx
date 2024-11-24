@@ -114,7 +114,7 @@ function Dashboard() {
   };
 
   return (
-    <div className="flex flex-col md:flex-row h-screen bg-gray-100">
+    <div className="flex flex-col md:flex-row min-h-screen bg-gray-100">
     
       {/* Sidebar */}
       <div className="w-full md:w-64 bg-blue-600 text-white p-4 space-y-8">
