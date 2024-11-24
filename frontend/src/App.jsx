@@ -42,7 +42,7 @@ import AuthGuard from "./components/AuthGuard";
           <Route path="/services" element={<Services />} />
           <Route path="/login" element={<Login />} />
           <Route path="/dashboard" element={<AuthGuard><Dashboard /></AuthGuard>} />
-          <Route path="/updateanddelete" element={<Updateanddelete />} />
+          <Route path="/updateanddelete" element={<AuthGuard><Updateanddelete /></AuthGuard>} />
           <Route path="*" element={<h1>404 - Page Not Found</h1>} />
         </Routes>
       
