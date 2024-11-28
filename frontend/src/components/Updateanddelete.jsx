@@ -82,7 +82,7 @@ function Updateanddelete() {
     const formData = new FormData();
     formData.append("title", updatedData.title);
     formData.append("description", updatedData.description);
-    formData.append("serviceStatus", updatedData.serviceStatus.toString());
+    formData.append("serviceStatus", updatedData.serviceStatus ? updatedData.serviceStatus.toString() : "false");
     formData.append("category", category);
     if (updatedData.image) formData.append("image", updatedData.image);
     if (updatedData.video) formData.append("video", updatedData.video);
