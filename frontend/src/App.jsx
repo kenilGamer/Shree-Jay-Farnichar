@@ -13,6 +13,7 @@ import Loader from "./components/Loader";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import AuthGuard from "./components/AuthGuard";
+import NotFound from "./components/NotFound";
   function App() {
     
  
@@ -43,7 +44,7 @@ import AuthGuard from "./components/AuthGuard";
           <Route path="/login" element={<Login />} />
           <Route path="/dashboard" element={<AuthGuard><Dashboard /></AuthGuard>} />
           <Route path="/updateanddelete" element={<AuthGuard><Updateanddelete /></AuthGuard>} />
-          <Route path="*" element={<h1>404 - Page Not Found</h1>} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       
     </div>
