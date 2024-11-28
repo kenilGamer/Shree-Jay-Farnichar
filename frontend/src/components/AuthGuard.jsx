@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { children } from 'react';
 
 function AuthGuard({ children }) {
-  // document.title = "Shreej";
+  document.title = "Admin Dashboard";
   const [loading, setLoading] = useState(true);
   const token = localStorage.getItem('token');
   // console.log(token);
