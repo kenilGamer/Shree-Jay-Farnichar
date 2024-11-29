@@ -221,6 +221,9 @@ app.use((err, req, res, next) => {
   res.status(500).json({ message: 'Something went wrong' });
 });
 
+app.get('/', (req, res) => {
+  res.send('Hello World');
+});
 // Starting the server
 app.listen(port, () => {
   console.log(`Server is running on http://localhost:${port}`);

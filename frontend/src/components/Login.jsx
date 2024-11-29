@@ -16,7 +16,7 @@ function Login() {
 
         try {
             const response = await axios.post(
-                'https://shree-jay-farnichar.onrender.com/login',
+                'https://amazing-cassata-a2b3c8.netlify.app/login',
                 { email, password },
                 { withCredentials: true },
                 { headers: { Authorization: `Bearer ${localStorage.getItem('token')}` } }
