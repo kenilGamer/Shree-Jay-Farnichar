@@ -39,7 +39,8 @@ function Page1() {
                     Transforming Spaces with Timeless Elegance
                 </h1>
                 <p className="text-sm md:text-md mt-2">
-                    Vadodara’s Premier Interior Designers - Expertise in Spatial Planning & Furniture Curation
+                    
+                    Ahmedabad's Premier Interior Designers - Expertise in Spatial Planning & Furniture Curation
                 </p>
                 <Link to="/services" className="bg-[#D3AA62] text-white px-4 py-2 rounded-md mt-4 hover:bg-[#D3AA62]/80 transition duration-300 block w-fit mx-auto">Explore Our Work</Link>
             </div>
