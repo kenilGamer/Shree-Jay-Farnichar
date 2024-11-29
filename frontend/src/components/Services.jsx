@@ -43,7 +43,7 @@ function Services() {
       >
       <TopNav />
       <Navbar />
-          <div className="min-h-screen py-2 px-6">
+      {/* <div className="min-h-screen py-2 px-6">
         <h1 className="text-white text-3xl font-black uppercase text-center mb-10">Our Services</h1>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
           {services.map((service, index) => (
@@ -65,9 +65,10 @@ function Services() {
             </div>
           ))}
         </div>
-        {isLoading && <div>Loading...</div>} {/* Added loading indicator */}
-        {hasMore && <button onClick={fetchData}>Load More</button>} {/* Added button to load more data */}
-      </div>
+        {isLoading && <div>Loading...</div>} 
+        {hasMore && <button onClick={fetchData}>Load More</button>}
+      </div> */}
+      <h1 className='text-white text-7xl font-black uppercase text-center flex justify-center items-center h-[80vh]'>Coming Soon</h1>
       </InfiniteScroll>
     </div>
   );

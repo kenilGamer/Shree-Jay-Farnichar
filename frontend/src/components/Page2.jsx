@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 function Page2() {
   return (
-    <div className="container mx-auto min-h-screen bg-[#202020] p-5 md:p-10">
+    <div className=" mx-auto min-h-screen bg-[#202020] p-5 md:p-12">
       <div className="max-w-6xl mx-auto flex flex-col items-center">
         <h1 className="text-2xl md:text-3xl font-black uppercase text-center text-white mt-5 md:mt-10">
           Interior Designer, Decorators, Turnkey Solutions in Ahmedabad
@@ -29,7 +29,7 @@ function Page2() {
       </div>
 
       {/* Card Section */}
-      <div className="flex flex-col h-auto md:h-[100vh] md:flex-row items-center max-w-6xl mx-auto gap-10 mt-10 md:-mt-20 p-4">
+      <div className="flex flex-col h-auto md:h-[100vh] md:flex-row items-center max-w-6xl mx-auto gap-10 mt-10 md:-mt-20 p-6">
         {/* Left Card */}
         <div className="w-full md:w-[40%] h-auto md:h-[300px] bg-[#1D1D1D] p-4 flex flex-col gap-4 relative rounded-lg border-4 border-[#282828]">
           <h1 className="text-lg md:text-xl font-bold text-white">
@@ -38,7 +38,7 @@ function Page2() {
           <p className="text-base md:text-xl text-white w-[70%]">
             We differentiate ourselves by crafting innovative designs that address both present needs and future demands...
           </p>
-          <div className="flex items-center gap-2 bg-[#282828] rounded-lg p-2 text-sm md:text-xl mt-10 w-[70%]">
+          <div className="flex items-center gap-2 bg-[#282828] rounded-lg p-2 text-sm md:text-xl  mt-6 w-fit ">
             <RiFileList3Fill />
             <Link to="/" className="text-[#feca6f] italic hover:text-[#D3AA62] transition-all duration-300  font-bold">
               shreejayfarnichar@gmail.com

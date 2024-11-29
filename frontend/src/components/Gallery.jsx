@@ -12,6 +12,14 @@ function Gallery() {
     const [limit, setLimit] = useState(10);
     const [isLoading, setIsLoading] = useState(false);
     const [hasMore, setHasMore] = useState(true);
+    const [data, setData] = useState([
+        { image: `/img1.jpg`, alt: "Service 1" },
+        { image: `/img2.jpg`, alt: "Service 2" },
+        { image: `/img3.jpg`, alt: "Service 3" },
+        { image: `/img4.jpg`, alt: "Service 4" },
+        { image: `/img5.jpg`, alt: "Service 5" },
+        { image: `/img6.jpg`, alt: "Service 6" },
+    ]);
     const navigate = useNavigate();
     const fetchData = async ()=>{
         setIsLoading(true);
@@ -48,16 +56,16 @@ function Gallery() {
         loader={isLoading && <h4>Loading...</h4>}
         >
         <div className='flex items-center justify-center md:gap-20 gap-10 flex-wrap'>
-            {gallery.map((item, index)=>(
+            {data.map((item, index)=>(
                 <div key={index} className='w-[400px] h-[300px] bg-[#1D1D1D] p-4 flex flex-col  gap-[14px] relative rounded-lg border-4 border-[#282828] '>
                     {
                         item.image && (
-                            <img src={`https://shree-jay-farnichar.onrender.com/uploads/${item.image}`} alt={item.alt} className='w-full h-full object-cover' />
+                            <img src={item.image} alt={item.alt} className='w-full h-full object-cover' />
                         )
                     }
                     {
                         item.video && (
-                            <video src={`https://shree-jay-farnichar.onrender.com/uploads/${item.video}`} controls className='w-full h-full object-cover' />
+                            <video src={item.video} controls className='w-full h-full object-cover' />
                         )
                     }
                 </div>
