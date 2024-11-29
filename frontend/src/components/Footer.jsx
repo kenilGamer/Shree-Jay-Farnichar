@@ -9,8 +9,7 @@ function Footer() {
         <div className='flex flex-col md:flex-row justify-between items-start gap-10'>
           <div>
             <h1 className='text-2xl font-black uppercase mb-4'>Shree Jay Farnichar</h1>
-            <p>Ahmedabad Gandhinagar Kalol Kadi Surat Vadodara Palanpur Siddhpur Mehsana Nadiad Morbi Rajkot Bhuj Bharuch Vapi Ankleshwar Gandhidham Kheda Dholka Dhandhuka Sanand Bacharaji Surendranagar Patan Harij Radhanpur in all Gujarat In Our agency has been working for 30 years, through good experience, we will prepare each of our projects 
-            </p>
+            <p>With 30 years of expertise, our agency has been proudly serving the city of Ahmedabad. Through our extensive experience, we ensure that every project we take on is crafted with the highest quality and attention to detail, delivering the best possible results for our clients.</p>
             <p>Email: <a href='mailto:info@ShreeJayFarnichar.com' className='text-[#D3AA62]'>info@ShreeJayFarnichar.com</a></p>
             <p>Phone: <a href='tel:+9228104285' className='text-[#D3AA62]'>+91 9228104285</a></p>
             <p>Phone: <a href='tel:+9624538770' className='text-[#D3AA62]'>+91 9624538770</a></p>

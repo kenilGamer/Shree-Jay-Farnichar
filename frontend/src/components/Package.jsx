@@ -4,48 +4,50 @@ import Crad from '../partials/Crad';
 function Package() {
   const [data] = useState([
     {
-      title: "1 BHK Flat – Starting ₹6.5 Lakh",
-      price: "6.5 Lakh",
+      title: "1 BHK Flat – Starting ₹5.5 Lakh",
+      price: "5.5 Lakh",
       description: [
         "Full Wooden Furniture",
         "Full POP Work",
         "Electrical Work with Lighting",
         "Best Branded Materials (ISI Certified)",
-        "Lifetime Warranty on Furniture and Workmanship",
+        "10 Year Warranty on Furniture and Workmanship",
         "Professional Installation and Setup"
       ]
     },
     {
-      title: "2 BHK Flat – Starting ₹9.5 Lakh",
-      price: "9.5 Lakh",
+      title: "2 BHK Flat – Starting ₹7 Lakh",
+      price: "7 Lakh",
       description: [
         "Complete Interior Design with Customizable Furniture",
         "High-Quality Wood and Finishes",
         "Full Color Work & POP Designs",
         "Electrical and Lighting Solutions",
-        "Lifetime Warranty and Post-Installation Support"
+        "10 Year Warranty and Post-Installation Support",
+        "Premium Materials with 10 Year Warranty"
       ]
     },
     {
-      title: "3 BHK Flat – Starting ₹11.5 Lakh",
-      price: "11.5 Lakh",
+      title: "3 BHK Flat – Starting ₹11 Lakh",
+      price: "11 Lakh",
       description: [
         "Full Furnishing with Wooden Furniture",
         "Color POP Work and Electrical Setup",
         "Integrated Lighting for Modern Look",
         "Custom Designs for Living, Dining, and Bedrooms",
-        "Premium Materials with Lifetime Guarantee"
+        "Premium Materials with 10 Year Warranty",
+        "10 Year Warranty and Post-Installation Support"
       ]
     },
     {
-      title: "4 BHK Flat – Starting ₹14.5 Lakh",
-      price: "14.5 Lakh",
+      title: "4 BHK Flat – Starting ₹13.5 Lakh",
+      price: "13.5 Lakh",
       description: [
         "Fully Furnished with Designer Wooden Furniture",
         "Customized POP Work and Lighting Solutions",
         "High-End Electrical and Plumbing Installations",
         "Space Optimization with Premium Materials",
-        "Lifetime Warranty and Ongoing Support"
+        "10 Year Warranty and Post-Installation Support"
       ]
     }
   ]);

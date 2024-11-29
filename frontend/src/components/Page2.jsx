@@ -31,7 +31,7 @@ function Page2() {
       {/* Card Section */}
       <div className="flex flex-col h-auto md:h-[100vh] md:flex-row items-center max-w-6xl mx-auto gap-10 mt-10 md:-mt-20 p-4">
         {/* Left Card */}
-        <div className="w-full md:w-[50%] h-auto md:h-[300px] bg-[#1D1D1D] p-4 flex flex-col gap-4 relative rounded-lg border-4 border-[#282828]">
+        <div className="w-full md:w-[40%] h-auto md:h-[300px] bg-[#1D1D1D] p-4 flex flex-col gap-4 relative rounded-lg border-4 border-[#282828]">
           <h1 className="text-lg md:text-xl font-bold text-white">
             Standing Out in Interior Design: PSD's Vision for the Future
           </h1>
@@ -47,7 +47,7 @@ function Page2() {
           <div className="absolute top-[50%] right-[-5%] md:top-[30%] md:right-[-5%] w-[30%] h-[150px] bg-[#1D1D1D] rounded-lg flex flex-col items-center justify-center text-center border-4 border-[#282828]">
             <h1 className="text-lg md:text-xl font-bold text-white">Years of Experience</h1>
             <span className="text-lg md:text-xl py-2 px-1 text-center block w-[45px] mx-auto bg-[#292929] font-bold text-[#D3AA62] rounded-full mt-4">
-              10+
+              30+
             </span>
           </div>
         </div>
@@ -57,7 +57,7 @@ function Page2() {
           <h1 className="text-lg md:text-xl font-bold text-white text-center">
             We provide clients with the highest possible level of services in Ahmedabad by our interior designers.
           </h1>
-          <div className="flex flex-col md:flex-row items-center gap-4 md:gap-2 rounded-lg p-2 w-full md:w-[80%] mx-auto text-base md:text-xl">
+          <div className="flex flex-col md:flex-row items-center gap-4 md:gap-2 rounded-lg p-2 w-full md:w-[90%] mx-auto text-base md:text-xl">
             <div className="flex items-center justify-center text-center gap-2 flex-col">
               <img src="/Interior-150x150.png" alt="" className="w-[50px] h-[50px] rounded-full" />
               <h1 className="text-white font-bold">Interior Designer</h1>
@@ -65,12 +65,19 @@ function Page2() {
             <div className="w-[80%] md:w-[1px] h-[1px] md:h-[100px] bg-[#5f5f5f]" />
             <div className="flex items-center justify-center text-center gap-2 flex-col">
               <img src="/6406gggg3-Converted-Recovered-01-1536x1536.png" alt="" className="w-[50px] h-[50px] rounded-full" />
-              <h1 className="text-white font-bold">Interior Decorator</h1>
+              <h1 className="text-white font-bold">Banglow interior designer</h1>
             </div>
             <div className="w-[80%] md:w-[1px] h-[1px] md:h-[100px] bg-[#5f5f5f]" />
             <div className="flex items-center justify-center text-center gap-2 flex-col">
               <img src="/sketch.png" alt="" className="w-[50px] h-[50px] rounded-full" />
               <h1 className="text-white font-bold">Turnkey Solutions</h1>
+            </div>
+
+            <div className="w-[80%] md:w-[1px] h-[1px] md:h-[100px] bg-[#5f5f5f]" />
+
+            <div className="flex items-center justify-center text-center gap-2 flex-col">
+              <img src="/6406gggg3-Converted-Recovered-01-1536x1536.png" alt="" className="w-[50px] h-[50px] rounded-full" />
+              <h1 className="text-white font-bold">Gov. Project </h1>
             </div>
           </div>
         </div>
