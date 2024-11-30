@@ -26,7 +26,7 @@ function Updateanddelete() {
     setIsLoading(true);
     try {
       const response = await axios.get(
-        `https://shree-jay-farnichar.onrender.com/gallery/${page}/${limit}`,
+        `https://backend1.shreejayfurniture.store/gallery/${page}/${limit}`,
         {
           headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
         }
@@ -52,7 +52,7 @@ function Updateanddelete() {
   const handleDelete = async (id) => {
     try {
       await axios.delete(
-        `https://shree-jay-farnichar.onrender.com/gallery/${id}`,
+        `https://backend1.shreejayfurniture.store/gallery/${id}`,
         {
           headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
         }
@@ -89,7 +89,7 @@ function Updateanddelete() {
 
     try {
       const response = await axios.put(
-        `https://shree-jay-farnichar.onrender.com/gallery/${selectedItem._id}`,
+        `https://backend1.shreejayfurniture.store/gallery/${selectedItem._id}`,
         formData,
         {
           headers: {
@@ -136,7 +136,7 @@ function Updateanddelete() {
               <p>{item.description}</p>
               {item.image ? (
                 <img
-                  src={`https://shree-jay-farnichar.onrender.com/uploads/${item.image}`}
+                  src={`https://backend1.shreejayfurniture.store/uploads/${item.image}`}
                   alt={item.title}
                   className="w-32 h-32"
                 />
@@ -145,7 +145,7 @@ function Updateanddelete() {
               )}
               {item.video ? (
                 <video
-                  src={`https://shree-jay-farnichar.onrender.com/uploads/${item.video}`}
+                  src={`https://backend1.shreejayfurniture.store/uploads/${item.video}`}
                   controls
                   className="w-32 h-32"
                 ></video>

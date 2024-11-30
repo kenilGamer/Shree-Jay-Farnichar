@@ -16,7 +16,7 @@ function Login() {
 
         try {
             const response = await axios.post(
-                'https://amazing-cassata-a2b3c8.netlify.app/login',
+                'https://backend1.shreejayfurniture.store/login',
                 { email, password },
                 { withCredentials: true },
                 { headers: { Authorization: `Bearer ${localStorage.getItem('token')}` } }
@@ -31,6 +31,7 @@ function Login() {
                 setError('Invalid login credentials.');
             }
         } catch (error) {
+            console.log(error);
             setError('Error logging in. Please try again later.');
         } finally {
             setLoading(false);
