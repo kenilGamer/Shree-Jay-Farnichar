@@ -22,7 +22,7 @@ function Navbar() {
   return (
     <div className="relative container mx-auto px-4">
       <div className="flex justify-between items-center max-w-6xl mx-auto py-4 px-6 bg-[#212121] relative z-10">
-        <h1 className="text-white text-2xl font-bold">Shree Jay Farnichar</h1>
+        <h1 className="text-white text-2xl font-bold">Shree Jay Furniture</h1>
         
         {/* Desktop Menu */}
         <div className="hidden md:flex gap-4 text-white">

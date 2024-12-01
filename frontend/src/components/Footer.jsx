@@ -8,23 +8,25 @@ function Footer() {
         {/* Contact Information */}
         <div className='flex flex-col md:flex-row justify-between items-start gap-10'>
           <div>
-            <h1 className='text-2xl font-black uppercase mb-4'>Shree Jay Farnichar</h1>
-            <p>With 30 years of expertise, our agency has been proudly serving the city of Ahmedabad. Through our extensive experience, we ensure that every project we take on is crafted with the highest quality and attention to detail, delivering the best possible results for our clients.</p>
-            <p>Email: <a href='mailto:info@ShreeJayFarnichar.com' className='text-[#D3AA62]'>info@ShreeJayFarnichar.com</a></p>
-            <p>Phone: <a href='tel:+9228104285' className='text-[#D3AA62]'>+91 9228104285</a></p>
-            <p>Phone: <a href='tel:+9624538770' className='text-[#D3AA62]'>+91 9624538770</a></p>
-            <p>Phone: <a href='tel:+9909858710' className='text-[#D3AA62]'>+91 9909858710</a></p>
+            <h1 className='text-2xl font-black uppercase mb-4 text-center'>Shree Jay Furniture</h1>
+            <p className='w-[300px]'>With 30 years of expertise, our agency has been proudly serving the city of Ahmedabad. Through our extensive experience, we ensure that every project we take on is crafted with the highest quality and attention to detail, delivering the best possible results for our clients.</p>
+            <p className='text-center'>Email: <a href='mailto:info@ShreeJayFarnichar.com' className='text-[#D3AA62]'>info@ShreeJayFarnichar.com</a></p>
+            <p className='text-center'>Phone: <a href='tel:+9228104285' className='text-[#D3AA62]'>+91 9228104285</a></p>
+            <p className='text-center'>Phone: <a href='tel:+9624538770' className='text-[#D3AA62]'>+91 9624538770</a></p>
+            <p className='text-center'>Phone: <a href='tel:+9909858710' className='text-[#D3AA62]'>+91 9909858710</a></p>
           </div>
 
           {/* Services */}
           <div>
             <h2 className='text-xl font-semibold mb-4'>Interior Designing Services</h2>
             <ul className='space-y-2'>
-              <li>Bungalow Interior</li>
-              <li>Flat Interior</li>
-              <li>Duplex Interior</li>
-              <li>Apartment Interior</li>
-              <li>Turnkey Interior</li>
+              <li>Furniture work</li>
+              <li>Pop work</li>
+              <li>Colour work</li>
+              <li>Civil work</li>
+              <li>Flooring work</li>
+              <li>Aluminium section work</li>
+              <li>All small works are accepted</li>
             </ul>
           </div>
 
