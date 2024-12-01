@@ -46,7 +46,9 @@ function Home() {
          <Package/>
          <Page3/>
          </div>
+         <div className='mt-[300vh]'>
          <Footer/>
+         </div> 
         </div>
       </div>
     </>
