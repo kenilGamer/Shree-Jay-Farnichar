@@ -12,42 +12,55 @@ function Package() {
         "Electrical Work with Lighting",
         "Best Branded Materials (ISI Certified)",
         "10 Year Warranty on Furniture and Workmanship",
-        "Professional Installation and Setup"
+        "Professional Installation and Setup",
+        "Integrated Lighting for Modern Look",
+        "Custom Designs for Living, Dining, and Bedrooms",
+        "Premium Materials with 10 Year Warranty",
       ]
     },
     {
       title: "2 BHK Flat – Starting ₹7 Lakh",
       price: "7 Lakh",
       description: [
-        "Complete Interior Design with Customizable Furniture",
-        "High-Quality Wood and Finishes",
-        "Full Color Work & POP Designs",
-        "Electrical and Lighting Solutions",
-        "10 Year Warranty and Post-Installation Support",
-        "Premium Materials with 10 Year Warranty"
+        "Full Wooden Furniture",
+        "Full POP Work",
+        "Electrical Work with Lighting",
+        "Best Branded Materials (ISI Certified)",
+        "10 Year Warranty on Furniture and Workmanship",
+        "Professional Installation and Setup",
+        "Integrated Lighting for Modern Look",
+        "Custom Designs for Living, Dining, and Bedrooms",
+        "Premium Materials with 10 Year Warranty",
       ]
     },
     {
       title: "3 BHK Flat – Starting ₹11 Lakh",
       price: "11 Lakh",
       description: [
-        "Full Furnishing with Wooden Furniture",
-        "Color POP Work and Electrical Setup",
+        "Full Wooden Furniture",
+        "Full POP Work",
+        "Electrical Work with Lighting",
+        "Best Branded Materials (ISI Certified)",
+        "10 Year Warranty on Furniture and Workmanship",
+        "Professional Installation and Setup",
         "Integrated Lighting for Modern Look",
         "Custom Designs for Living, Dining, and Bedrooms",
         "Premium Materials with 10 Year Warranty",
-        "10 Year Warranty and Post-Installation Support"
       ]
     },
     {
       title: "4 BHK Flat – Starting ₹13.5 Lakh",
       price: "13.5 Lakh",
       description: [
-        "Fully Furnished with Designer Wooden Furniture",
-        "Customized POP Work and Lighting Solutions",
-        "High-End Electrical and Plumbing Installations",
-        "Space Optimization with Premium Materials",
-        "10 Year Warranty and Post-Installation Support"
+        "Full Wooden Furniture",
+        "Full POP Work",
+        "Electrical Work with Lighting",
+        "Best Branded Materials (ISI Certified)",
+        "10 Year Warranty on Furniture and Workmanship",
+        "Professional Installation and Setup",
+        "Integrated Lighting for Modern Look",
+        "Custom Designs for Living, Dining, and Bedrooms",
+        "Premium Materials with 10 Year Warranty",
       ]
     }
   ]);

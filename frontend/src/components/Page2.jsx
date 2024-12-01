@@ -53,11 +53,11 @@ function Page2() {
         </div>
 
         {/* Right Card */}
-        <div className="w-full md:w-[50%] h-auto md:h-[300px] bg-[#1D1D1D] p-4 flex flex-col items-center gap-4 relative rounded-lg border-4 border-[#282828]">
+        <div className="w-full md:w-[70%] h-auto md:h-[300px] bg-[#1D1D1D] p-4 flex flex-col items-center gap-4 relative rounded-lg border-4 border-[#282828]">
           <h1 className="text-lg md:text-xl font-bold text-white text-center">
             We provide clients with the highest possible level of services in Ahmedabad by our interior designers.
           </h1>
-          <div className="flex flex-col md:flex-row items-center gap-4 md:gap-2 rounded-lg p-2 w-full md:w-[90%] mx-auto text-base md:text-xl">
+          <div className="flex flex-col md:flex-row items-center gap-4 md:gap-2 rounded-lg p-2 w-full md:w-[100%] mx-auto text-base md:text-xl">
             <div className="flex items-center justify-center text-center gap-2 flex-col">
               <img src="/Interior-150x150.png" alt="" className="w-[50px] h-[50px] rounded-full" />
               <h1 className="text-white font-bold">Interior Designer</h1>
@@ -65,7 +65,7 @@ function Page2() {
             <div className="w-[80%] md:w-[1px] h-[1px] md:h-[100px] bg-[#5f5f5f]" />
             <div className="flex items-center justify-center text-center gap-2 flex-col">
               <img src="/6406gggg3-Converted-Recovered-01-1536x1536.png" alt="" className="w-[50px] h-[50px] rounded-full" />
-              <h1 className="text-white font-bold">Banglow interior designer</h1>
+              <h1 className="text-white font-bold">Builder contractor</h1>
             </div>
             <div className="w-[80%] md:w-[1px] h-[1px] md:h-[100px] bg-[#5f5f5f]" />
             <div className="flex items-center justify-center text-center gap-2 flex-col">
@@ -75,6 +75,11 @@ function Page2() {
 
             <div className="w-[80%] md:w-[1px] h-[1px] md:h-[100px] bg-[#5f5f5f]" />
 
+            <div className="flex items-center justify-center text-center gap-2 flex-col">
+              <img src="/padlock.png" alt="" className="w-[50px] h-[50px] rounded-full" />
+              <h1 className="text-white font-bold">Key to Key Project</h1>
+            </div>
+            <div className="w-[80%] md:w-[1px] h-[1px] md:h-[100px] bg-[#5f5f5f]" />
             <div className="flex items-center justify-center text-center gap-2 flex-col">
               <img src="/6406gggg3-Converted-Recovered-01-1536x1536.png" alt="" className="w-[50px] h-[50px] rounded-full" />
               <h1 className="text-white font-bold">Gov. Project </h1>

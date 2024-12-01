@@ -55,7 +55,7 @@ const upload = multer({
 app.use(cors({
   origin: ['https://www.shreejayfurniture.store', "http://localhost:5173"], // Adjust according to your frontend URL
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
-  allowedHeaders: ['Content-Type', 'Authorization','dataType','methods','serviceStatus'],
+  allowedHeaders: ['Content-Type', 'Authorization','dataType','methods','serviceStatus','token'],
   credentials: true
 }));
 app.use(express.json());
@@ -138,15 +138,18 @@ app.post('/login', async (req, res) => {
 });
 
 // Route for adding a new gallery item
-app.post('/gallery', verifyToken, upload.fields([{ name: 'image', maxCount: 1 }, { name: 'video', maxCount: 1 }]), async (req, res) => {
+app.post('/gallery', verifyToken, upload.fields([{ name: 'images', maxCount: 5 }, { name: 'videos', maxCount: 5 }]), async (req, res) => {
   try {
-    if (!req.files.image && !req.files.video) {
+    if (!req.files.images && !req.files.videos) {
       return res.status(400).json({ message: 'No files were uploaded' });
     }
 
+    const images = req.files.images ? req.files.images.map(file => file.filename) : [];
+    const videos = req.files.videos ? req.files.videos.map(file => file.filename) : [];
+
     const gallery = new Gallery({
-      image: req.files.image ? req.files.image[0].filename : null,
-      video: req.files.video ? req.files.video[0].filename : null,
+      images,
+      videos,
       title: req.body.title,
       description: req.body.description
     });

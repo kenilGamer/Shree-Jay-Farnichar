@@ -4,27 +4,31 @@ import { useDropzone } from "react-dropzone";
 import { Navigate, useNavigate } from "react-router-dom";
 
 function Dashboard() {
-  const [selectedImage, setSelectedImage] = useState(null);
+  const [selectedImages, setSelectedImages] = useState([]);
+  const [selectedVideos, setSelectedVideos] = useState([]);
   const [imageTitle, setImageTitle] = useState("");
   const [imageDescription, setImageDescription] = useState("");
-  const [selectedVideo, setSelectedVideo] = useState(null);
   const [videoTitle, setVideoTitle] = useState("");
   const [videoDescription, setVideoDescription] = useState("");
   const [uploadProgress, setUploadProgress] = useState(0);
   const [category, setCategory] = useState(null);
   const [uploading, setUploading] = useState(false);
   const navigate = useNavigate();
+
   const handleImageUpload = async () => {
-    if (!selectedImage) {
-      alert("Please select an image first.");
+    if (selectedImages.length === 0) {
+      alert("Please select at least one image.");
       return;
     }
 
     const formData = new FormData();
-    formData.append("image", selectedImage);
+    selectedImages.forEach((image, index) => {
+      formData.append(`images[${index}]`, image);
+    });
     formData.append("title", imageTitle);
     formData.append("description", imageDescription);
     formData.append("category", category);
+
     try {
       setUploading(true);
       setUploadProgress(0);
@@ -38,29 +42,31 @@ function Dashboard() {
         },
       });
       setUploading(false);
-      alert("Image uploaded successfully");
+      alert("Images uploaded successfully");
       resetImageFields();
     } catch (error) {
-      console.error("Error uploading image:", error);
+      console.error("Error uploading images:", error);
       setUploading(false);
     }
   };
 
   const handleVideoUpload = async () => {
-    if (!selectedVideo) {
-      alert("Please select a video first.");
+    if (selectedVideos.length === 0) {
+      alert("Please select at least one video.");
       return;
     }
 
     const formData = new FormData();
-    formData.append("video", selectedVideo);
+    selectedVideos.forEach((video, index) => {
+      formData.append(`videos[${index}]`, video);
+    });
     formData.append("title", videoTitle);
     formData.append("description", videoDescription);
 
     try {
       setUploading(true);
       setUploadProgress(0);
-        await axios.post("https://backend1.shreejayfurniture.store/gallery", formData, {
+      await axios.post("https://backend1.shreejayfurniture.store/gallery", formData, {
         headers: { "Content-Type": "multipart/form-data", Authorization: `Bearer ${localStorage.getItem('token')}` },
         onUploadProgress: (progressEvent) => {
           const progress = Math.round(
@@ -70,41 +76,39 @@ function Dashboard() {
         },
       });
       setUploading(false);
-      alert("Video uploaded successfully");
+      alert("Videos uploaded successfully");
       resetVideoFields();
     } catch (error) {
-      console.error("Error uploading video:", error);
+      console.error("Error uploading videos:", error);
       setUploading(false);
     }
   };
 
   const resetImageFields = () => {
-    setSelectedImage(null);
+    setSelectedImages([]);
     setImageTitle("");
     setImageDescription("");
   };
 
   const resetVideoFields = () => {
-    setSelectedVideo(null);
+    setSelectedVideos([]);
     setVideoTitle("");
     setVideoDescription("");
   };
 
-  const onDropImage = (acceptedFiles) => {
-    const file = acceptedFiles[0];
-    setSelectedImage(file);
+  const onDropImages = (acceptedFiles) => {
+    setSelectedImages(acceptedFiles);
   };
 
-  const onDropVideo = (acceptedFiles) => {
-    const file = acceptedFiles[0];
-    setSelectedVideo(file);
+  const onDropVideos = (acceptedFiles) => {
+    setSelectedVideos(acceptedFiles);
   };
 
   const { getRootProps: getImageRootProps, getInputProps: getImageInputProps } =
-    useDropzone({ onDrop: onDropImage, accept: "image/*" });
+    useDropzone({ onDrop: onDropImages, accept: "image/*", multiple: true });
 
   const { getRootProps: getVideoRootProps, getInputProps: getVideoInputProps } =
-    useDropzone({ onDrop: onDropVideo, accept: "video/*" });
+    useDropzone({ onDrop: onDropVideos, accept: "video/*", multiple: true });
 
   const handleLogout = () => {
     localStorage.removeItem('token');
@@ -151,12 +155,12 @@ function Dashboard() {
 
         {/* Image Upload */}
         <div className="mb-6">
-          <h2 className="text-xl font-semibold text-gray-700">Upload Image</h2>
+          <h2 className="text-xl font-semibold text-gray-700">Upload Images</h2>
           <div {...getImageRootProps()} className="border-2 border-dashed p-4 rounded-md text-center cursor-pointer hover:bg-gray-200">
             <input {...getImageInputProps()} />
-            <p className="text-gray-500">Drag & drop an image, or click to select</p>
+            <p className="text-gray-500">Drag & drop images, or click to select</p>
           </div>
-          {selectedImage && <p className="mt-2 text-gray-700">File: {selectedImage.name}</p>}
+          {selectedImages.length > 0 && <p className="mt-2 text-gray-700">Files: {selectedImages.map(image => image.name).join(', ')}</p>}
           <select
             name="category"
             value={category}
@@ -187,18 +191,18 @@ function Dashboard() {
             className="block w-full mt-2 p-2 border rounded-md"
           ></textarea>
           <button onClick={handleImageUpload} className="mt-4 bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">
-            Upload Image
+            Upload Images
           </button>
         </div>
 
         {/* Video Upload */}
         <div>
-          <h2 className="text-xl font-semibold text-gray-700">Upload Video</h2>
+          <h2 className="text-xl font-semibold text-gray-700">Upload Videos</h2>
           <div {...getVideoRootProps()} className="border-2 border-dashed p-4 rounded-md text-center cursor-pointer hover:bg-gray-200">
             <input {...getVideoInputProps()} />
-            <p className="text-gray-500">Drag & drop a video, or click to select</p>
+            <p className="text-gray-500">Drag & drop videos, or click to select</p>
           </div>
-          {selectedVideo && <p className="mt-2 text-gray-700">File: {selectedVideo.name}</p>}
+          {selectedVideos.length > 0 && <p className="mt-2 text-gray-700">Files: {selectedVideos.map(video => video.name).join(', ')}</p>}
           <select
             name="category"
             value={category}
@@ -229,7 +233,7 @@ function Dashboard() {
             className="block w-full mt-2 p-2 border rounded-md"
           ></textarea>
           <button onClick={handleVideoUpload} className="mt-4 bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600">
-            Upload Video
+            Upload Videos
           </button>
         </div>
       </div>
