@@ -1,7 +1,7 @@
 {
     "rewrites": [
       {
-        "source": "/(.*)",
+        "source": "/((?!\/(static|media)).)*",
         "destination": "/index.html"
       }
     ],
@@ -11,4 +11,3 @@
       }
     ]
   }
-  
