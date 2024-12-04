@@ -167,11 +167,12 @@ function Gallery() {
         { image: `/web/img2 (133).jpg`, alt: "Service 139" },
         { image: `/web/img2 (134).jpg`, alt: "Service 140" },
     ]);
+    const REACT_APP_API_URL = "http://37.114.37.82:5000"
     const navigate = useNavigate();
     const fetchData = async ()=>{
         setIsLoading(true);
         try {
-            const data = await axios.get(`https://shree-jay-farnichar.onrender.com/gallery/${page}/${limit}`, {
+            const data = await axios.get(`${REACT_APP_API_URL}/gallery/${page}/${limit}`, {
                 headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
             })
             if (data.data.length > 0) {
@@ -207,12 +208,12 @@ function Gallery() {
                 <div key={index} className='w-[400px] h-[300px] bg-[#1D1D1D] p-4 flex flex-col  gap-[14px] relative rounded-lg border-4 border-[#282828] '>
                     {
                         item.image && (
-                            <img src={item.image} alt={item.alt} className='w-full h-full object-cover' />
+                            <img src={`${REACT_APP_API_URL}/uploads/${item.image}`} alt={item.alt} className='w-full h-full object-cover' />
                         )
                     }
                     {
                         item.video && (
-                            <video src={item.video} controls className='w-full h-full object-cover' />
+                            <video src={`${REACT_APP_API_URL}/uploads/${item.video}`} controls className='w-full h-full object-cover' />
                         )
                     }
                 </div>

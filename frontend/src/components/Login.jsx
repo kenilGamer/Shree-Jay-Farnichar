@@ -8,6 +8,7 @@ function Login() {
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState('');
     const navigate = useNavigate();
+    const REACT_APP_API_URL = "http://37.114.37.82:5000"
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -16,7 +17,7 @@ function Login() {
 
         try {
             const response = await axios.post(
-                'https://backend1.shreejayfurniture.store/login',
+                `${REACT_APP_API_URL}/login`,
                 { email, password },
                 { withCredentials: true },
                 { headers: { Authorization: `Bearer ${localStorage.getItem('token')}` } }

@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 function Page3() {
-    const [data, setData] = useState([
+    const data = [
         { src: `/img1.jpg`, alt: "Service 1" },
         { src: `/img2.jpg`, alt: "Service 2" },
         { src: `/img3.jpg`, alt: "Service 3" },
@@ -26,7 +26,7 @@ function Page3() {
         { src: `/web/img2 (5).jpg`, alt: "Service 11" },
         { src: `/web/img2 (6).jpg`, alt: "Service 12" },
         { src: `/web/img2 (7).jpg`, alt: "Service 13" },
-    ]);
+    ];
 
   return (
     <div className="h-[80vh] max-md:mb-96 p-20" id="services">

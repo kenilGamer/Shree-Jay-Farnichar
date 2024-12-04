@@ -4,6 +4,8 @@ import Navbar from "../partials/Navbar";
 import Topbar from "../partials/Topbar";
 // import { toast } from 'react-toastify';
 import InfiniteScroll from "react-infinite-scroll-component";
+// import { process } from 'process';
+
 function Updateanddelete() {
   const [data, setData] = useState([]);
   const [serviceStatus, setServiceStatus] = useState(true);
@@ -26,7 +28,7 @@ function Updateanddelete() {
     setIsLoading(true);
     try {
       const response = await axios.get(
-        `https://backend1.shreejayfurniture.store/gallery/${page}/${limit}`,
+        `http://37.114.37.82:5000/gallery/${page}/${limit}`,
         {
           headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
         }
@@ -43,6 +45,7 @@ function Updateanddelete() {
       setIsLoading(false);
     }
   };
+  const REACT_APP_API_URL = "http://37.114.37.82:5000"
 
   useEffect(() => {
     fetchData();
@@ -52,7 +55,7 @@ function Updateanddelete() {
   const handleDelete = async (id) => {
     try {
       await axios.delete(
-        `https://backend1.shreejayfurniture.store/gallery/${id}`,
+        `${REACT_APP_API_URL}/gallery/${id}`,
         {
           headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
         }
@@ -84,12 +87,20 @@ function Updateanddelete() {
     formData.append("description", updatedData.description);
     formData.append("serviceStatus", updatedData.serviceStatus ? updatedData.serviceStatus.toString() : "false");
     formData.append("category", category);
-    if (updatedData.image) formData.append("image", updatedData.image);
-    if (updatedData.video) formData.append("video", updatedData.video);
+    const images = updatedData.image ? [updatedData.image] : []; // Assuming single image upload
+    const videos = updatedData.video ? [updatedData.video] : []; // Assuming single video upload
+
+    images.forEach((image) => {
+        formData.append('images', image);
+    });
+
+    videos.forEach((video) => {
+        formData.append('videos', video);
+    });
 
     try {
       const response = await axios.put(
-        `https://backend1.shreejayfurniture.store/gallery/${selectedItem._id}`,
+        `${REACT_APP_API_URL}/gallery/${selectedItem._id}`,
         formData,
         {
           headers: {
@@ -136,7 +147,7 @@ function Updateanddelete() {
               <p>{item.description}</p>
               {item.image ? (
                 <img
-                  src={`https://backend1.shreejayfurniture.store/uploads/${item.image}`}
+                  src={`${REACT_APP_API_URL}/uploads/${item.image}`}
                   alt={item.title}
                   className="w-32 h-32"
                 />
@@ -145,7 +156,7 @@ function Updateanddelete() {
               )}
               {item.video ? (
                 <video
-                  src={`https://backend1.shreejayfurniture.store/uploads/${item.video}`}
+                  src={`${REACT_APP_API_URL}/uploads/${item.video}`}
                   controls
                   className="w-32 h-32"
                 ></video>

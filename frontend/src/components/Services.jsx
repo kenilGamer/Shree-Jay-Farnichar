@@ -12,8 +12,9 @@ function Services() {
   const fetchData = async () => {
     setIsLoading(true);
     try {
-      const response = await axios.get(`https://shree-jay-farnichar.onrender.com/gallery/${page}/${10}`, { // Adjusted URL for pagination
-        headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
+      const response = await axios.get(`${process.env.REACT_APP_API_URL}/gallery/${page}/${10}`, { // Adjusted URL for pagination
+        headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
+        params: { page: page, limit: 10 } // Added query parameters for pagination
       });
 
       if (response.data.length > 0) {
