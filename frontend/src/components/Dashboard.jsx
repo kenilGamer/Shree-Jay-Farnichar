@@ -111,10 +111,10 @@ function Dashboard() {
   const onDropVideos = (acceptedFiles) => setSelectedVideos(acceptedFiles);
 
   const { getRootProps: getImageRootProps, getInputProps: getImageInputProps } =
-    useDropzone({ onDrop: onDropImages, accept: "image/*", multiple: true });
+  useDropzone({ onDrop: onDropImages, accept: { "image/*": [".jpg", ".jpeg", ".png", ".gif"] }, multiple: true });
 
-  const { getRootProps: getVideoRootProps, getInputProps: getVideoInputProps } =
-    useDropzone({ onDrop: onDropVideos, accept: "video/*", multiple: true });
+const { getRootProps: getVideoRootProps, getInputProps: getVideoInputProps } =
+  useDropzone({ onDrop: onDropVideos, accept: { "video/*": [".mp4", ".avi", ".mov"] }, multiple: true });
 
   // Handle Logout
   const handleLogout = () => {
