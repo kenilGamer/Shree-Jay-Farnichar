@@ -6,14 +6,12 @@ const path = require('path');
 const fs = require('fs');
 const cors = require('cors');
 const multer = require('multer');
-const port = 3000;
+const port = 5000;
 const User = require('./models/UserModel');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const cookieParser = require('cookie-parser');
 const Gallery = require('./models/Gallery');
-
-// Multer storage configuration
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
     const uploadDir = path.join(__dirname, 'uploads');
@@ -51,7 +49,6 @@ const upload = multer({
     cb(null, true);  // Proceed with the upload
   }
 });
-
 app.use(cors({
   origin: ['https://www.shreejayfurniture.store', "http://localhost:5173"], // Adjust according to your frontend URL
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
@@ -138,18 +135,18 @@ app.post('/login', async (req, res) => {
 });
 
 // Route for adding a new gallery item
-app.post('/gallery', verifyToken, upload.fields([{ name: 'images', maxCount: 5 }, { name: 'videos', maxCount: 5 }]), async (req, res) => {
+app.post('/gallery', verifyToken, upload.fields([{ name: 'image', maxCount: 1 }, { name: 'video', maxCount: 1 }]), async (req, res) => {
   try {
-    if (!req.files.images && !req.files.videos) {
+    if (!req.files || (!req.files.image && !req.files.video)) {
       return res.status(400).json({ message: 'No files were uploaded' });
     }
 
-    const images = req.files.images ? req.files.images.map(file => file.filename) : [];
-    const videos = req.files.videos ? req.files.videos.map(file => file.filename) : [];
+    const image = req.files.image ? req.files.image[0].filename : null;
+    const video = req.files.video ? req.files.video[0].filename : null;
 
     const gallery = new Gallery({
-      images,
-      videos,
+      image,
+      video,
       title: req.body.title,
       description: req.body.description
     });
@@ -157,8 +154,8 @@ app.post('/gallery', verifyToken, upload.fields([{ name: 'images', maxCount: 5 }
     await gallery.save();
     res.status(201).json(gallery);
   } catch (error) {
-    console.error('Error adding gallery item:', error);
-    res.status(500).json({ message: 'Internal Server Error' });
+    console.error('Error adding gallery item:', error); // Log the error for debugging
+    res.status(500).json({ message: 'Internal Server Error', error: error.message });
   }
 });
 
@@ -183,10 +180,10 @@ app.put('/gallery/:id', verifyToken, upload.fields([{ name: 'image', maxCount: 1
       return res.status(404).json({ message: 'Gallery item not found' });
     }
 
-    if (req.files.image) {
+    if (req.files && req.files.image) {
       gallery.image = req.files.image[0].filename;
     }
-    if (req.files.video) {
+    if (req.files && req.files.video) {
       gallery.video = req.files.video[0].filename;
     }
 
@@ -221,7 +218,8 @@ app.delete('/gallery/:id', verifyToken, async (req, res) => {
 // General error handler
 app.use((err, req, res, next) => {
   console.error('Unhandled error:', err);
-  res.status(500).json({ message: 'Something went wrong' });
+  res.status(500).json({ message: 'Internal Server Error', error: err });
+  next("Internal Server Error");
 });
 
 app.get('/', (req, res) => {
