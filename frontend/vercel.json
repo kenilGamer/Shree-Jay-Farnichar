@@ -1,13 +1,9 @@
 {
     "rewrites": [
       {
-        "source": "/((?!\/(static|media)).)*",
+        "source": "/(.*)",
         "destination": "/index.html"
-      }
-    ],
-    "server": [
-      {
-        "http": "http://37.114.37.82:5000"
       }
     ]
   }
+  
