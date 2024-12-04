@@ -28,7 +28,7 @@ function Updateanddelete() {
     setIsLoading(true);
     try {
       const response = await axios.get(
-        `http://37.114.37.82:5000/gallery/${page}/${limit}`,
+        `https://37.114.37.82:5000/gallery/${page}/${limit}`,
         {
           headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
         }
@@ -60,7 +60,11 @@ function Updateanddelete() {
           headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
         }
       );
-      setData(data.filter((item) => item._id !== id)); // Remove item from state after delete
+      setData(data.filter((item) => {
+        console.log(item, id);
+        
+        return item._id !== id;
+      })); // Remove item from state after delete
     } catch (error) {
       console.error("Error deleting item:", error);
     }
@@ -91,11 +95,11 @@ function Updateanddelete() {
     const videos = updatedData.video ? [updatedData.video] : []; // Assuming single video upload
 
     images.forEach((image) => {
-        formData.append('images', image);
+        formData.append('image', image);
     });
 
     videos.forEach((video) => {
-        formData.append('videos', video);
+        formData.append('video', video);
     });
 
     try {
