@@ -204,7 +204,7 @@ function Gallery() {
         loader={isLoading && <h4>Loading...</h4>}
         >
         <div className='flex items-center justify-center md:gap-20 gap-10 flex-wrap'>
-            {data.map((item, index)=>(
+            {gallery.map((item, index)=>(
                 <div key={index} className='w-[400px] h-[300px] bg-[#1D1D1D] p-4 flex flex-col  gap-[14px] relative rounded-lg border-4 border-[#282828] '>
                     {
                         item.image && (
