@@ -3,8 +3,7 @@ const mongoose = require('mongoose');
 const gallerySchema = new mongoose.Schema({
   image: [
     {
-      type: [],
-
+      type: String,
     }
   ],
   title: {
@@ -13,11 +12,11 @@ const gallerySchema = new mongoose.Schema({
   },
   description: {
     type: String,
-    // required: true,/
+    // required: true,
   },
   video: [
     {
-      type: [],
+      type: String,
     }
   ]
 });
