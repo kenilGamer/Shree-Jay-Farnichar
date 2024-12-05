@@ -41,7 +41,7 @@ function Login() {
                 setError('Error logging in. Please try again later.');
             } else if (error.request) {
                 // The request was made but no response was received
-                console.error("Error logging in: ", error.request);
+                console.error("Error logging in: ", error);
                 setError('Network error. Please check your connection.');
             } else {
                 // Something happened in setting up the request that triggered an Error
