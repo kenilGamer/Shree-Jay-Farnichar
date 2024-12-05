@@ -18,7 +18,7 @@ function Login() {
             const response = await axios.post(
                 `${REACT_APP_API_URL}/login`,
                 { email, password },
-                { withCredentials: true, headers: { Authorization: `Bearer ${localStorage.getItem('token')}`, 'Content-Type': 'application/json' } }
+                { withCredentials: true, headers: { Authorization: `Bearer ${localStorage.getItem('token')}`, 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS', 'Access-Control-Allow-Headers': 'Origin, Content-Type, Accept, Authorization','httpOnly': true } }
             );
 
             localStorage.setItem('token', response.data.token);
