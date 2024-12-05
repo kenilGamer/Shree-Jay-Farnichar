@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate, Link } from 'react-router-dom';
-
+import { http } from 'http';
 function Login() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -16,11 +16,12 @@ function Login() {
         setError('');
 
         try {
-            const response = await axios.post(
+            console.log(email, password);
+            const response = await http.post(
                 `${REACT_APP_API_URL}/login`,
                 { email, password },
                 { withCredentials: true },
-                { headers: { Authorization: `Bearer ${localStorage.getItem('token')}` } }
+                { headers: { 'Content-Type': 'application/json' } }
             );
 
             localStorage.setItem('token', response.data.token);
