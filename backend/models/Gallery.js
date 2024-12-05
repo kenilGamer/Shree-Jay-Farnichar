@@ -12,13 +12,17 @@ const gallerySchema = new mongoose.Schema({
   },
   description: {
     type: String,
-    // required: true,
+    // required: true 
   },
   video: [
     {
       type: String,
     }
-  ]
+  ],
+  createdAt: {
+    type: Date,
+    default: Date.now,
+  },
 });
 
 const Gallery = mongoose.model('Gallery', gallerySchema);

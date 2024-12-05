@@ -12,6 +12,7 @@ const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const cookieParser = require('cookie-parser');
 const Gallery = require('./models/Gallery');
+const https = require('https');
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
     const uploadDir = path.join(__dirname, 'uploads');
@@ -50,11 +51,20 @@ const upload = multer({
   }
 });
 app.use(cors({
-  origin: ['https://www.shreejayfurniture.store', "http://localhost:5173"], // Adjust according to your frontend URL
-  methods: ['GET', 'POST', 'PUT', 'DELETE'],
-  allowedHeaders: ['Content-Type', 'Authorization','dataType','methods','serviceStatus','token'],
-  credentials: true
+  origin: ['https://shreejayfurniture.store',"https://www.shreejayfurniture.store", 'http://localhost:5173'],
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS', 'PATCH', 'HEAD'],
+  allowedHeaders: ['Content-Type', 'Authorization', 'dataType', 'methods', 'serviceStatus', 'token', 'Access-Control-Allow-Origin'],
+  credentials: true,
 }));
+
+app.use((err, req, res, next) => {
+  if (err.code === 'ERR_NETWORK') {
+    console.error('Error logging in:', err);
+    res.status(500).json({ message: 'Network Error' });
+  } else {
+    next(err);
+  }
+});
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
@@ -65,7 +75,7 @@ app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 const verifyToken = (req, res, next) => {
   const token = req.header('Authorization')?.replace('Bearer ', '');  // Get the token from the Authorization header
   
-  if (!token) {
+  if (!token) { 
     return res.status(401).json({ message: 'No token, authorization denied' });
   }
 
@@ -172,7 +182,7 @@ app.get('/gallery/:page/:limit', async (req, res) => {
   }
 });
 
-// Route for updating a gallery item
+// Route for updating a gallery item 
 app.put('/gallery/:id', verifyToken, upload.fields([{ name: 'image', maxCount: 1 }, { name: 'video', maxCount: 1 }]), async (req, res) => {
   try {
     const gallery = await Gallery.findById(req.params.id);
@@ -207,7 +217,12 @@ app.delete('/gallery/:id', verifyToken, async (req, res) => {
     if (!gallery) {
       return res.status(404).json({ message: 'Gallery item not found' });
     }
-
+    if (gallery.image) {
+      fs.unlinkSync(`uploads/${gallery.image}`);
+    }
+    if (gallery.video) {
+      fs.unlinkSync(`uploads/${gallery.video}`);
+    }
     res.status(200).json({ message: 'Gallery item deleted successfully' });
   } catch (error) {
     console.error('Error deleting gallery item:', error);
@@ -226,6 +241,12 @@ app.get('/', (req, res) => {
   res.send('Hello World');
 });
 // Starting the server
-app.listen(port, () => {
-  console.log(`Server is running on http://localhost:${port}`);
+
+const options = {
+  key: fs.readFileSync('/etc/ssl/private/nginx-selfsigned.key'),
+  cert: fs.readFileSync('/etc/ssl/certs/nginx-selfsigned.crt'),
+};
+
+https.createServer(options, app).listen(443, () => {
+  console.log("Server is running on https://localhost:443");
 });
