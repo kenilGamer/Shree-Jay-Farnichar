@@ -32,8 +32,20 @@ function Login() {
                 setError('Invalid login credentials.');
             }
         } catch (error) {
-            console.log("Error logging in: ", error);
-            setError('Error logging in. Please try again later.');
+            if (error.response) {
+                // The request was made and the server responded with a status code
+                // that falls out of the range of 2xx
+                console.error("Error logging in: ", error.response.data);
+                setError('Error logging in. Please try again later.');
+            } else if (error.request) {
+                // The request was made but no response was received
+                console.error("Error logging in: ", error.request);
+                setError('Network error. Please check your connection.');
+            } else {
+                // Something happened in setting up the request that triggered an Error
+                console.error("Error logging in: ", error.message);
+                setError('An unexpected error occurred. Please try again later.');
+            }
         } finally {
             setLoading(false);
         }
