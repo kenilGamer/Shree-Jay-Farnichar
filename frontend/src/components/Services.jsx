@@ -4,6 +4,7 @@ import Navbar from '../partials/Navbar';
 import axios from 'axios'; // Import axios for HTTP requests
 import InfiniteScroll from 'react-infinite-scroll-component';
 function Services() {
+  const REACT_APP_API_URL = "https://godcraft.fun";
   const [services, setServices] = useState([]); // Removed redundant state for data
   const [isLoading, setIsLoading] = useState(false); // Added state for loading indicator
   const [hasMore, setHasMore] = useState(true); // Added state to check if there's more data
@@ -12,7 +13,7 @@ function Services() {
   const fetchData = async () => {
     setIsLoading(true);
     try {
-      const response = await axios.get(`${process.env.REACT_APP_API_URL}/gallery/${page}/${10}`, { // Adjusted URL for pagination
+      const response = await axios.get(`${REACT_APP_API_URL}/gallery/${page}/${10}`, { // Adjusted URL for pagination
         headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
         params: { page: page, limit: 10 } // Added query parameters for pagination
       });

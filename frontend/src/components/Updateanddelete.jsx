@@ -22,13 +22,15 @@ function Updateanddelete() {
   const [hasMore, setHasMore] = useState(true);
   const [page, setPage] = useState(1);
   const [limit, setLimit] = useState(10);
+  const navigate = useNavigate();
+  const REACT_APP_API_URL = "https://godcraft.fun";
 
   const fetchData = async () => {
     if (!hasMore) return;
     setIsLoading(true);
     try {
       const response = await axios.get(
-        `https://37.114.37.82:5000/gallery/${page}/${limit}`,
+        `https://godcraft.fun/gallery/${page}/${limit}`,
         {
           headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
         }
@@ -45,7 +47,6 @@ function Updateanddelete() {
       setIsLoading(false);
     }
   };
-  const REACT_APP_API_URL = "https://37.114.37.82:5000"
 
   useEffect(() => {
     fetchData();
