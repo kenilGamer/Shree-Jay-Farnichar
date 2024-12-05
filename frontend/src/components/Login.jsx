@@ -1,14 +1,13 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate, Link } from 'react-router-dom';
-import { http } from 'http';
 function Login() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState('');
     const navigate = useNavigate();
-    const REACT_APP_API_URL = "https://godcraft.fun/"
+    const REACT_APP_API_URL = "https://godcraft.fun"
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -17,7 +16,7 @@ function Login() {
 
         try {
             console.log(email, password);
-            const response = await http.post(
+            const response = await axios.post(
                 `${REACT_APP_API_URL}/login`,
                 { email, password },
                 { withCredentials: true },
