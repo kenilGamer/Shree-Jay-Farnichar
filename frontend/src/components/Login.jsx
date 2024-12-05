@@ -9,16 +9,18 @@ function Login() {
     const [error, setError] = useState('');
     const navigate = useNavigate();
     const REACT_APP_API_URL = "https://37.114.37.82:5000"
-    const cors = "https://cors-anywhere.herokuapp.com/"
+
     const handleSubmit = async (e) => {
         e.preventDefault();
         setLoading(true);
+        setError('');
 
         try {
             const response = await axios.post(
-                `${cors}${REACT_APP_API_URL}/login`,
+                `${REACT_APP_API_URL}/login`,
                 { email, password },
-                { withCredentials: true, headers: { Authorization: `Bearer ${localStorage.getItem('token')}`, 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS', 'Access-Control-Allow-Headers': 'Origin, Content-Type, Accept, Authorization','httpOnly': true } }
+                { withCredentials: true },
+                { headers: { Authorization: `Bearer ${localStorage.getItem('token')}` } }
             );
 
             localStorage.setItem('token', response.data.token);
@@ -31,12 +33,13 @@ function Login() {
             }
         } catch (error) {
             if (error.response) {
+
                 console.error("Error logging in: ", error.response.data);
                 setError('Error logging in. Please try again later.');
             } else if (error.request) {
                 // The request was made but no response was received
                 console.error("Error logging in: ", error.request);
-                setError('Fix your internet connection and try again.');
+                setError('Network error. Please check your connection.');
             } else {
                 // Something happened in setting up the request that triggered an Error
                 console.error("Error logging in: ", error.message);
