@@ -2,14 +2,14 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8">
-    <meta http-equiv="Content-Security-Policy" content="script-src 'self';">
+    <!-- Consolidated Content Security Policy -->
+    <meta http-equiv="Content-Security-Policy" content="script-src 'self' https://vercel.live 'nonce-random-value';">
+
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="description" content="Shree Jay Furniture - Expert in interior design, spatial planning, furniture curation, and layout development.">
     <meta name="developer" content="Kenil gamer">
     <meta name="author" content="jd">
     <meta name="robots" content="index, follow">
-    <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline';">
-    <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'nonce-random-value';">
     <meta name="keywords" content="interior design, spatial planning, furniture curation, layout development, Shree Jay Furniture">
     <meta name="revisit-after" content="7 days">
     <meta name="google-site-verification" content="your-google-site-verification-code">
@@ -25,23 +25,25 @@
     <meta name="theme-color" content="#ffffff">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="mobile-web-app-capable" content="yes">
-    <meta http-equiv="Content-Security-Policy" content="script-src 'self' https://vercel.live;">
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     <link rel="icon" href="/favicon.ico" type="image/x-icon">
-    <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'nonce-random-value';">
     <link rel="stylesheet" href="styles.css">
     <link rel="canonical" href="https://www.shreejayfurniture.store" />
     <title>Shree Jay Furniture</title>
   </head>
   <body>
     <div id="root"></div>
+
+    <!-- Ensure nonce value matches CSP -->
     <script nonce="random-value" src="https://vercel.live/_next-live/feedback/feedback.js"></script>
+
     <script nonce="random-value">
       console.log('Hello, world!');
       console.log(document.getElementById('root'));
       console.log(document.getElementById('root').innerHTML);
       console.log(document.getElementById('root').textContent);
     </script>
+    
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>
