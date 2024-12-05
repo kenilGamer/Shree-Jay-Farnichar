@@ -8,15 +8,15 @@ function Login() {
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState('');
     const navigate = useNavigate();
-    const REACT_APP_API_URL = "http://37.114.37.82:5000"
-
+    const REACT_APP_API_URL = "https://37.114.37.82:5000"
+    const cors = "https://cors-anywhere.herokuapp.com/"
     const handleSubmit = async (e) => {
         e.preventDefault();
         setLoading(true);
 
         try {
             const response = await axios.post(
-                `${REACT_APP_API_URL}/login`,
+                `${cors}${REACT_APP_API_URL}/login`,
                 { email, password },
                 { withCredentials: true, headers: { Authorization: `Bearer ${localStorage.getItem('token')}`, 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS', 'Access-Control-Allow-Headers': 'Origin, Content-Type, Accept, Authorization','httpOnly': true } }
             );
