@@ -5,6 +5,7 @@ import Topbar from "../partials/Topbar";
 // import { toast } from 'react-toastify';
 import InfiniteScroll from "react-infinite-scroll-component";
 // import { process } from 'process';
+import { useNavigate } from "react-router-dom";
 
 function Updateanddelete() {
   const [data, setData] = useState([]);
