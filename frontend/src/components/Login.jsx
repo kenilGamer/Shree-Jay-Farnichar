@@ -32,7 +32,7 @@ function Login() {
                 setError('Invalid login credentials.');
             }
         } catch (error) {
-            console.log(error);
+            console.log("Error logging in: ", error);
             setError('Error logging in. Please try again later.');
         } finally {
             setLoading(false);
