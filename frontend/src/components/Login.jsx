@@ -33,14 +33,12 @@ function Login() {
             }
         } catch (error) {
             if (error.response) {
-                // The request was made and the server responded with a status code
-                // that falls out of the range of 2xx
                 console.error("Error logging in: ", error.response.data);
                 setError('Error logging in. Please try again later.');
             } else if (error.request) {
                 // The request was made but no response was received
                 console.error("Error logging in: ", error.request);
-                setError('Network error. Please check your connection.');
+                setError('Fix your internet connection and try again.');
             } else {
                 // Something happened in setting up the request that triggered an Error
                 console.error("Error logging in: ", error.message);
