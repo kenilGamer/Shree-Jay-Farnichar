@@ -7,7 +7,7 @@ function Login() {
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState('');
     const navigate = useNavigate();
-    const REACT_APP_API_URL = "http://godcraft.fun"
+    const REACT_APP_API_URL = "https://godcraft.fun"
 
     const handleSubmit = async (e) => {
         e.preventDefault();
