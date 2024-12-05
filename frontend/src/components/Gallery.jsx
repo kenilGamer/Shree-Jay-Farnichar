@@ -167,7 +167,7 @@ function Gallery() {
         { image: `/web/img2 (133).jpg`, alt: "Service 139" },
         { image: `/web/img2 (134).jpg`, alt: "Service 140" },
     ]);
-    const REACT_APP_API_URL = "http://37.114.37.82:5000"
+    const REACT_APP_API_URL = "https://37.114.37.82:5000"
     const navigate = useNavigate();
     const fetchData = async ()=>{
         setIsLoading(true);

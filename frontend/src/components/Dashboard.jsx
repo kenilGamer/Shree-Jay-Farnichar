@@ -14,7 +14,7 @@ function Dashboard() {
   const [category, setCategory] = useState("");
   const [uploading, setUploading] = useState(false);
   const navigate = useNavigate();
-  const REACT_APP_API_URL = "http://37.114.37.82:5000";
+  const REACT_APP_API_URL = "https://37.114.37.82:5000";
 
   // Helper function to append files to FormData
   const appendFilesToFormData = (formData, files, fieldName) => {
@@ -111,10 +111,10 @@ function Dashboard() {
   const onDropVideos = (acceptedFiles) => setSelectedVideos(acceptedFiles);
 
   const { getRootProps: getImageRootProps, getInputProps: getImageInputProps } =
-    useDropzone({ onDrop: onDropImages, accept: "image/*", multiple: true });
+  useDropzone({ onDrop: onDropImages, accept: { "image/*": [".jpg", ".jpeg", ".png", ".gif"] }, multiple: true });
 
-  const { getRootProps: getVideoRootProps, getInputProps: getVideoInputProps } =
-    useDropzone({ onDrop: onDropVideos, accept: "video/*", multiple: true });
+const { getRootProps: getVideoRootProps, getInputProps: getVideoInputProps } =
+  useDropzone({ onDrop: onDropVideos, accept: { "video/*": [".mp4", ".avi", ".mov"] }, multiple: true });
 
   // Handle Logout
   const handleLogout = () => {

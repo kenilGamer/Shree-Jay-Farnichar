@@ -10,31 +10,28 @@ import Updateanddelete from "./components/Updateanddelete";
 import LocomotiveScroll from "locomotive-scroll";
 import { useState, useEffect } from "react";
 import Loader from "./components/Loader";
-import gsap from "gsap";
-import { useGSAP } from "@gsap/react";
 import AuthGuard from "./components/AuthGuard";
 import NotFound from "./components/NotFound";
-  function App() {
-    
- 
+
+function App() {
   const [isLoading, setIsLoading] = useState(true);
+
   useEffect(() => {
     const timeout = setTimeout(() => {
       setIsLoading(false);
-
     }, 2000);
+
+    return () => clearTimeout(timeout); // Cleanup timeout
   }, []);
 
 
   return (
-    <div
-      className="bg-black w-full"
-    >
-        {isLoading && (
-          <div className="flex absolute top-0 left-0 w-full h-screen justify-center items-center ">
-            <Loader /> 
-          </div>
-        )}
+    <div className="bg-black w-full">
+      {isLoading ? (
+        <div className="flex absolute top-0 left-0 w-full h-screen justify-center items-center">
+          <Loader />
+        </div>
+      ) : (
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/gallery" element={<Gallery />} />
@@ -46,7 +43,7 @@ import NotFound from "./components/NotFound";
           <Route path="/updateanddelete" element={<AuthGuard><Updateanddelete /></AuthGuard>} />
           <Route path="*" element={<NotFound />} />
         </Routes>
-      
+      )}
     </div>
   );
 }

@@ -2,12 +2,15 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8">
+    <!-- Consolidated Content Security Policy -->
+    <meta http-equiv="Content-Security-Policy" content="script-src 'self' https://vercel.live 'nonce-random-value';">
+
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="description" content="Shree Jay Farnichar - Expert in interior design, spatial planning, furniture curation, and layout development.">
+    <meta name="description" content="Shree Jay Furniture - Expert in interior design, spatial planning, furniture curation, and layout development.">
     <meta name="developer" content="Kenil gamer">
     <meta name="author" content="jd">
     <meta name="robots" content="index, follow">
-    <meta name="keywords" content="interior design, spatial planning, furniture curation, layout development, Shree Jay Farnichar, ShreeJayFurniture, ShreeJayFurnitureStore, ShreeJayFarnichar, ShreeJayFurnitureStore,kenilgamer3035,shreejayfarnichar,shreejayfurniture,shreejayfurniturestore">
+    <meta name="keywords" content="interior design, spatial planning, furniture curation, layout development, Shree Jay Furniture">
     <meta name="revisit-after" content="7 days">
     <meta name="google-site-verification" content="your-google-site-verification-code">
     <meta property="og:title" content="Shree Jay Furniture - Interior Design Experts">
@@ -16,13 +19,12 @@
     <meta property="og:url" content="https://www.shreejayfurniture.store">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Shree Jay Furniture - Interior Design Experts">
-    <meta name="twitter:description" content="Shree Jay Farnichar offers professional interior design services specializing in furniture curation, spatial planning, and layout development.">
+    <meta name="twitter:description" content="Shree Jay Furniture offers professional interior design services specializing in furniture curation, spatial planning, and layout development.">
     <meta name="twitter:image" content="URL-to-your-image.jpg">
     <meta name="twitter:creator" content="@kenilgamer3035">
     <meta name="theme-color" content="#ffffff">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="mobile-web-app-capable" content="yes">
-
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     <link rel="icon" href="/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="styles.css">
@@ -31,6 +33,17 @@
   </head>
   <body>
     <div id="root"></div>
+
+    <!-- Ensure nonce value matches CSP -->
+    <script nonce="random-value" src="https://vercel.live/_next-live/feedback/feedback.js"></script>
+
+    <script nonce="random-value">
+      console.log('Hello, world!');
+      console.log(document.getElementById('root'));
+      console.log(document.getElementById('root').innerHTML);
+      console.log(document.getElementById('root').textContent);
+    </script>
+    
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>

@@ -1,14 +1,13 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate, Link } from 'react-router-dom';
-
 function Login() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState('');
     const navigate = useNavigate();
-    const REACT_APP_API_URL = "http://37.114.37.82:5000"
+    const REACT_APP_API_URL = "https://godcraft.fun"
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -16,12 +15,16 @@ function Login() {
         setError('');
 
         try {
+            console.log(email, password);
             const response = await axios.post(
                 `${REACT_APP_API_URL}/login`,
                 { email, password },
-                { withCredentials: true },
-                { headers: { Authorization: `Bearer ${localStorage.getItem('token')}` } }
+                {
+                    withCredentials: true,
+                    headers: { 'Content-Type': 'application/json' }
+                }
             );
+            
 
             localStorage.setItem('token', response.data.token);
             localStorage.setItem('role', response.data.role);
@@ -32,8 +35,19 @@ function Login() {
                 setError('Invalid login credentials.');
             }
         } catch (error) {
-            console.log(error);
-            setError('Error logging in. Please try again later.');
+            if (error.response) {
+
+                console.error("Error logging in: ", error.response.data);
+                setError('Error logging in. Please try again later.');
+            } else if (error.request) {
+                // The request was made but no response was received
+                console.error("Error logging in: ", error);
+                setError('Network error. Please check your connection.');
+            } else {
+                // Something happened in setting up the request that triggered an Error
+                console.error("Error logging in: ", error.message);
+                setError('An unexpected error occurred. Please try again later.');
+            }
         } finally {
             setLoading(false);
         }
