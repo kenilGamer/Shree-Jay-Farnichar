@@ -13,7 +13,6 @@ function Login() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         setLoading(true);
-        setError('');
 
         try {
             const response = await axios.post(
