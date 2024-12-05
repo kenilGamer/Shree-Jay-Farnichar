@@ -19,7 +19,6 @@ function Login() {
             const response = await axios.post(
                 `${REACT_APP_API_URL}/login`,
                 { email, password },
-                { withCredentials: true },
                 { headers: { Authorization: `Bearer ${localStorage.getItem('token')}` } }
             );
 
