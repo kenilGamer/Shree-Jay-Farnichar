@@ -21,7 +21,10 @@ function Login() {
                 { email, password },
                 {
                     withCredentials: true,
-                    headers: { 'Content-Type': 'application/json' }
+                    headers: { 'Content-Type': 'application/json' },
+                    httpsAgent: new https.Agent({
+                        rejectUnauthorized: false
+                    })
                 }
             );
             
