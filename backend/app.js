@@ -13,6 +13,7 @@ const jwt = require('jsonwebtoken');
 const cookieParser = require('cookie-parser');
 const Gallery = require('./models/Gallery');
 const https = require('https');
+const helmet = require('helmet');
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
     const uploadDir = path.join(__dirname, 'uploads');
@@ -51,7 +52,7 @@ const upload = multer({
   }
 });
 app.use(cors({
-  origin: ['https://shreejayfurniture.store',"https://www.shreejayfurniture.store", 'http://localhost:5173'],
+  origin: ['https://shreejayfurniture.store', 'https://www.shreejayfurniture.store', 'http://localhost:5173', 'https://web.shreejayfurniture.store'], // Add the new origin here
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS', 'PATCH', 'HEAD'],
   allowedHeaders: ['Content-Type', 'Authorization', 'dataType', 'methods', 'serviceStatus', 'token', 'Access-Control-Allow-Origin'],
   credentials: true,
@@ -71,6 +72,15 @@ app.use(cookieParser());
 
 // Serve static files from the 'uploads' directory
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
+
+// Set Content Security Policy
+app.use(helmet.contentSecurityPolicy({
+  directives: {
+    defaultSrc: ["'self'"],
+    scriptSrc: ["'self'", "'sha256-kPx0AsF0oz2kKiZ875xSvv693TBHkQ/0SkMJZnnNpnQ='"], // Example with hash
+    // Add other directives as needed
+  }
+}));
 
 const verifyToken = (req, res, next) => {
   const token = req.header('Authorization')?.replace('Bearer ', '');  // Get the token from the Authorization header
@@ -145,7 +155,7 @@ app.post('/login', async (req, res) => {
 });
 
 // Route for adding a new gallery item
-app.post('/gallery', verifyToken, upload.fields([{ name: 'image', maxCount: 1 }, { name: 'video', maxCount: 1 }]), async (req, res) => {
+app.post('/gallery', verifyToken, upload.fields([{ name: 'image', maxCount: 100 }, { name: 'video', maxCount: 100 }]), async (req, res) => {
   try {
     if (!req.files || (!req.files.image && !req.files.video)) {
       return res.status(400).json({ message: 'No files were uploaded' });
@@ -243,8 +253,8 @@ app.get('/', (req, res) => {
 // Starting the server
 
 const options = {
-  key: fs.readFileSync('/etc/ssl/private/nginx-selfsigned.key'),
-  cert: fs.readFileSync('/etc/ssl/certs/nginx-selfsigned.crt'),
+  key: fs.readFileSync('/etc/letsencrypt/live/godcraft.fun/privkey.pem'),
+  cert: fs.readFileSync('/etc/letsencrypt/live/godcraft.fun/fullchain.pem'),
 };
 
 https.createServer(options, app).listen(443, () => {
