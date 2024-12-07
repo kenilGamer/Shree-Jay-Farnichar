@@ -21,11 +21,12 @@ function Login() {
                 { email, password },
                 {
                     withCredentials: true,
-                    headers: { 'Content-Type': 'application/json' },
-                    // Removed the httpsAgent configuration as it's causing the error
+                    headers: { 'Content-Type': 'application/json', 'Accept': 'application/json', 'User-Agent': 'react-router-dom'},
+                    httpsAgent: new (require("https").Agent)({
+                        rejectUnauthorized: false, // Bypass SSL only for debugging
+                    }),
                 }
             );
-            
 
             localStorage.setItem('token', response.data.token);
             localStorage.setItem('role', response.data.role);
