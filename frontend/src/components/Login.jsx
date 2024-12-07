@@ -22,9 +22,7 @@ function Login() {
                 {
                     withCredentials: true,
                     headers: { 'Content-Type': 'application/json' },
-                    httpsAgent: new https.Agent({
-                        rejectUnauthorized: false
-                    })
+                    // Removed the httpsAgent configuration as it's causing the error
                 }
             );
             
