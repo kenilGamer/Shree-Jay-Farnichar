@@ -36,7 +36,6 @@ function Login() {
             }
         } catch (error) {
             if (error.response) {
-
                 console.error("Error logging in: ", error.response.data);
                 setError('Error logging in. Please try again later.');
             } else if (error.request) {
