@@ -20,7 +20,7 @@ function Gallery() {
         try {
             const data = await axios.get(`${REACT_APP_API_URL}/gallery/${page}/${limit}`, {
                 headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
-            })
+            });
             if (data.data.length > 0) {
                 setGallery(prevState => [...prevState, ...data.data]);
                 setPage(page + 1);
