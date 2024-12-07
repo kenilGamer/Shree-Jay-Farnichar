@@ -1,13 +1,15 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate, Link } from 'react-router-dom';
+
 function Login() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState('');
     const navigate = useNavigate();
-    const REACT_APP_API_URL = "https://godcraft.fun"
+    
+    const REACT_APP_API_URL = import.meta.env.VITE_API_URL || "https://godcraft.fun";
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -15,13 +17,13 @@ function Login() {
         setError('');
 
         try {
-            console.log(email, password);
             const response = await axios.post(
                 `${REACT_APP_API_URL}/login`,
                 { email, password },
                 {
                     withCredentials: true,
-                    headers: { 'Content-Type': 'application/json','Access-Control-Allow-Origin': '*'},
+                    headers: { 'Content-Type': 'application/json' },
+                    validateStatus: (status) => status >= 200 && status < 300,
                 }
             );
 
@@ -34,16 +36,15 @@ function Login() {
                 setError('Invalid login credentials.');
             }
         } catch (error) {
+            console.error("Error details:", error);
             if (error.response) {
-                console.error("Error logging in: ", error.response.data);
+                console.error("Error response data: ", error.response.data);
                 setError('Error logging in. Please try again later.');
             } else if (error.request) {
-                // The request was made but no response was received
-                console.error("Error logging in: ", error);
+                console.error("Error request: ", error.request);
                 setError('Network error. Please check your connection.');
             } else {
-                // Something happened in setting up the request that triggered an Error
-                console.error("Error logging in: ", error.message);
+                console.error("Error message: ", error.message);
                 setError('An unexpected error occurred. Please try again later.');
             }
         } finally {
