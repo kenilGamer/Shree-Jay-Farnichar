@@ -22,9 +22,6 @@ function Login() {
                 {
                     withCredentials: true,
                     headers: { 'Content-Type': 'application/json', 'Accept': 'application/json', 'User-Agent': 'react-router-dom'},
-                    httpsAgent: new (require("https").Agent)({
-                        rejectUnauthorized: false, // Bypass SSL only for debugging
-                    }),
                 }
             );
 
