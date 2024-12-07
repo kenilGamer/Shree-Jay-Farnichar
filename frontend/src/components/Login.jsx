@@ -21,7 +21,7 @@ function Login() {
                 { email, password },
                 {
                     withCredentials: true,
-                    headers: { 'Content-Type': 'application/json', 'Accept': 'application/json', 'User-Agent': 'react-router-dom'},
+                    headers: { 'Content-Type': 'application/json'},
                 }
             );
 
