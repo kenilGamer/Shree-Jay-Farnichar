@@ -12,6 +12,8 @@ const userSchema = new mongoose.Schema({
   phone: String, 
   password: String,
   role: String,
+  resetToken: String,
+  resetTokenExpiry: Date,
   createdAt: { type: Date, default: Date.now },
   updatedAt: { type: Date, default: Date.now },
  

@@ -14,6 +14,8 @@ const cookieParser = require('cookie-parser');
 const Gallery = require('./models/Gallery');
 const https = require('https');
 const helmet = require('helmet');
+const crypto = require('crypto');
+const nodemailer = require('nodemailer');
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
     const uploadDir = path.join(__dirname, 'uploads');
@@ -154,6 +156,98 @@ app.post('/login', async (req, res) => {
   }
 });
 
+// Email transporter configuration
+const transporter = nodemailer.createTransport({
+  service: 'gmail',
+  auth: {
+    user: process.env.EMAIL_USER,
+    pass: process.env.EMAIL_PASS
+  }
+});
+
+// Route for requesting password reset
+app.post('/forgot-password', async (req, res) => {
+  const { email } = req.body;
+  
+  try {
+    const user = await User.findOne({ email });
+    if (!user) {
+      return res.status(404).json({ message: 'User not found' });
+    }
+
+    // Generate reset token
+    const resetToken = crypto.randomBytes(32).toString('hex');
+    const resetTokenExpiry = Date.now() + 3600000; // 1 hour from now
+
+    // Save reset token to user
+    user.resetToken = resetToken;
+    user.resetTokenExpiry = resetTokenExpiry;
+    await user.save();
+
+    // Create reset URL
+    const resetUrl = `${process.env.FRONTEND_URL || 'http://localhost:5173'}/reset-password?token=${resetToken}`;
+
+    // Send email
+    const mailOptions = {
+      from: process.env.EMAIL_USER,
+      to: email,
+      subject: 'Password Reset Request - Shree Jay Furniture',
+      html: `
+        <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
+          <h2 style="color: #333;">Password Reset Request</h2>
+          <p>Hello ${user.name},</p>
+          <p>You have requested to reset your password. Click the button below to reset your password:</p>
+          <div style="text-align: center; margin: 30px 0;">
+            <a href="${resetUrl}" style="background-color: #007bff; color: white; padding: 12px 24px; text-decoration: none; border-radius: 5px; display: inline-block;">Reset Password</a>
+          </div>
+          <p>If the button doesn't work, copy and paste this link into your browser:</p>
+          <p style="word-break: break-all; color: #666;">${resetUrl}</p>
+          <p>This link will expire in 1 hour.</p>
+          <p>If you didn't request this password reset, please ignore this email.</p>
+          <hr style="margin: 30px 0; border: none; border-top: 1px solid #eee;">
+          <p style="color: #666; font-size: 12px;">Shree Jay Furniture Store</p>
+        </div>
+      `
+    };
+
+    await transporter.sendMail(mailOptions);
+    res.status(200).json({ message: 'Password reset email sent successfully' });
+  } catch (error) {
+    console.error('Error sending password reset email:', error);
+    res.status(500).json({ message: 'Internal Server Error' });
+  }
+});
+
+// Route for resetting password
+app.post('/reset-password', async (req, res) => {
+  const { token, newPassword } = req.body;
+  
+  try {
+    const user = await User.findOne({
+      resetToken: token,
+      resetTokenExpiry: { $gt: Date.now() }
+    });
+
+    if (!user) {
+      return res.status(400).json({ message: 'Invalid or expired reset token' });
+    }
+
+    // Hash new password
+    const hashedPassword = await bcrypt.hash(newPassword, 10);
+    
+    // Update user password and clear reset token
+    user.password = hashedPassword;
+    user.resetToken = undefined;
+    user.resetTokenExpiry = undefined;
+    await user.save();
+
+    res.status(200).json({ message: 'Password reset successfully' });
+  } catch (error) {
+    console.error('Error resetting password:', error);
+    res.status(500).json({ message: 'Internal Server Error' });
+  }
+});
+
 // Route for adding a new gallery item
 app.post('/gallery', verifyToken, upload.fields([{ name: 'image', maxCount: 100 }, { name: 'video', maxCount: 100 }]), async (req, res) => {
   try {
@@ -250,13 +344,21 @@ app.use((err, req, res, next) => {
 app.get('/', (req, res) => {
   res.send('Hello World');
 });
+
 // Starting the server
+if (process.env.NODE_ENV === 'production') {
+  // Production HTTPS server
+  const options = {
+    key: fs.readFileSync('/etc/letsencrypt/live/godcraft.fun/privkey.pem'),
+    cert: fs.readFileSync('/etc/letsencrypt/live/godcraft.fun/fullchain.pem'),
+  };
 
-const options = {
-  key: fs.readFileSync('/etc/letsencrypt/live/godcraft.fun/privkey.pem'),
-  cert: fs.readFileSync('/etc/letsencrypt/live/godcraft.fun/fullchain.pem'),
-};
-
-https.createServer(options, app).listen(443, () => {
-  console.log("Server is running on https://localhost:443");
-});
+  https.createServer(options, app).listen(443, () => {
+    console.log("Server is running on https://localhost:443");
+  });
+} else {
+  // Development HTTP server
+  app.listen(port, () => {
+    console.log(`Server is running on http://localhost:${port}`);
+  });
+}

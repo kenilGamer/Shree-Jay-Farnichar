@@ -4,7 +4,7 @@ import Navbar from "../partials/Navbar";
 import Topbar from "../partials/Topbar";
 // import { toast } from 'react-toastify';
 import InfiniteScroll from "react-infinite-scroll-component";
-// import { process } from 'process';
+
 import { useNavigate } from "react-router-dom";
 
 function Updateanddelete() {
@@ -24,7 +24,7 @@ function Updateanddelete() {
   const [page, setPage] = useState(1);
   const [limit, setLimit] = useState(10);
   const navigate = useNavigate();
-  const REACT_APP_API_URL = "https://godcraft.fun";
+  const REACT_APP_API_URL = import.meta.env.VITE_API_URL || "https://godcraft.fun";
 
   const fetchData = async () => {
     if (!hasMore) return;

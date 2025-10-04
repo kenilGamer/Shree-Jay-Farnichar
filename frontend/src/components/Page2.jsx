@@ -1,88 +1,214 @@
-import React from "react";
-import { RiFileList3Fill } from "react-icons/ri";
+import React, { useState, useEffect } from "react";
+import { RiFileList3Fill, RiAwardFill, RiBuilding4Fill, RiToolsFill, RiKeyFill, RiGovernmentFill } from "react-icons/ri";
+import { FaArrowRight, FaQuoteLeft, FaStar, FaCheckCircle } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
 function Page2() {
+  const [activeService, setActiveService] = useState(0);
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    setIsVisible(true);
+  }, []);
+
+  const services = [
+    {
+      icon: <RiAwardFill className="text-4xl" />,
+      title: "Interior Designer",
+      description: "Expert spatial planning and design",
+      color: "from-blue-500 to-cyan-500"
+    },
+    {
+      icon: <RiBuilding4Fill className="text-4xl" />,
+      title: "Builder Contractor",
+      description: "Complete construction solutions",
+      color: "from-green-500 to-emerald-500"
+    },
+    {
+      icon: <RiToolsFill className="text-4xl" />,
+      title: "Turnkey Solutions",
+      description: "End-to-end project management",
+      color: "from-purple-500 to-violet-500"
+    },
+    {
+      icon: <RiKeyFill className="text-4xl" />,
+      title: "Key to Key Project",
+      description: "Complete project delivery",
+      color: "from-orange-500 to-red-500"
+    },
+    {
+      icon: <RiGovernmentFill className="text-4xl" />,
+      title: "Government Projects",
+      description: "Reliable public sector solutions",
+      color: "from-indigo-500 to-blue-500"
+    }
+  ];
+
+  const stats = [
+    { number: "500+", label: "Projects Completed", icon: <FaCheckCircle /> },
+    { number: "30+", label: "Years Experience", icon: <FaStar /> },
+    { number: "100%", label: "Client Satisfaction", icon: <FaCheckCircle /> },
+    { number: "24/7", label: "Support Available", icon: <FaCheckCircle /> }
+  ];
+
   return (
-    <div className=" mx-auto min-h-screen bg-[#202020] p-5 md:p-12">
-      <div className="max-w-6xl mx-auto flex flex-col items-center">
-        <h1 className="text-2xl md:text-3xl font-black uppercase text-center text-white mt-5 md:mt-10">
-          Interior Designer, Decorators, Turnkey Solutions in Ahmedabad
-        </h1>
-        <p className="text-base md:text-xl w-full md:w-[80%] mt-4 text-center md:text-left">
-          As Ahmedabad's largest{" "}
-          <a
-            href="https://www.google.com/search?q=home+decorating+services+in+ahmedabad"
-            className="text-[#D3AA62]"
-          >
-            home decorating service provider
-          </a>
-          , we bring expert design and transformation to spaces across the entire city.
-        </p>
-        <p className="text-sm md:text-md mt-6 md:mt-10 text-center md:text-left">
-          We are a team of highly experienced interior designers, decorators,
-          and turnkey solution providers based in Ahmedabad, Gujarat. Our
-          expertise in spatial planning, furniture curation, and customized
-          design solutions ensures each project we undertake transforms into a
-          space of unparalleled beauty and functionality...
-        </p>
+    <div className="py-20 px-4 bg-gradient-to-br from-[#0A0A0A] via-[#1A1A1A] to-[#0A0A0A] relative overflow-hidden">
+      {/* Background Elements */}
+      <div className="absolute inset-0 opacity-10">
+        <div className="absolute top-20 left-10 w-72 h-72 bg-[#D3AA62] rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute bottom-20 right-10 w-96 h-96 bg-[#F4D03F] rounded-full blur-3xl animate-pulse delay-1000"></div>
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-[#D3AA62]/20 rounded-full blur-2xl"></div>
       </div>
 
-      {/* Card Section */}
-      <div className="flex flex-col h-auto md:h-[100vh] md:flex-row items-center max-w-6xl mx-auto gap-10 mt-10 md:-mt-20 p-6">
-        {/* Left Card */}
-        <div className="w-full md:w-[40%] h-auto md:h-[300px] bg-[#1D1D1D] p-4 flex flex-col gap-4 relative rounded-lg border-4 border-[#282828]">
-          <h1 className="text-lg md:text-xl font-bold text-white">
-            Standing Out in Interior Design: PSD's Vision for the Future
-          </h1>
-          <p className="text-base md:text-xl text-white w-[70%]">
-            We differentiate ourselves by crafting innovative designs that address both present needs and future demands...
-          </p>
-          <div className="flex items-center gap-2 bg-[#282828] rounded-lg p-2 text-sm md:text-xl  mt-6 w-fit ">
-            <RiFileList3Fill />
-            <Link to="/" className="text-[#feca6f] italic hover:text-[#D3AA62] transition-all duration-300  font-bold">
-              shreejayfarnichar@gmail.com
-            </Link>
+      <div className="max-w-7xl mx-auto relative z-10">
+        {/* Hero Section */}
+        <div className={`text-center mb-20 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+          <div className="inline-flex items-center gap-2 bg-[#D3AA62]/10 text-[#D3AA62] px-4 py-2 rounded-full text-sm font-semibold mb-6">
+            <FaStar className="text-xs" />
+            Ahmedabad's Premier Interior Designers
           </div>
-          <div className="absolute top-[50%] right-[-5%] md:top-[30%] md:right-[-5%] w-[30%] h-[150px] bg-[#1D1D1D] rounded-lg flex flex-col items-center justify-center text-center border-4 border-[#282828]">
-            <h1 className="text-lg md:text-xl font-bold text-white">Years of Experience</h1>
-            <span className="text-lg md:text-xl py-2 px-1 text-center block w-[45px] mx-auto bg-[#292929] font-bold text-[#D3AA62] rounded-full mt-4">
-              30+
-            </span>
+          
+          <h1 className="heading-xl text-white mb-6 leading-tight">
+            Interior Designer, Decorators, Turnkey Solutions in 
+            <span className="gradient-text block">Ahmedabad</span>
+          </h1>
+          
+          <p className="text-xl text-gray-300 max-w-4xl mx-auto leading-relaxed mb-8">
+            As Ahmedabad's largest{" "}
+            <a
+              href="https://www.google.com/search?q=home+decorating+services+in+ahmedabad"
+              className="text-[#D3AA62] hover:text-[#F4D03F] transition-colors duration-300 font-semibold underline decoration-[#D3AA62]/50 underline-offset-4"
+            >
+              home decorating service provider
+            </a>
+            , we bring expert design and transformation to spaces across the entire city.
+          </p>
+          
+          <p className="text-lg text-gray-400 max-w-3xl mx-auto leading-relaxed">
+            We are a team of highly experienced interior designers, decorators,
+            and turnkey solution providers based in Ahmedabad, Gujarat. Our
+            expertise in spatial planning, furniture curation, and customized
+            design solutions ensures each project we undertake transforms into a
+            space of unparalleled beauty and functionality.
+          </p>
+        </div>
+
+        {/* Main Content Grid */}
+        <div className="grid lg:grid-cols-2 gap-12 mb-20">
+          {/* Vision Card */}
+          <div className={`card-modern card-hover relative overflow-hidden group transition-all duration-1000 delay-200 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'}`}>
+            {/* Decorative Elements */}
+            <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-[#D3AA62]/20 to-[#F4D03F]/20 rounded-full -translate-y-16 translate-x-16 group-hover:scale-110 transition-transform duration-500"></div>
+            <div className="absolute bottom-0 left-0 w-24 h-24 bg-gradient-to-tr from-[#F4D03F]/20 to-[#D3AA62]/20 rounded-full translate-y-12 -translate-x-12 group-hover:scale-110 transition-transform duration-500"></div>
+            
+            <div className="relative z-10 p-8">
+              <div className="flex items-center gap-3 mb-6">
+                <div className="w-12 h-12 bg-gradient-to-br from-[#D3AA62] to-[#F4D03F] rounded-xl flex items-center justify-center">
+                  <RiFileList3Fill className="text-2xl text-black" />
+                </div>
+                <div>
+                  <h2 className="text-2xl font-bold text-white">Our Vision</h2>
+                  <p className="text-[#D3AA62] text-sm font-semibold">Standing Out in Interior Design</p>
+                </div>
+              </div>
+              
+              <p className="text-gray-300 mb-8 leading-relaxed text-lg">
+                We differentiate ourselves by crafting innovative designs that address both present needs and future demands. Our approach combines traditional craftsmanship with modern technology to create spaces that are both beautiful and functional.
+              </p>
+              
+              <div className="flex items-center gap-4 bg-[#D3AA62]/10 rounded-xl p-4 w-fit group-hover:bg-[#D3AA62]/20 transition-colors duration-300">
+                <RiFileList3Fill className="text-[#D3AA62] text-xl" />
+                <Link 
+                  to="/contact" 
+                  className="text-[#D3AA62] hover:text-[#F4D03F] transition-colors duration-300 font-semibold flex items-center gap-2"
+                >
+                  shreejayfarnichar@gmail.com
+                  <FaArrowRight className="text-sm group-hover:translate-x-1 transition-transform duration-300" />
+                </Link>
+              </div>
+            </div>
+            
+            {/* Experience Badge */}
+            <div className="absolute -top-6 -right-3 bg-gradient-to-br from-[#D3AA62] to-[#F4D03F] text-black p-6 rounded-2xl shadow-2xl group-hover:scale-110 transition-transform duration-300">
+              <div className="text-center">
+                <h3 className="text-sm font-bold mb-2">Years of Experience</h3>
+                <span className="text-4xl font-black">30+</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Services Card */}
+          <div className={`transition-all duration-1000 delay-400 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10'}`}>
+            <div className="card-modern p-8 h-full">
+              <div className="text-center mb-8">
+                <h2 className="heading-md text-white mb-4">
+                  We provide clients with the highest possible level of services
+                </h2>
+                <p className="text-gray-400">in Ahmedabad by our interior designers</p>
+              </div>
+              
+              <div className="grid grid-cols-1 gap-4">
+                {services.map((service, index) => (
+                  <div 
+                    key={index}
+                    className={`p-4 rounded-xl border-2 transition-all duration-300 cursor-pointer group ${
+                      activeService === index 
+                        ? 'border-[#D3AA62] bg-[#D3AA62]/10' 
+                        : 'border-[#333] bg-[#1A1A1A] hover:border-[#D3AA62]/50'
+                    }`}
+                    onClick={() => setActiveService(index)}
+                  >
+                    <div className="flex items-center gap-4">
+                      <div className={`w-16 h-16 rounded-xl bg-gradient-to-br ${service.color} flex items-center justify-center text-white group-hover:scale-110 transition-transform duration-300`}>
+                        {service.icon}
+                      </div>
+                      <div className="flex-1">
+                        <h3 className="text-white font-bold text-lg group-hover:text-[#D3AA62] transition-colors duration-300">
+                          {service.title}
+                        </h3>
+                        <p className="text-gray-400 text-sm">
+                          {service.description}
+                        </p>
+                      </div>
+                      <FaArrowRight className={`text-[#D3AA62] transition-all duration-300 ${
+                        activeService === index ? 'translate-x-1' : 'group-hover:translate-x-1'
+                      }`} />
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
 
-        {/* Right Card */}
-        <div className="w-full md:w-[70%] h-auto md:h-[300px] bg-[#1D1D1D] p-4 flex flex-col items-center gap-4 relative rounded-lg border-4 border-[#282828]">
-          <h1 className="text-lg md:text-xl font-bold text-white text-center">
-            We provide clients with the highest possible level of services in Ahmedabad by our interior designers.
-          </h1>
-          <div className="flex flex-col md:flex-row items-center gap-4 md:gap-2 rounded-lg p-2 w-full md:w-[100%] mx-auto text-base md:text-xl">
-            <div className="flex items-center justify-center text-center gap-2 flex-col">
-              <img src="/Interior-150x150.png" alt="" className="w-[50px] h-[50px] rounded-full" />
-              <h1 className="text-white font-bold">Interior Designer</h1>
+        {/* Stats Section */}
+        <div className={`grid grid-cols-2 md:grid-cols-4 gap-6 mb-20 transition-all duration-1000 delay-600 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+          {stats.map((stat, index) => (
+            <div key={index} className="card-modern card-hover text-center p-6 group">
+              <div className="w-16 h-16 bg-gradient-to-br from-[#D3AA62] to-[#F4D03F] rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
+                <span className="text-black text-2xl">{stat.icon}</span>
+              </div>
+              <div className="text-4xl font-black text-[#D3AA62] mb-2">{stat.number}</div>
+              <div className="text-gray-300 font-medium">{stat.label}</div>
             </div>
-            <div className="w-[80%] md:w-[1px] h-[1px] md:h-[100px] bg-[#5f5f5f]" />
-            <div className="flex items-center justify-center text-center gap-2 flex-col">
-              <img src="/6406gggg3-Converted-Recovered-01-1536x1536.png" alt="" className="w-[50px] h-[50px] rounded-full" />
-              <h1 className="text-white font-bold">Builder contractor</h1>
-            </div>
-            <div className="w-[80%] md:w-[1px] h-[1px] md:h-[100px] bg-[#5f5f5f]" />
-            <div className="flex items-center justify-center text-center gap-2 flex-col">
-              <img src="/sketch.png" alt="" className="w-[50px] h-[50px] rounded-full" />
-              <h1 className="text-white font-bold">Turnkey Solutions</h1>
-            </div>
+          ))}
+        </div>
 
-            <div className="w-[80%] md:w-[1px] h-[1px] md:h-[100px] bg-[#5f5f5f]" />
-
-            <div className="flex items-center justify-center text-center gap-2 flex-col">
-              <img src="/padlock.png" alt="" className="w-[50px] h-[50px] rounded-full" />
-              <h1 className="text-white font-bold">Key to Key Project</h1>
-            </div>
-            <div className="w-[80%] md:w-[1px] h-[1px] md:h-[100px] bg-[#5f5f5f]" />
-            <div className="flex items-center justify-center text-center gap-2 flex-col">
-              <img src="/6406gggg3-Converted-Recovered-01-1536x1536.png" alt="" className="w-[50px] h-[50px] rounded-full" />
-              <h1 className="text-white font-bold">Gov. Project </h1>
+        {/* Quote Section */}
+        <div className={`text-center transition-all duration-1000 delay-800 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+          <div className="card-modern max-w-4xl mx-auto p-12 relative">
+            <FaQuoteLeft className="text-6xl text-[#D3AA62]/20 absolute top-6 left-6" />
+            <blockquote className="text-2xl md:text-3xl text-white font-medium leading-relaxed mb-8 relative z-10">
+              "We don't just design spaces, we create experiences that transform the way you live, work, and feel in your environment."
+            </blockquote>
+            <div className="flex items-center justify-center gap-4">
+              <div className="w-12 h-12 bg-gradient-to-br from-[#D3AA62] to-[#F4D03F] rounded-full flex items-center justify-center">
+                <span className="text-black font-bold text-lg">SJ</span>
+              </div>
+              <div className="text-left">
+                <div className="text-white font-semibold text-lg">Shree Jay Furniture</div>
+                <div className="text-[#D3AA62] text-sm">Interior Designers & Furniture Makers</div>
+              </div>
             </div>
           </div>
         </div>
