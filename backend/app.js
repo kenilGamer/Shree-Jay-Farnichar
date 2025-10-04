@@ -286,6 +286,17 @@ app.get('/gallery/:page/:limit', async (req, res) => {
   }
 });
 
+// Simple gallery endpoint without pagination for frontend
+app.get('/gallery', async (req, res) => {
+  try {
+    const galleries = await Gallery.find();
+    res.status(200).json(galleries);
+  } catch (error) {
+    console.error('Error fetching galleries:', error);
+    res.status(500).json({ message: 'Internal Server Error' });
+  }
+});
+
 // Route for updating a gallery item 
 app.put('/gallery/:id', verifyToken, upload.fields([{ name: 'image', maxCount: 1 }, { name: 'video', maxCount: 1 }]), async (req, res) => {
   try {

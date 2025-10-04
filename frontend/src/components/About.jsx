@@ -1,64 +1,191 @@
-import Navbar from "../partials/Navbar";
-import Topbar from "../partials/Topbar";
-
-const ExpertiseList = ({ items }) => (
-  <ul className="text-white text-lg space-y-2">
-    {items.map((item, index) => (
-      <li key={index}>◉ {item}</li>
-    ))}
-  </ul>
-);
+import React from 'react';
+import { FaAward, FaUsers, FaCogs, FaKey, FaBuilding, FaLightbulb, FaHeart, FaRocket, FaShieldAlt, FaHandshake, FaStar, FaTrophy, FaPaintBrush, FaHome, FaCog, FaCheckCircle } from 'react-icons/fa';
 
 const About = () => {
   const expertise = [
-    "Interior Design: Creating stylish and functional spaces tailored to your needs.",
-    "Spatial Planning: Optimizing the use of space for maximum efficiency and comfort.",
-    "Furniture Curation: Custom furniture solutions designed to enhance your space.",
-    "Turnkey Projects: End-to-end services including design, electrical, plumbing, and installation."
+    {
+      icon: <FaPaintBrush className="text-2xl text-[#D3AA62]" />,
+      title: "Interior Design",
+      description: "Creating stylish and functional spaces tailored to your needs with innovative design solutions."
+    },
+    {
+      icon: <FaHome className="text-2xl text-[#D3AA62]" />,
+      title: "Spatial Planning",
+      description: "Optimizing the use of space for maximum efficiency and comfort in every project."
+    },
+    {
+      icon: <FaCog className="text-2xl text-[#D3AA62]" />,
+      title: "Furniture Curation",
+      description: "Custom furniture solutions designed to enhance your space with premium materials."
+    },
+    {
+      icon: <FaKey className="text-2xl text-[#D3AA62]" />,
+      title: "Turnkey Projects",
+      description: "End-to-end services including design, electrical, plumbing, and installation."
+    }
+  ];
+
+  const whyChooseUs = [
+    {
+      icon: <FaUsers className="text-2xl text-[#D3AA62]" />,
+      title: "Experienced Professionals",
+      description: "A dedicated team of skilled craftsmen and designers with years of expertise."
+    },
+    {
+      icon: <FaShieldAlt className="text-2xl text-[#D3AA62]" />,
+      title: "High-Quality Materials",
+      description: "Only premium, ISI-certified materials for durability and aesthetic appeal."
+    },
+    {
+      icon: <FaTrophy className="text-2xl text-[#D3AA62]" />,
+      title: "Lifetime Warranty",
+      description: "Offering lifetime warranties on all furniture and services for your peace of mind."
+    },
+    {
+      icon: <FaHandshake className="text-2xl text-[#D3AA62]" />,
+      title: "Client-Centric Approach",
+      description: "We work closely with you to ensure your vision becomes a beautiful reality."
+    }
+  ];
+
+  const stats = [
+    { number: "30+", label: "Years of Experience", icon: <FaAward className="text-3xl text-[#D3AA62]" /> },
+    { number: "500+", label: "Projects Completed", icon: <FaBuilding className="text-3xl text-[#D3AA62]" /> },
+    { number: "100%", label: "Client Satisfaction", icon: <FaStar className="text-3xl text-[#D3AA62]" /> },
+    { number: "24/7", label: "Customer Support", icon: <FaCogs className="text-3xl text-[#D3AA62]" /> }
   ];
 
   return (
-    <div className="min-h-screen container mx-auto px-6 py-8">
-      <Topbar />
-      <Navbar />
-      <header className="text-center mt-10 mb-6">
-        <h1 className="text-white text-3xl font-black uppercase">About Shree Jay Furniture: Transforming Spaces with Excellence</h1>
-      </header>
-
-      <section className="max-w-6xl mx-auto p-10 bg-[#1D1D1D] rounded-lg border-4 border-[#282828] space-y-8">
-        <article>
-          <p className="text-white text-lg">
-            At Shree Jay Furniture, we are more than just an interior design company—we are passionate creators dedicated to transforming spaces...
+    <div className="min-h-screen bg-gradient-to-b from-black via-[#0A0A0A] to-[#1A1A1A] pt-32">
+      <div className="container mx-auto px-4 py-20">
+        {/* Hero Section */}
+        <div className="text-center mb-20 slide-up">
+          <h1 className="heading-lg gradient-text mb-6">
+            About Shree Jay Furniture
+          </h1>
+          <p className="text-xl text-gray-300 max-w-4xl mx-auto leading-relaxed">
+            Transforming Spaces with Excellence - We are passionate creators dedicated to bringing your interior design dreams to life with innovative solutions and unmatched craftsmanship.
           </p>
-        </article>
+        </div>
 
-        <div className="flex flex-col md:flex-row gap-8">
-          <div className="md:w-1/2 space-y-4">
-            <h2 className="text-white text-3xl font-black uppercase mb-4">Our Expertise</h2>
-            <ExpertiseList items={expertise} />
+        {/* Stats Section */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-20">
+          {stats.map((stat, index) => (
+            <div key={index} className="card-modern text-center group">
+              <div className="flex flex-col items-center space-y-4">
+                <div className="group-hover:scale-110 transition-transform duration-300">
+                  {stat.icon}
+                </div>
+                <div>
+                  <h3 className="text-3xl font-bold text-white mb-2">{stat.number}</h3>
+                  <p className="text-gray-300 font-medium">{stat.label}</p>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Our Expertise Section */}
+        <div className="mb-20">
+          <div className="text-center mb-12">
+            <h2 className="heading-md gradient-text mb-4">Our Expertise</h2>
+            <p className="text-lg text-gray-300 max-w-3xl mx-auto">
+              We specialize in comprehensive interior design solutions that transform spaces into beautiful, functional environments.
+            </p>
           </div>
-          <div className="md:w-1/2 space-y-4">
-            <h2 className="text-white text-3xl font-black uppercase mb-4">Why Choose Us?</h2>
-            <ul className="text-white text-lg space-y-2">
-              <li>◉ Experienced Professionals: A dedicated team of skilled craftsmen and designers.</li>
-              <li>◉ High-Quality Materials: Only premium, ISI-certified materials for durability and aesthetic appeal.</li>
-              <li>◉ Lifetime Warranty: Offering lifetime warranties on all furniture and services.</li>
-              <li>◉ Client-Centric Approach: We work closely with you to ensure your vision becomes a reality.</li>
-            </ul>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {expertise.map((item, index) => (
+              <div key={index} className="card-modern card-hover group">
+                <div className="text-center space-y-4">
+                  <div className="group-hover:scale-110 transition-transform duration-300">
+                    {item.icon}
+                  </div>
+                  <h3 className="text-xl font-bold text-white">{item.title}</h3>
+                  <p className="text-gray-300 text-sm leading-relaxed">{item.description}</p>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
 
-        <div className="flex flex-col md:flex-row gap-8">
-          <div className="md:w-1/2 space-y-4">
-            <h2 className="text-white text-3xl font-black uppercase mb-4">Our Mission</h2>
-            <p className="text-white text-lg">◉ To provide our clients with the highest quality interior designs and solutions...</p>
+        {/* Why Choose Us Section */}
+        <div className="mb-20">
+          <div className="text-center mb-12">
+            <h2 className="heading-md gradient-text mb-4">Why Choose Us?</h2>
+            <p className="text-lg text-gray-300 max-w-3xl mx-auto">
+              Our commitment to excellence and client satisfaction sets us apart in the interior design industry.
+            </p>
           </div>
-          <div className="md:w-1/2 space-y-4">
-            <h2 className="text-white text-3xl font-black uppercase mb-4">Our Vision</h2>
-            <p className="text-white text-lg">◉ To become the foremost name in Gujarat for distinctive and innovative interior design...</p>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {whyChooseUs.map((item, index) => (
+              <div key={index} className="card-modern card-hover group">
+                <div className="flex items-start space-x-4">
+                  <div className="flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
+                    {item.icon}
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-bold text-white mb-2">{item.title}</h3>
+                    <p className="text-gray-300 leading-relaxed">{item.description}</p>
+                  </div>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
-      </section>
+
+        {/* Mission & Vision Section */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-20">
+          <div className="card-modern">
+            <div className="text-center space-y-6">
+              <div className="w-16 h-16 bg-gradient-to-br from-[#D3AA62] to-[#F4D03F] rounded-full flex items-center justify-center mx-auto">
+                <FaRocket className="text-2xl text-black" />
+              </div>
+              <h3 className="heading-sm text-white">Our Mission</h3>
+              <p className="text-gray-300 leading-relaxed">
+                To provide our clients with the highest quality interior designs and solutions that exceed expectations, 
+                while maintaining the highest standards of craftsmanship and customer service. We strive to create 
+                spaces that inspire, comfort, and reflect the unique personality of each client.
+              </p>
+            </div>
+          </div>
+
+          <div className="card-modern">
+            <div className="text-center space-y-6">
+              <div className="w-16 h-16 bg-gradient-to-br from-[#D3AA62] to-[#F4D03F] rounded-full flex items-center justify-center mx-auto">
+                <FaLightbulb className="text-2xl text-black" />
+              </div>
+              <h3 className="heading-sm text-white">Our Vision</h3>
+              <p className="text-gray-300 leading-relaxed">
+                To become the foremost name in Gujarat for distinctive and innovative interior design solutions. 
+                We envision a future where every space we touch becomes a masterpiece of functionality and beauty, 
+                setting new standards in the industry and inspiring others to dream bigger.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        {/* Call to Action Section */}
+        <div className="text-center">
+          <div className="card-modern max-w-4xl mx-auto">
+            <div className="space-y-6">
+              <h3 className="heading-md gradient-text">Ready to Transform Your Space?</h3>
+              <p className="text-lg text-gray-300 max-w-2xl mx-auto">
+                Let us bring your interior design vision to life with our expertise, quality materials, and exceptional service.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                <button className="btn-primary">
+                  Get Free Quote
+                </button>
+                <button className="btn-secondary">
+                  View Our Work
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };

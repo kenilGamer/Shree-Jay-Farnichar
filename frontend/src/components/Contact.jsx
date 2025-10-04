@@ -5,8 +5,8 @@ import Navbar from '../partials/Navbar'
 function Contact() {
   return (
     <div className='h-screen'>
-        <Topbar/>
-        <Navbar/>
+        {/* <Topbar/> */}
+        {/* <Navbar/> */}
         {/* <h1 className='text-white text-3xl font-black uppercase text-center mb-10'>Contact Us</h1> */}
         <div className='flex items-center justify-center mt-10'>
             <div className='w-[400px] h-[500px] bg-[#1D1D1D] p-4 flex flex-col  gap-[14px] relative rounded-lg border-4 border-[#282828] '>
