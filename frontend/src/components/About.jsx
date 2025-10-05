@@ -61,7 +61,7 @@ const About = () => {
         {/* Hero Section */}
         <div className="text-center mb-20 slide-up">
           <h1 className="heading-lg gradient-text mb-6">
-            About Shree Jay Furniture
+            About Bhumi Interior Solution
           </h1>
           <p className="text-xl text-gray-300 max-w-4xl mx-auto leading-relaxed">
             Transforming Spaces with Excellence - We are passionate creators dedicated to bringing your interior design dreams to life with innovative solutions and unmatched craftsmanship.

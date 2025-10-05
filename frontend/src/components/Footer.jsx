@@ -44,17 +44,17 @@ function Footer() {
           {/* Company Info */}
           <div className='lg:col-span-2'>
             <div className='flex items-center gap-3 mb-6'>
-              <div className="w-12 h-12 bg-gradient-to-br from-[#D3AA62] to-[#F4D03F] rounded-xl flex items-center justify-center">
-                <span className="text-black font-black text-xl">SJ</span>
+              <div className="w-20 h-20 rounded-xl flex items-center justify-center">
+                <img src="/logo.png" alt="Bhumi Interior Solution" className="w-20 scale-[1.1]" />
               </div>
               <div>
-                <h1 className='text-3xl font-black gradient-text'>Shree Jay Furniture</h1>
+                <h1 className='text-3xl font-black gradient-text'>Bhumi Interior Solution</h1>
                 <p className='text-gray-400'>Interior Designers & Furniture Makers</p>
               </div>
             </div>
             
             <p className='text-gray-300 mb-8 leading-relaxed text-lg'>
-              At Shree Jay Furniture, we combine 30 years of experience with unmatched craftsmanship to transform spaces with premium furniture and bespoke interiors. Whether it's your home, office, or commercial project, we deliver designs that are both functional and elegant.
+              At Bhumi Interior Solution, we combine 30 years of experience with unmatched craftsmanship to transform spaces with premium furniture and bespoke interiors. Whether it's your home, office, or commercial project, we deliver designs that are both functional and elegant.
             </p>
 
             {/* Specialties */}
@@ -92,8 +92,8 @@ function Footer() {
                   <FiMail className='text-[#D3AA62] text-xl' />
                   <div>
                     <p className='text-sm text-gray-400'>Email</p>
-                    <a href='mailto:info@shreejayfurniture.store' className='text-[#D3AA62] hover:text-[#F4D03F] transition-colors duration-300'>
-                      info@shreejayfurniture.store
+                    <a href='mailto:bhumiinteriorsolution@gmail.com' className='text-[#D3AA62] hover:text-[#F4D03F] transition-colors duration-300'>
+                      bhumiinteriorsolution@gmail.com
                     </a>
                   </div>
                 </div>
@@ -173,7 +173,7 @@ function Footer() {
             {/* Copyright */}
             <div className='text-center md:text-right'>
               <p className='text-gray-500 text-sm'>
-                © {new Date().getFullYear()} Shree Jay Furniture. All Rights Reserved.
+                © {new Date().getFullYear()} Bhumi Interior Solution. All Rights Reserved.
               </p>
               <p className='text-gray-600 text-xs mt-1'>
                 Crafted with ❤️ Created by <a href='https://www.creativitycoder.com' className='text-[#D3AA62] hover:text-[#F4D03F] transition-colors duration-300'>CreativityCoder</a>

@@ -1,4 +1,4 @@
-# Shree Jay Furniture - Interior Design Management System
+# Bhumi Interior Solution - Interior Design Management System
 
 A full-stack application for managing interior design projects, gallery, and client interactions.
 
@@ -209,7 +209,7 @@ NODE_ENV=development
 ### Frontend (.env)
 ```env
 VITE_API_URL=http://localhost:5000
-VITE_APP_NAME=Shree Jay Furniture
+VITE_APP_NAME=Bhumi Interior Solution
 ```
 
 ## 🤝 Contributing
@@ -223,7 +223,7 @@ VITE_APP_NAME=Shree Jay Furniture
 ## 📞 Support
 
 For support and questions:
-- Email: shreejayfarnichar@gmail.com
+- Email: bhumiinteriorsolution@gmail.com
 - Phone: +91 92281 04285
 
 ---

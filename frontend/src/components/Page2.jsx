@@ -94,47 +94,50 @@ function Page2() {
         </div>
 
         {/* Main Content Grid */}
-        <div className="grid lg:grid-cols-2 gap-12 mb-20">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 mb-20">
           {/* Vision Card */}
           <div className={`card-modern card-hover relative overflow-hidden group transition-all duration-1000 delay-200 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'}`}>
             {/* Decorative Elements */}
             <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-[#D3AA62]/20 to-[#F4D03F]/20 rounded-full -translate-y-16 translate-x-16 group-hover:scale-110 transition-transform duration-500"></div>
             <div className="absolute bottom-0 left-0 w-24 h-24 bg-gradient-to-tr from-[#F4D03F]/20 to-[#D3AA62]/20 rounded-full translate-y-12 -translate-x-12 group-hover:scale-110 transition-transform duration-500"></div>
             
-            <div className="relative z-10 p-8">
-              <div className="flex items-center gap-3 mb-6">
+            <div className="page2-vision-card relative z-10 p-6 lg:p-8">
+              {/* Experience Badge - Repositioned */}
+              <div className="page2-experience-badge absolute top-4 right-4 bg-gradient-to-br from-[#D3AA62] to-[#F4D03F] text-black p-4 rounded-xl shadow-lg group-hover:scale-105 transition-transform duration-300">
+                <div className="text-center">
+                  <h3 className="text-xs font-bold mb-1">Years of Experience</h3>
+                  <span className="text-2xl font-black">30+</span>
+                </div>
+              </div>
+              
+              <div className="page2-vision-header flex items-center gap-3 mb-6 pr-24">
                 <div className="w-12 h-12 bg-gradient-to-br from-[#D3AA62] to-[#F4D03F] rounded-xl flex items-center justify-center">
                   <RiFileList3Fill className="text-2xl text-black" />
                 </div>
-                <div>
+                <div className="flex-1">
                   <h2 className="text-2xl font-bold text-white">Our Vision</h2>
                   <p className="text-[#D3AA62] text-sm font-semibold">Standing Out in Interior Design</p>
                 </div>
               </div>
               
-              <p className="text-gray-300 mb-8 leading-relaxed text-lg">
+              <p className="text-gray-300 mb-8 leading-relaxed text-lg pr-4">
                 We differentiate ourselves by crafting innovative designs that address both present needs and future demands. Our approach combines traditional craftsmanship with modern technology to create spaces that are both beautiful and functional.
               </p>
               
-              <div className="flex items-center gap-4 bg-[#D3AA62]/10 rounded-xl p-4 w-fit group-hover:bg-[#D3AA62]/20 transition-colors duration-300">
-                <RiFileList3Fill className="text-[#D3AA62] text-xl" />
+              <div className="email-container flex items-center gap-4 bg-[#D3AA62]/10 rounded-xl p-4 w-full group-hover:bg-[#D3AA62]/20 transition-all duration-300 hover:shadow-lg border border-[#D3AA62]/20">
+                <div className="w-10 h-10 bg-gradient-to-br from-[#D3AA62] to-[#F4D03F] rounded-lg flex items-center justify-center flex-shrink-0">
+                  <RiFileList3Fill className="text-[#D3AA62] text-lg" />
+                </div>
                 <Link 
                   to="/contact" 
-                  className="text-[#D3AA62] hover:text-[#F4D03F] transition-colors duration-300 font-semibold flex items-center gap-2"
+                  className="text-[#D3AA62] hover:text-[#F4D03F] transition-colors duration-300 font-semibold flex items-center gap-2 flex-1 min-w-0"
                 >
-                  shreejayfarnichar@gmail.com
-                  <FaArrowRight className="text-sm group-hover:translate-x-1 transition-transform duration-300" />
+                  <span>bhumiinteriorsolution@gmail.com</span>
+                  <FaArrowRight className="text-sm group-hover:translate-x-1 transition-transform duration-300 flex-shrink-0" />
                 </Link>
               </div>
             </div>
             
-            {/* Experience Badge */}
-            <div className="absolute -top-6 -right-3 bg-gradient-to-br from-[#D3AA62] to-[#F4D03F] text-black p-6 rounded-2xl shadow-2xl group-hover:scale-110 transition-transform duration-300">
-              <div className="text-center">
-                <h3 className="text-sm font-bold mb-2">Years of Experience</h3>
-                <span className="text-4xl font-black">30+</span>
-              </div>
-            </div>
           </div>
 
           {/* Services Card */}
@@ -151,15 +154,15 @@ function Page2() {
                 {services.map((service, index) => (
                   <div 
                     key={index}
-                    className={`p-4 rounded-xl border-2 transition-all duration-300 cursor-pointer group ${
+                    className={`p-5 rounded-xl border-2 transition-all duration-300 cursor-pointer group hover:shadow-lg ${
                       activeService === index 
-                        ? 'border-[#D3AA62] bg-[#D3AA62]/10' 
-                        : 'border-[#333] bg-[#1A1A1A] hover:border-[#D3AA62]/50'
+                        ? 'border-[#D3AA62] bg-[#D3AA62]/10 shadow-lg transform scale-[1.02]' 
+                        : 'border-[#333] bg-[#1A1A1A] hover:border-[#D3AA62]/50 hover:bg-[#D3AA62]/5'
                     }`}
                     onClick={() => setActiveService(index)}
                   >
                     <div className="flex items-center gap-4">
-                      <div className={`w-16 h-16 rounded-xl bg-gradient-to-br ${service.color} flex items-center justify-center text-white group-hover:scale-110 transition-transform duration-300`}>
+                      <div className={`w-16 h-16 rounded-xl bg-gradient-to-br ${service.color} flex items-center justify-center text-white group-hover:scale-110 transition-transform duration-300 shadow-lg`}>
                         {service.icon}
                       </div>
                       <div className="flex-1">
@@ -184,12 +187,17 @@ function Page2() {
         {/* Stats Section */}
         <div className={`grid grid-cols-2 md:grid-cols-4 gap-6 mb-20 transition-all duration-1000 delay-600 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
           {stats.map((stat, index) => (
-            <div key={index} className="card-modern card-hover text-center p-6 group">
-              <div className="w-16 h-16 bg-gradient-to-br from-[#D3AA62] to-[#F4D03F] rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
-                <span className="text-black text-2xl">{stat.icon}</span>
+            <div key={index} className="card-modern card-hover text-center p-6 group relative overflow-hidden">
+              {/* Decorative Background */}
+              <div className="absolute inset-0 bg-gradient-to-br from-[#D3AA62]/5 to-[#F4D03F]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              
+              <div className="relative z-10">
+                <div className="w-16 h-16 bg-gradient-to-br from-[#D3AA62] to-[#F4D03F] rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300 shadow-lg">
+                  <span className="text-black text-2xl">{stat.icon}</span>
+                </div>
+                <div className="text-4xl font-black text-[#D3AA62] mb-2 group-hover:scale-105 transition-transform duration-300">{stat.number}</div>
+                <div className="text-gray-300 font-medium group-hover:text-white transition-colors duration-300">{stat.label}</div>
               </div>
-              <div className="text-4xl font-black text-[#D3AA62] mb-2">{stat.number}</div>
-              <div className="text-gray-300 font-medium">{stat.label}</div>
             </div>
           ))}
         </div>
@@ -202,11 +210,11 @@ function Page2() {
               "We don't just design spaces, we create experiences that transform the way you live, work, and feel in your environment."
             </blockquote>
             <div className="flex items-center justify-center gap-4">
-              <div className="w-12 h-12 bg-gradient-to-br from-[#D3AA62] to-[#F4D03F] rounded-full flex items-center justify-center">
-                <span className="text-black font-bold text-lg">SJ</span>
-              </div>
+                <div className="w-16 h-16 rounded-full flex items-center justify-center overflow-hidden bg-white/10 backdrop-blur-sm">
+                  <img src="/logo.png" alt="Bhumi Interior Solution" className="w-full h-full object-contain" />
+                </div>
               <div className="text-left">
-                <div className="text-white font-semibold text-lg">Shree Jay Furniture</div>
+                <div className="text-white font-semibold text-lg">Bhumi Interior Solution</div>
                 <div className="text-[#D3AA62] text-sm">Interior Designers & Furniture Makers</div>
               </div>
             </div>

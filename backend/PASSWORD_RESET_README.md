@@ -1,6 +1,6 @@
 # Password Reset Functionality
 
-This document explains the password reset functionality implemented in the Shree Jay Furniture backend.
+This document explains the password reset functionality implemented in the Bhumi Interior Solution backend.
 
 ## Overview
 
@@ -117,7 +117,7 @@ The password reset email includes:
 - Clear call-to-action button
 - Fallback text link
 - Security information
-- Branding for Shree Jay Furniture
+- Branding for Bhumi Interior Solution
 
 ## Testing
 
@@ -127,7 +127,7 @@ The password reset email includes:
 
 1. **Test Forgot Password:**
    ```powershell
-   Invoke-RestMethod -Uri "http://localhost:5000/forgot-password" -Method POST -ContentType "application/json" -Body '{"email": "shreejayfarnichar@gmail.com"}'
+   Invoke-RestMethod -Uri "http://localhost:5000/forgot-password" -Method POST -ContentType "application/json" -Body '{"email": "bhumiinteriorsolution@gmail.com"}'
    ```
 
 2. **Test Reset Password:**
@@ -139,7 +139,7 @@ The password reset email includes:
 
 1. **Test Forgot Password:**
    ```bash
-   curl -X POST http://localhost:5000/forgot-password -H "Content-Type: application/json" -d "{\"email\": \"shreejayfarnichar@gmail.com\"}"
+   curl -X POST http://localhost:5000/forgot-password -H "Content-Type: application/json" -d "{\"email\": \"bhumiinteriorsolution@gmail.com\"}"
    ```
 
 2. **Test Reset Password:**
@@ -156,7 +156,7 @@ The password reset email includes:
    - Body (JSON):
      ```json
      {
-       "email": "shreejayfarnichar@gmail.com"
+       "email": "bhumiinteriorsolution@gmail.com"
      }
      ```
 

@@ -37,6 +37,313 @@ body {
   overflow-x: hidden;
 }
 
+/* Header Layout Fixes */
+.topbar {
+  min-height: 48px;
+}
+
+.navbar {
+  min-height: 64px;
+}
+
+/* Prevent text overflow in navbar */
+.navbar-brand {
+  max-width: 200px;
+  overflow: hidden;
+}
+
+@media (max-width: 640px) {
+  .navbar-brand {
+    max-width: 150px;
+  }
+}
+
+/* Ensure proper spacing between topbar and navbar */
+.topbar + .navbar {
+  margin-top: 0;
+}
+
+/* Improve contrast and prevent blurring */
+.topbar, .navbar {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+/* Ensure social icons are always visible */
+.topbar a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.topbar a:hover {
+  text-decoration: none;
+}
+
+/* Improve button contrast */
+.navbar button {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Ensure menu items are always readable */
+.navbar a {
+  text-decoration: none;
+  color: inherit;
+  font-weight: 600;
+}
+
+.navbar a:hover {
+  text-decoration: none;
+}
+
+/* Mobile social media icons visibility */
+@media (max-width: 640px) {
+  .topbar .flex.items-center.gap-2 {
+    justify-content: center;
+    width: 100%;
+  }
+  
+  .topbar .flex.items-center.gap-1 {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem;
+  }
+  
+  .topbar a[aria-label] {
+    min-width: 2rem;
+    min-height: 2rem;
+  }
+}
+
+/* Ensure social icons are always visible */
+.topbar a[aria-label] {
+  display: flex !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+/* Fix email address truncation */
+.email-container {
+  min-width: 0;
+  width: 100%;
+}
+
+.email-container span {
+  word-break: break-all;
+  overflow-wrap: break-word;
+}
+
+/* Ensure email links are fully visible */
+a[href*="mailto:"] {
+  white-space: nowrap;
+  overflow: visible;
+  text-overflow: unset;
+}
+
+/* Page2 component responsive improvements */
+@media (max-width: 768px) {
+  .page2-vision-card {
+    padding: 1.5rem;
+  }
+  
+  .page2-experience-badge {
+    position: relative !important;
+    top: auto !important;
+    right: auto !important;
+    margin-bottom: 1rem;
+    width: fit-content;
+  }
+  
+  .page2-vision-header {
+    padding-right: 0 !important;
+  }
+}
+
+/* Enhanced card hover effects */
+.card-modern {
+  transition: all 0.3s ease;
+}
+
+.card-modern:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+/* Video modal enhancements */
+.video-modal {
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+/* Custom video controls */
+.video-controls {
+  background: linear-gradient(180deg, transparent 0%, rgba(0,0,0,0.7) 100%);
+}
+
+/* Smooth modal animations */
+.modal-enter {
+  opacity: 0;
+  transform: scale(0.9);
+}
+
+.modal-enter-active {
+  opacity: 1;
+  transform: scale(1);
+  transition: opacity 300ms, transform 300ms;
+}
+
+.modal-exit {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.modal-exit-active {
+  opacity: 0;
+  transform: scale(0.9);
+  transition: opacity 300ms, transform 300ms;
+}
+
+/* Keyboard shortcut styling */
+kbd {
+  background: #374151;
+  border: 1px solid #4B5563;
+  border-radius: 4px;
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.2);
+  color: #F9FAFB;
+  display: inline-block;
+  font-family: monospace;
+  font-size: 0.75rem;
+  font-weight: 600;
+  line-height: 1;
+  padding: 0.25rem 0.5rem;
+  white-space: nowrap;
+}
+
+/* Hide navbar when video modal is open */
+html[data-video-modal-open="true"] .navbar {
+  display: none !important;
+  visibility: hidden !important;
+  transform: translateY(-100%) !important;
+  transition: all 0.3s ease !important;
+  pointer-events: none !important;
+}
+
+html[data-video-modal-open="true"] .topbar {
+  opacity: 0 !important;
+  visibility: hidden !important;
+  transform: translateY(-100%) !important;
+  transition: all 0.3s ease !important;
+  pointer-events: none !important;
+}
+
+/* Ensure video modal is above everything */
+.video-modal {
+  z-index: 9999 !important;
+}
+
+/* Additional mobile improvements for navbar hiding */
+@media (max-width: 768px) {
+  html[data-video-modal-open="true"] .navbar {
+    display: none !important;
+  }
+  
+  html[data-video-modal-open="true"] .topbar {
+    display: none !important;
+  }
+}
+
+/* Custom slider styling for volume control */
+.slider {
+  -webkit-appearance: none;
+  appearance: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+.slider::-webkit-slider-track {
+  background: rgba(255, 255, 255, 0.2);
+  height: 4px;
+  border-radius: 2px;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  background: #D3AA62;
+  height: 16px;
+  width: 16px;
+  border-radius: 50%;
+  cursor: pointer;
+  border: 2px solid #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.slider::-webkit-slider-thumb:hover {
+  background: #F4D03F;
+  transform: scale(1.1);
+}
+
+.slider::-moz-range-track {
+  background: rgba(255, 255, 255, 0.2);
+  height: 4px;
+  border-radius: 2px;
+  border: none;
+}
+
+.slider::-moz-range-thumb {
+  background: #D3AA62;
+  height: 16px;
+  width: 16px;
+  border-radius: 50%;
+  cursor: pointer;
+  border: 2px solid #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* Mobile-specific improvements */
+@media (max-width: 640px) {
+  /* Touch-friendly controls */
+  .touch-manipulation {
+    touch-action: manipulation;
+  }
+  
+  /* Larger touch targets */
+  .touch-manipulation {
+    min-height: 44px;
+    min-width: 44px;
+  }
+  
+  /* Better mobile video modal */
+  .video-modal-mobile {
+    padding: 0.5rem;
+  }
+  
+  /* Hide keyboard shortcuts on mobile */
+  .mobile-hidden {
+    display: none;
+  }
+  
+  /* Better mobile progress bar */
+  .mobile-progress {
+    height: 8px;
+  }
+  
+  /* Mobile-friendly settings panel */
+  .mobile-settings {
+    right: 0.5rem;
+    left: 0.5rem;
+    min-width: auto;
+  }
+}
+
+/* Prevent zoom on input focus on mobile */
+@media screen and (max-width: 640px) {
+  input[type="range"] {
+    font-size: 16px;
+  }
+}
+
 /* Custom Scrollbar */
 ::-webkit-scrollbar {
   width: 8px;

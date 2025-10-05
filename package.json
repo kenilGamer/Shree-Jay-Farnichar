@@ -1,7 +1,7 @@
 {
   "name": "shree-jay-furniture",
   "version": "1.0.0",
-  "description": "Shree Jay Furniture - Interior Design Management System",
+  "description": "Bhumi Interior Solution - Interior Design Management System",
   "scripts": {
     "dev": "concurrently \"npm run backend\" \"npm run frontend\"",
     "backend": "cd backend && npm run dev",

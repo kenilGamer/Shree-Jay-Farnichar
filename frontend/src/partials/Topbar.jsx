@@ -13,39 +13,41 @@ function Topbar() {
   ];
 
   return (
-    <div className="bg-gradient-to-r from-[#0A0A0A] to-[#1A1A1A] border-b border-white/10 relative z-40">
+    <div className="topbar bg-gradient-to-r from-[#0A0A0A] to-[#1A1A1A] border-b border-white/10 relative z-40 backdrop-blur-sm">
       <div className="container mx-auto px-4 py-2">
-        <div className="flex flex-col md:flex-row justify-between items-center gap-2">
+        <div className="flex flex-col gap-3">
           {/* Contact Information */}
-          <div className="flex flex-col sm:flex-row items-center gap-3 text-xs md:text-sm">
-            <div className="flex items-center gap-2 text-gray-300 hover:text-[#D3AA62] transition-colors duration-300">
-              <FaMobileScreenButton className="text-[#D3AA62] text-sm" /> 
-              <a href="tel:+9228104285" className="hover:underline">+91 92281 04285</a>
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-2 text-xs">
+            <div className="flex flex-col sm:flex-row items-center gap-2">
+              <div className="flex items-center gap-1.5 text-gray-300 hover:text-[#D3AA62] transition-all duration-300 group">
+                <FaMobileScreenButton className="text-[#D3AA62] text-xs group-hover:scale-110 transition-transform duration-300" /> 
+                <a href="tel:+9228104285" className="hover:underline font-medium">+91 92281 04285</a>
+              </div>
+              <div className="flex items-center gap-1.5 text-gray-300 hover:text-[#D3AA62] transition-all duration-300 group">
+                <FaEnvelope className="text-[#D3AA62] text-xs group-hover:scale-110 transition-transform duration-300" /> 
+                <a href="mailto:bhumiinteriorsolution@gmail.com" className="hover:underline text-xs font-medium">bhumiinteriorsolution@gmail.com</a>
+              </div>
             </div>
-            <div className="flex items-center gap-2 text-gray-300 hover:text-[#D3AA62] transition-colors duration-300">
-              <FaEnvelope className="text-[#D3AA62] text-sm" /> 
-              <a href="mailto:shreejayfarnichar@gmail.com" className="hover:underline text-xs md:text-sm">shreejayfarnichar@gmail.com</a>
-            </div>
-          </div>
 
-          {/* Social Icons */}
-          <div className="flex items-center gap-2">
-            <span className="text-gray-400 text-xs hidden sm:block">Follow Us:</span>
-            <div className="flex items-center gap-1">
-              {data.map((item, index) => (
-                <a 
-                  key={index} 
-                  href={item.link} 
-                  target="_blank" 
-                  rel="noopener noreferrer" 
-                  className="w-7 h-7 bg-[#1A1A1A] rounded-lg flex items-center justify-center text-gray-400 hover:text-[#D3AA62] hover:bg-[#D3AA62]/10 transition-all duration-300 group"
-                  aria-label={item.label}
-                >
-                  <span className="group-hover:scale-110 transition-transform duration-300 text-sm">
-                    {item.icon}
-                  </span>
-                </a>
-              ))}
+            {/* Social Icons */}
+            <div className="flex items-center gap-2">
+              <span className="text-gray-400 text-xs font-medium">Follow:</span>
+              <div className="flex items-center gap-1">
+                {data.map((item, index) => (
+                  <a 
+                    key={index} 
+                    href={item.link} 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className="w-6 h-6 sm:w-7 sm:h-7 bg-white/20 rounded-lg flex items-center justify-center text-white hover:text-[#D3AA62] hover:bg-[#D3AA62]/30 transition-all duration-300 group hover:shadow-lg hover:scale-110 border border-white/10"
+                    aria-label={item.label}
+                  >
+                    <span className="group-hover:scale-110 transition-transform duration-300 text-xs sm:text-sm">
+                      {item.icon}
+                    </span>
+                  </a>
+                ))}
+              </div>
             </div>
           </div>
         </div>

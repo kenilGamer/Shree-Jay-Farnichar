@@ -22,7 +22,7 @@ Ensure that your content is SEO-friendly to rank higher on search engines. Keywo
 5. Security Policy Section
 You can use the following template for a Security Policy page on your site:
 
-Security Policy for Shree Jay Furniture
+Security Policy for Bhumi Interior Solution
 Supported Versions
 We aim to keep your information secure by supporting the latest versions of our platform. Below is our support matrix for security updates:
 

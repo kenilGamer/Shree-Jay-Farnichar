@@ -163,7 +163,7 @@ const ForgotPassword = () => {
               </p>
               <div className="flex flex-col sm:flex-row gap-3">
                 <a 
-                  href="mailto:shreejayfarnichar@gmail.com" 
+                  href="mailto:bhumiinteriorsolution@gmail.com" 
                   className="btn-secondary text-center"
                 >
                   Contact Support
