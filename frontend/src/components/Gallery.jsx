@@ -93,7 +93,12 @@ function Gallery() {
                                 <div className="relative overflow-hidden rounded-xl">
                                     {item.image ? (
                                         <img 
-                                            src={item.image.startsWith('http') || item.image.startsWith('/') ? item.image : `${REACT_APP_API_URL}/uploads/${item.image}`} 
+                                            src={(() => {
+                                                const imageSrc = Array.isArray(item.image) ? item.image[0] : item.image;
+                                                return imageSrc && (imageSrc.startsWith('http') || imageSrc.startsWith('/')) 
+                                                    ? imageSrc 
+                                                    : `${REACT_APP_API_URL}/uploads/${imageSrc}`;
+                                            })()} 
                                             alt={item.alt || item.title || 'Gallery Image'} 
                                             className="w-full h-auto object-cover group-hover:scale-110 transition-transform duration-500" 
                                             onError={(e) => {
@@ -103,7 +108,12 @@ function Gallery() {
                                     ) : item.video ? (
                                         <div className="relative">
                                             <video 
-                                                src={item.video.startsWith('http') || item.video.startsWith('/') ? item.video : `${REACT_APP_API_URL}/uploads/${item.video}`} 
+                                                src={(() => {
+                                                    const videoSrc = Array.isArray(item.video) ? item.video[0] : item.video;
+                                                    return videoSrc && (videoSrc.startsWith('http') || videoSrc.startsWith('/')) 
+                                                        ? videoSrc 
+                                                        : `${REACT_APP_API_URL}/uploads/${videoSrc}`;
+                                                })()} 
                                                 className="w-full h-auto object-cover group-hover:scale-110 transition-transform duration-500"
                                                 muted
                                             />
@@ -154,7 +164,12 @@ function Gallery() {
                             <div className="bg-[#1A1A1A] rounded-2xl overflow-hidden">
                                 {selectedMedia.image ? (
                                     <img 
-                                        src={selectedMedia.image.startsWith('http') || selectedMedia.image.startsWith('/') ? selectedMedia.image : `${REACT_APP_API_URL}/uploads/${selectedMedia.image}`} 
+                                        src={(() => {
+                                            const imageSrc = Array.isArray(selectedMedia.image) ? selectedMedia.image[0] : selectedMedia.image;
+                                            return imageSrc && (imageSrc.startsWith('http') || imageSrc.startsWith('/')) 
+                                                ? imageSrc 
+                                                : `${REACT_APP_API_URL}/uploads/${imageSrc}`;
+                                        })()} 
                                         alt={selectedMedia.alt || selectedMedia.title || 'Gallery Image'} 
                                         className="w-full h-auto max-h-[70vh] object-cover" 
                                         onError={(e) => {
@@ -163,7 +178,12 @@ function Gallery() {
                                     />
                                 ) : selectedMedia.video ? (
                                     <video 
-                                        src={selectedMedia.video.startsWith('http') || selectedMedia.video.startsWith('/') ? selectedMedia.video : `${REACT_APP_API_URL}/uploads/${selectedMedia.video}`} 
+                                        src={(() => {
+                                            const videoSrc = Array.isArray(selectedMedia.video) ? selectedMedia.video[0] : selectedMedia.video;
+                                            return videoSrc && (videoSrc.startsWith('http') || videoSrc.startsWith('/')) 
+                                                ? videoSrc 
+                                                : `${REACT_APP_API_URL}/uploads/${videoSrc}`;
+                                        })()} 
                                         controls 
                                         className="w-full h-auto max-h-[70vh] object-cover"
                                         autoPlay

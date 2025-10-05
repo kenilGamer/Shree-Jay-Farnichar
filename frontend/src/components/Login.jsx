@@ -9,7 +9,7 @@ function Login() {
     const [error, setError] = useState('');
     const navigate = useNavigate();
     
-    const REACT_APP_API_URL = import.meta.env.VITE_API_URL || "https://godcraft.fun";
+    const REACT_APP_API_URL = import.meta.env.VITE_API_URL || "http://localhost:5000";
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -17,6 +17,9 @@ function Login() {
         setError('');
 
         try {
+            console.log('Making login request to:', `${REACT_APP_API_URL}/login`);
+            console.log('Request data:', { email, password });
+            
             const response = await axios.post(
                 `${REACT_APP_API_URL}/login`,
                 { email, password },
@@ -38,8 +41,10 @@ function Login() {
         } catch (error) {
             console.error("Error details:", error);
             if (error.response) {
+                console.error("Error response status:", error.response.status);
                 console.error("Error response data: ", error.response.data);
-                setError('Error logging in. Please try again later.');
+                console.error("Error response headers: ", error.response.headers);
+                setError(`Login failed: ${error.response.data?.message || 'Unknown error'}`);
             } else if (error.request) {
                 console.error("Error request: ", error.request);
                 setError('Network error. Please check your connection.');
@@ -57,53 +62,91 @@ function Login() {
     };
 
     return (
-        <div className="w-full h-screen flex items-center justify-center bg-cover bg-center bg-gradient-to-r from-blue-500 via-indigo-600 to-purple-700">
-            <div className="w-[20em] h-[60vh] bg-[#ffffff68] rounded-xl backdrop-blur-lg bg-opacity-50 shadow-lg flex flex-col items-center justify-center p-6">
-                
-                <h1 className="text-2xl font-bold text-white mb-6">Admin Login </h1>
-                {error && <p className="text-red-500 text-sm mb-4">{error}</p>}
-                <form
-                    onSubmit={handleSubmit}
-                    className="space-y-4 flex flex-col items-center w-full"
-                >
-                    <div className="w-full">
-                        <input
-                            type="text"
-                            name="email"
-                            id="email"
-                            className="mt-1 p-2 w-full text-black rounded-md border-gray-300 shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-                            value={email}
-                            placeholder="Username or Email"
-                            onChange={(e) => setEmail(e.target.value)}
-                            required
-                        />
-                    </div>
-                    <div className="w-full">
-                        <input
-                            type="password"
-                            name="password"
-                            id="password"
-                            className="mt-1 p-2 w-full text-black rounded-md border-gray-300 shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-                            value={password}
-                            placeholder="Password"
-                            onChange={(e) => setPassword(e.target.value)}
-                            required
-                        />
-                    </div>
-                    <Link to="/forgot-password" className="text-white text-sm hover:underline">
-                        Forgot Password?
-                    </Link>
-                    <button
-                        type="submit"
-                        disabled={loading}
-                        className={`w-full py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white ${
-                            loading ? 'bg-gray-400' : 'bg-indigo-600 hover:bg-indigo-700'
-                        } focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500`}
-                    >
-                        {loading ? 'Logging in...' : 'Login'}
-                    </button>
-                </form>
+        <div className="min-h-screen bg-gradient-to-b from-black via-[#0A0A0A] to-[#1A1A1A] flex items-center justify-center pt-32">
+            <div className="container mx-auto px-4">
+                <div className="max-w-md mx-auto">
+                    <div className="card-modern">
+                        <div className="text-center mb-8">
+                            <div className="w-16 h-16 bg-gradient-to-br from-[#D3AA62] to-[#F4D03F] rounded-full flex items-center justify-center mx-auto mb-6">
+                                <svg className="w-8 h-8 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                                </svg>
+                            </div>
+                            
+                            <h1 className="heading-md text-white mb-4">Admin Login</h1>
+                            <p className="text-gray-300">
+                                Sign in to access your dashboard
+                            </p>
+                        </div>
 
+                        {error && (
+                            <div className="bg-red-500/10 border border-red-500/20 rounded-lg p-3 mb-6">
+                                <p className="text-red-400 text-sm">{error}</p>
+                            </div>
+                        )}
+
+                        <form onSubmit={handleSubmit} className="space-y-6">
+                            <div>
+                                <label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-2">
+                                    Email Address
+                                </label>
+                                <input
+                                    type="email"
+                                    id="email"
+                                    value={email}
+                                    onChange={(e) => setEmail(e.target.value)}
+                                    className="w-full px-4 py-3 bg-[#1A1A1A] border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#D3AA62] focus:border-transparent transition-all duration-300"
+                                    placeholder="Enter your email address"
+                                    required
+                                />
+                            </div>
+
+                            <div>
+                                <label htmlFor="password" className="block text-sm font-medium text-gray-300 mb-2">
+                                    Password
+                                </label>
+                                <input
+                                    type="password"
+                                    id="password"
+                                    value={password}
+                                    onChange={(e) => setPassword(e.target.value)}
+                                    className="w-full px-4 py-3 bg-[#1A1A1A] border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#D3AA62] focus:border-transparent transition-all duration-300"
+                                    placeholder="Enter your password"
+                                    required
+                                />
+                            </div>
+
+                            <div className="flex items-center justify-between">
+                                <Link 
+                                    to="/forgot-password" 
+                                    className="text-sm text-[#D3AA62] hover:text-[#F4D03F] transition-colors duration-300"
+                                >
+                                    Forgot Password?
+                                </Link>
+                            </div>
+
+                            <button
+                                type="submit"
+                                disabled={loading}
+                                className="w-full btn-primary disabled:opacity-50 disabled:cursor-not-allowed"
+                            >
+                                {loading ? 'Signing In...' : 'Sign In'}
+                            </button>
+                        </form>
+
+                        <div className="mt-8 text-center">
+                            <p className="text-sm text-gray-400">
+                                Don't have an account?{' '}
+                                <Link 
+                                    to="/contact" 
+                                    className="text-[#D3AA62] hover:text-[#F4D03F] transition-colors duration-300 font-medium"
+                                >
+                                    Contact us
+                                </Link>
+                            </p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     );

@@ -5,6 +5,7 @@ import Contact from "./components/Contact";
 import About from "./components/About";
 import Services from "./components/Services";
 import Login from "./components/Login";
+import ForgotPassword from "./components/ForgotPassword";
 import Dashboard from "./components/Dashboard";
 import Updateanddelete from "./components/Updateanddelete";
 import Topbar from "./partials/Topbar";
@@ -70,6 +71,13 @@ function App() {
                 <Topbar />
                 <Navbar />
                 <Login />
+              </>
+            } />
+            <Route path="/forgot-password" element={
+              <>
+                <Topbar />
+                <Navbar />
+                <ForgotPassword />
               </>
             } />
             <Route path="/dashboard" element={
