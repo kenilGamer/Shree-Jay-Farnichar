@@ -71,7 +71,7 @@ const About = () => {
         {/* Stats Section */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-20">
           {stats.map((stat, index) => (
-            <div key={index} className="card-modern text-center group">
+            <div key={index} className="card-modern text-center group p-4">
               <div className="flex flex-col items-center space-y-4">
                 <div className="group-hover:scale-110 transition-transform duration-300">
                   {stat.icon}
@@ -96,7 +96,7 @@ const About = () => {
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {expertise.map((item, index) => (
-              <div key={index} className="card-modern card-hover group">
+              <div key={index} className="card-modern card-hover group p-4">
                 <div className="text-center space-y-4">
                   <div className="group-hover:scale-110 transition-transform duration-300">
                     {item.icon}
@@ -120,7 +120,7 @@ const About = () => {
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {whyChooseUs.map((item, index) => (
-              <div key={index} className="card-modern card-hover group">
+              <div key={index} className="card-modern card-hover group p-4">
                 <div className="flex items-start space-x-4">
                   <div className="flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
                     {item.icon}
@@ -137,7 +137,7 @@ const About = () => {
 
         {/* Mission & Vision Section */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-20">
-          <div className="card-modern">
+          <div className="card-modern p-4">
             <div className="text-center space-y-6">
               <div className="w-16 h-16 bg-gradient-to-br from-[#D3AA62] to-[#F4D03F] rounded-full flex items-center justify-center mx-auto">
                 <FaRocket className="text-2xl text-black" />
@@ -151,7 +151,7 @@ const About = () => {
             </div>
           </div>
 
-          <div className="card-modern">
+          <div className="card-modern p-4">
             <div className="text-center space-y-6">
               <div className="w-16 h-16 bg-gradient-to-br from-[#D3AA62] to-[#F4D03F] rounded-full flex items-center justify-center mx-auto">
                 <FaLightbulb className="text-2xl text-black" />
@@ -168,7 +168,7 @@ const About = () => {
 
         {/* Call to Action Section */}
         <div className="text-center">
-          <div className="card-modern max-w-4xl mx-auto">
+          <div className="card-modern max-w-4xl mx-auto p-4">
             <div className="space-y-6">
               <h3 className="heading-md gradient-text">Ready to Transform Your Space?</h3>
               <p className="text-lg text-gray-300 max-w-2xl mx-auto">
