@@ -80,24 +80,26 @@ function Navbar() {
     <div className={`navbar fixed top-12 left-0 right-0 z-50 transition-all duration-500 ${
       isVisible ? 'opacity-100 visible translate-y-0' : 'opacity-0 invisible -translate-y-2'
     } ${
-      isScrolled ? 'bg-gradient-to-r from-black/95 via-black/90 to-black/95 backdrop-blur-xl border-b border-[#D3AA62]/30 shadow-2xl' : 'bg-gradient-to-r from-black/40 via-black/30 to-black/40 backdrop-blur-md'
+      isScrolled ? 'bg-gradient-to-r from-black/95 via-black/90 to-black/95 backdrop-blur-xl border-b border-[#D3AA62]/30 shadow-2xl' : 'bg-gradient-to-r from-black/50 via-black/40 to-black/50 backdrop-blur-md'
     }`}>
       <div className="container mx-auto px-4">
         <div className="flex justify-between items-center max-w-9xl mx-auto py-3">
-          {/* Logo */}
-          <Link to="/" className="navbar-brand w-full flex items-center gap-3 group flex-shrink-0">
-            <div className="w-20 flex items-center justify-center group-hover:scale-110 transition-transform">
-                <img src="/logo.png" alt="Bhumi Interior Solution" className="w-full scale-[1.3]  object-contain" />
+          {/* Enhanced Logo */}
+          <Link to="/" className=" flex items-center gap-4 group flex-shrink-0">
+            <div className="relative">
+              <div className="w-16 h-16 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                <img src="/logo.png" alt="Bhumi Interior Solution" className="w-full h-full object-contain" />
+              </div>
             </div>
             <div className="hidden sm:block">
-              <h1 className="text-white text-lg font-bold group-hover:text-[#D3AA62] transition-colors duration-300 leading-tight ">
+              <h1 className="text-white text-xl font-bold group-hover:text-[#D3AA62] transition-colors duration-300 leading-tight">
                 Bhumi Interior Solution
               </h1>
-              <p className="text-xs text-gray-400">Interior Designers</p>
+              <p className="text-sm text-[#D3AA62] font-medium">Interior Designers</p>
             </div>
-            <div className="sm:hidden">
-              <h1 className="text-white text-sm font-bold group-hover:text-[#D3AA62] transition-colors duration-300">
-                Bhumi Interior
+            <div className="sm:hidden w-60">
+              <h1 className="text-white text-base font-bold group-hover:text-[#D3AA62] transition-colors duration-300 w-40">
+                Bhumi Interior Solution
               </h1>
             </div>
           </Link>

@@ -171,7 +171,7 @@ const ForgotPassword = () => {
                   Contact Support
                 </a>
                 <a 
-                  href="tel:+919228104285" 
+                  href="tel:+919226104269" 
                   className="btn-ghost text-center"
                 >
                   Call Us

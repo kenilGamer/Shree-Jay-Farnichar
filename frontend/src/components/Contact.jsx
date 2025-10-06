@@ -163,7 +163,7 @@ function Contact() {
                     </>
                   )}
                 </button>
-              </form>
+                </form>
             </div>
 
             {/* Contact Information */}
@@ -177,8 +177,8 @@ function Contact() {
                     </div>
                     <div>
                       <h4 className="text-white font-semibold mb-1">Phone</h4>
-                      <a href="tel:+919228104285" className="text-[#D3AA62] hover:text-[#F4D03F] transition-colors duration-300">
-                        +91 92281 04285
+                      <a href="tel:+919226104269" className="text-[#D3AA62] hover:text-[#F4D03F] transition-colors duration-300">
+                        +91 92261 04269
                       </a>
                     </div>
                   </div>
@@ -220,7 +220,7 @@ function Contact() {
                     Get Free Quote
                   </a>
                   <a 
-                    href="tel:+919228104285"
+                    href="tel:+919226104269"
                     className="w-full btn-secondary text-center block"
                   >
                     Call Now
@@ -229,8 +229,8 @@ function Contact() {
               </div>
             </div>
           </div>
+            </div>
         </div>
-      </div>
     </div>
   )
 }

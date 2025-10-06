@@ -113,8 +113,8 @@ function Footer() {
                   <div>
                     <p className='text-sm text-gray-400'>Phone</p>
                     <div className='space-y-1'>
-                      <a href='tel:+9228104285' className='block text-[#D3AA62] hover:text-[#F4D03F] transition-colors duration-300'>
-                        +91 92281 04285
+                      <a href='tel:+919226104269' className='block text-[#D3AA62] hover:text-[#F4D03F] transition-colors duration-300'>
+                        +91 92261 04269
                       </a>
                       <a href='tel:+9909858710' className='block text-[#D3AA62] hover:text-[#F4D03F] transition-colors duration-300'>
                         +91 99098 58710

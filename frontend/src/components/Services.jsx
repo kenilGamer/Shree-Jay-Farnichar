@@ -312,7 +312,7 @@ function Services() {
                 <a href="/contact" className="btn-primary">
                   Get Free Consultation
                 </a>
-                <a href="tel:+919228104285" className="btn-secondary">
+                <a href="tel:+919226104269" className="btn-secondary">
                   Call Now
                 </a>
               </div>
