@@ -135,10 +135,20 @@ body {
 }
 
 /* Ensure email links are fully visible */
-a[href*="mailto:"] {
+a[href*="mailto:"],
+a[href*="mail.google.com"] {
   white-space: nowrap;
   overflow: visible;
   text-overflow: unset;
+}
+
+/* Gmail link styling */
+a[href*="mail.google.com"] {
+  text-decoration: none;
+}
+
+a[href*="mail.google.com"]:hover {
+  text-decoration: underline;
 }
 
 /* Page2 component responsive improvements */
@@ -400,11 +410,37 @@ html[data-video-modal-open="true"] .topbar {
 
 /* Modern Button Styles */
 .btn-primary {
-  @apply bg-gradient-to-r from-[#D3AA62] to-[#F4D03F] text-black font-semibold px-8 py-4 rounded-xl hover:shadow-lg hover:scale-105 transition-all duration-300 transform;
+  @apply bg-gradient-to-r from-[#D3AA62] to-[#F4D03F] text-black font-semibold px-8 py-4 rounded-xl hover:shadow-lg hover:scale-105 transition-all duration-300 transform inline-flex items-center justify-center gap-2 text-center no-underline;
+}
+
+.btn-primary:hover {
+  @apply shadow-2xl;
 }
 
 .btn-secondary {
-  @apply bg-transparent border-2 border-[#D3AA62] text-[#D3AA62] font-semibold px-8 py-4 rounded-xl hover:bg-[#D3AA62] hover:text-black transition-all duration-300;
+  @apply bg-transparent border-2 border-[#D3AA62] text-[#D3AA62] font-semibold px-8 py-4 rounded-xl hover:bg-[#D3AA62] hover:text-black transition-all duration-300 inline-flex items-center justify-center gap-2 text-center no-underline;
+}
+
+.btn-secondary:hover {
+  @apply shadow-lg;
+}
+
+/* Button focus states for accessibility */
+.btn-primary:focus,
+.btn-secondary:focus {
+  @apply outline-none ring-2 ring-[#D3AA62] ring-offset-2 ring-offset-black;
+}
+
+/* Button disabled states */
+.btn-primary:disabled,
+.btn-secondary:disabled {
+  @apply opacity-50 cursor-not-allowed transform-none;
+}
+
+/* Button active states */
+.btn-primary:active,
+.btn-secondary:active {
+  @apply scale-95;
 }
 
 .btn-ghost {

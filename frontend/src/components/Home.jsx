@@ -67,12 +67,12 @@ function Home() {
                   Ahmedabad's Premier Interior Designers - Expertise in Spatial Planning & Furniture Curation
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                  <button className="btn-primary">
+                  <a href="#services" className="btn-primary">
                     Explore Our Work
-                  </button>
-                  <button className="btn-secondary">
+                  </a>
+                  <a href="/contact" className="btn-secondary">
                     Get Free Quote
-                  </button>
+                  </a>
                 </div>
               </div>
               

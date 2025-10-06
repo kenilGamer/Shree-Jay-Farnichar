@@ -25,7 +25,7 @@ function Topbar() {
               </div>
               <div className="flex items-center gap-1.5 text-gray-300 hover:text-[#D3AA62] transition-all duration-300 group">
                 <FaEnvelope className="text-[#D3AA62] text-xs group-hover:scale-110 transition-transform duration-300" /> 
-                <a href="mailto:bhumiinteriorsolution@gmail.com" className="hover:underline text-xs font-medium">bhumiinteriorsolution@gmail.com</a>
+                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=bhumiinteriorsolution@gmail.com" target="_blank" rel="noopener noreferrer" className="hover:underline text-xs font-medium">bhumiinteriorsolution@gmail.com</a>
               </div>
             </div>
 

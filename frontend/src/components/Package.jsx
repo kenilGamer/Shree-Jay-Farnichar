@@ -147,14 +147,17 @@ function Package() {
                 </div>
 
                 {/* CTA Button */}
-                <button className={`w-full py-3 px-6 rounded-xl font-semibold transition-all duration-300 ${
-                  item.popular 
-                    ? 'bg-gradient-to-r from-[#D3AA62] to-[#F4D03F] text-black hover:shadow-lg hover:scale-105' 
-                    : 'bg-transparent border-2 border-[#D3AA62] text-[#D3AA62] hover:bg-[#D3AA62] hover:text-black'
-                }`}>
+                <a 
+                  href={`/contact?package=${encodeURIComponent(item.title)}`}
+                  className={`w-full py-3 px-6 rounded-xl font-semibold transition-all duration-300 flex items-center justify-center gap-2 ${
+                    item.popular 
+                      ? 'bg-gradient-to-r from-[#D3AA62] to-[#F4D03F] text-black hover:shadow-lg hover:scale-105' 
+                      : 'bg-transparent border-2 border-[#D3AA62] text-[#D3AA62] hover:bg-[#D3AA62] hover:text-black'
+                  }`}
+                >
                   Get Quote
-                  <FaArrowRight className="inline-block ml-2 text-sm" />
-                </button>
+                  <FaArrowRight className="text-sm" />
+                </a>
               </div>
             </div>
           ))}

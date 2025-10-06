@@ -129,7 +129,7 @@ function Page2() {
                   <RiFileList3Fill className="text-[#D3AA62] text-lg" />
                 </div>
                 <Link 
-                  to="/contact" 
+                 to='https://mail.google.com/mail/?view=cm&fs=1&to=bhumiinteriorsolution@gmail.com' target='_blank' rel='noopener noreferrer'
                   className="text-[#D3AA62] hover:text-[#F4D03F] transition-colors duration-300 font-semibold flex items-center gap-2 flex-1 min-w-0"
                 >
                   <span>bhumiinteriorsolution@gmail.com</span>

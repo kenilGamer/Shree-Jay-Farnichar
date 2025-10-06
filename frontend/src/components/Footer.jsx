@@ -92,7 +92,7 @@ function Footer() {
                   <FiMail className='text-[#D3AA62] text-xl' />
                   <div>
                     <p className='text-sm text-gray-400'>Email</p>
-                    <a href='mailto:bhumiinteriorsolution@gmail.com' className='text-[#D3AA62] hover:text-[#F4D03F] transition-colors duration-300'>
+                    <a href='https://mail.google.com/mail/?view=cm&fs=1&to=bhumiinteriorsolution@gmail.com' target='_blank' rel='noopener noreferrer' className='text-[#D3AA62] hover:text-[#F4D03F] transition-colors duration-300'>
                       bhumiinteriorsolution@gmail.com
                     </a>
                   </div>

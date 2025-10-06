@@ -175,12 +175,12 @@ const About = () => {
                 Let us bring your interior design vision to life with our expertise, quality materials, and exceptional service.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                <button className="btn-primary">
+                <a href="/contact" className="btn-primary">
                   Get Free Quote
-                </button>
-                <button className="btn-secondary">
+                </a>
+                <a href="#services" className="btn-secondary">
                   View Our Work
-                </button>
+                </a>
               </div>
             </div>
           </div>

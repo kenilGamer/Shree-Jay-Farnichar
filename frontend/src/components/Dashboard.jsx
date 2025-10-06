@@ -197,10 +197,10 @@ function Dashboard() {
           </div>
         )}
 
-        <div className="flex flex-col lg:flex-row gap-8">
+        <div className="flex flex-col lg:flex-row gap-5 ">
           {/* Sidebar */}
-          <div className="lg:w-64">
-            <div className="card-modern sticky top-32">
+          <div className="lg:w-64 ">
+            <div className="card-modern sticky top-32 p-2">
               <div className="text-center mb-8">
                 <div className="w-16 h-16 bg-gradient-to-br from-[#D3AA62] to-[#F4D03F] rounded-full flex items-center justify-center mx-auto mb-4">
                   <FaCog className="text-2xl text-black" />
@@ -209,7 +209,7 @@ function Dashboard() {
                 <p className="text-gray-400 text-sm">Manage your content</p>
               </div>
               
-              <nav className="space-y-2">
+              <nav className="">
                 <Link 
                   to="/" 
                   className="flex items-center gap-3 px-4 py-3 text-gray-300 hover:text-white hover:bg-white/10 rounded-lg transition-all duration-300"
@@ -244,7 +244,7 @@ function Dashboard() {
 
           {/* Main Content */}
           <div className="flex-1 ">
-            <div className="card-modern">
+            <div className="card-modern p-8">
               <div className="mb-8">
                 <h1 className="heading-md gradient-text mb-4">Content Management</h1>
                 <p className="text-gray-300">
