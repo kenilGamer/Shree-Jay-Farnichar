@@ -2,8 +2,6 @@
 
 ## Server Information
 - **OS**: Ubuntu 25.04
-- **Hostname**: srv1051246.hstgr.cloud
-- **IPv4**: 88.222.241.176
 - **Domain**: lumelightinterior.in
 
 ## 📋 Prerequisites
