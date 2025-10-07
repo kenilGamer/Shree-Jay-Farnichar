@@ -27,15 +27,15 @@ Security Policy for Bhumi Interior Solution
 Supported Versions
 We aim to keep your information secure by supporting the latest versions of our platform. Below is our support matrix for security updates:
 
-Version	Supported
-5.1.x	✅
-5.0.x	❌
-4.0.x	✅
-< 4.0	❌
+Version Supported
+5.1.x ✅
+5.0.x ❌
+4.0.x ✅
+< 4.0 ❌
 Reporting a Vulnerability
 If you discover any vulnerabilities in our platform, we encourage you to report them responsibly. Here’s how:
 
-Where to Report: Send an email to [security@shreejayfurniture.com] with the details of the issue.
+Where to Report: Send an email to [security@bhumiinteriorsolution.com] with the details of the issue.
 Update Frequency: We aim to respond to all reports within 72 hours, with an estimated fix timeline based on the severity.
 Accepted Vulnerabilities: Once a vulnerability is confirmed, it will be prioritized based on impact and risk.
 Declined Vulnerabilities: If a report is not accepted, we will notify you with an explanation.
