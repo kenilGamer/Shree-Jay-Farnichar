@@ -163,7 +163,7 @@ const ForgotPassword = () => {
               </p>
               <div className="flex flex-col sm:flex-row gap-3">
                 <a 
-                  href="https://mail.google.com/mail/?view=cm&fs=1&to=bhumiinteriorsolution@gmail.com&su=Password Reset Support" 
+                  href="https://mail.google.com/mail/?view=cm&fs=1&to=lumelightinterior@gmail.com&su=Password Reset Support" 
                   target="_blank"
                   rel="noopener noreferrer"
                   className="btn-secondary text-center"
@@ -171,7 +171,7 @@ const ForgotPassword = () => {
                   Contact Support
                 </a>
                 <a 
-                  href="tel:+919226104269" 
+                  href="tel:9624538770" 
                   className="btn-ghost text-center"
                 >
                   Call Us

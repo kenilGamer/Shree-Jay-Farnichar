@@ -1,4 +1,4 @@
-# 🏠 Bhumi Interior Solution
+# 🏠 Lumelight Interior
 ### *Transforming Spaces with Excellence - Interior Design Management System*
 
 [![Node.js](https://img.shields.io/badge/Node.js-18+-green.svg)](https://nodejs.org/)
@@ -144,7 +144,7 @@ PORT=5000
 NODE_ENV=development
 
 # Database Configuration
-MONGODB_URI=mongodb://localhost:27017/bhumi-interior-solution
+MONGODB_URI=mongodb://localhost:27017/lumelight-interior
 
 # Authentication
 JWT_SECRET=your-super-secret-jwt-key-here-make-it-long-and-random
@@ -165,7 +165,7 @@ UPLOAD_PATH=./uploads
 ```env
 # API Configuration
 VITE_API_URL=http://localhost:5000
-VITE_APP_NAME=Bhumi Interior Solution
+VITE_APP_NAME=Lumelight Interior
 VITE_APP_VERSION=1.0.0
 
 # Development Configuration
@@ -488,7 +488,7 @@ npm run build
 | Variable | Description | Example | Required |
 |----------|-------------|---------|----------|
 | `VITE_API_URL` | Backend API URL | `http://localhost:5000` | ✅ |
-| `VITE_APP_NAME` | Application name | `Bhumi Interior Solution` | ❌ |
+| `VITE_APP_NAME` | Application name | `Lumelight Interior` | ❌ |
 | `VITE_APP_VERSION` | Application version | `1.0.0` | ❌ |
 | `VITE_DEV_MODE` | Development mode flag | `true` | ❌ |
 
@@ -551,7 +551,7 @@ We welcome contributions! Please follow these steps:
 - **Discussions**: Use GitHub Discussions for questions
 
 ### 📧 Contact Information
-- **Email**: bhumiinteriorsolution@gmail.com
+- **Email**: lumelightinterior@gmail.com
 - **Phone**: +91 92281 04285
 - **Website**: [Your Website URL]
 - **LinkedIn**: [Your LinkedIn Profile]

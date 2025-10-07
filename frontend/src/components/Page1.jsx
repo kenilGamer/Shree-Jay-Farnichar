@@ -54,10 +54,10 @@ function Page1() {
         {/* Section Header */}
         <div className="text-center mb-16 slide-up">
           <h2 className="heading-lg gradient-text mb-6">
-            Why Choose Bhumi Interior Solution?
+            Why Choose Lumelight Interior?
           </h2>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
-            We combine decades of experience with innovative design to create
+            We combine years of experience with innovative design to create
             spaces that reflect your unique style and personality.
           </p>
         </div>

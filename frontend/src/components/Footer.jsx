@@ -24,10 +24,11 @@ function Footer() {
   ];
 
   const socialLinks = [
-    { icon: <FiInstagram />, href: 'https://www.instagram.com/shreejayfurnitures?igsh=MXNyMjFpdGdjdDNwZQ==', label: 'Instagram' },
+    { icon: <FiInstagram />, href: 'https://www.instagram.com/lumelight_interiers?', label: 'Instagram' },
     { icon: <FiFacebook />, href: 'https://www.facebook.com/', label: 'Facebook' },
-    { icon: <FiYoutube />, href: 'https://www.youtube.com/@nrendrababahai', label: 'YouTube' },
-    { icon: <FiLinkedin />, href: 'https://www.linkedin.com/in/shree-jay-furniture-83567333b/', label: 'LinkedIn' }
+    { icon: <FaWhatsapp />, href: 'https://wa.me/919904267635', label: 'WhatsApp' },
+    // { icon: <FiYoutube />, href: 'https://www.youtube.com/@nrendrababahai', label: 'YouTube' },
+    // { icon: <FiLinkedin />, href: 'https://www.linkedin.com/in/shree-jay-furniture-83567333b/', label: 'LinkedIn' }
   ];
 
   return (
@@ -44,17 +45,17 @@ function Footer() {
           {/* Company Info */}
           <div className='lg:col-span-2'>
             <div className='flex items-center gap-3 mb-6'>
-              <div className="w-20 h-20 rounded-xl flex items-center justify-center">
-                <img src="/logo.png" alt="Bhumi Interior Solution" className="w-20 scale-[1.1]" />
+              <div className="w-20 h-20 flex items-center justify-center">
+                <img src="/logo.png" alt="Lumelight Interior" className="w-20 scale-[2]" />
               </div>
               <div>
-                <h1 className='text-3xl font-black gradient-text'>Bhumi Interior Solution</h1>
+                <h1 className='text-3xl font-black gradient-text'>Lumelight Interior</h1>
                 <p className='text-gray-400'>Interior Designers & Furniture Makers</p>
               </div>
             </div>
             
             <p className='text-gray-300 mb-8 leading-relaxed text-lg'>
-              At Bhumi Interior Solution, we combine 30 years of experience with unmatched craftsmanship to transform spaces with premium furniture and bespoke interiors. Whether it's your home, office, or commercial project, we deliver designs that are both functional and elegant.
+              At Lumelight Interior, we combine 5+ years of experience with unmatched craftsmanship to transform spaces with premium furniture and bespoke interiors. Whether it's your home, office, or commercial project, we deliver designs that are both functional and elegant.
             </p>
 
             {/* Specialties */}
@@ -92,8 +93,8 @@ function Footer() {
                   <FiMail className='text-[#D3AA62] text-xl' />
                   <div>
                     <p className='text-sm text-gray-400'>Email</p>
-                    <a href='https://mail.google.com/mail/?view=cm&fs=1&to=bhumiinteriorsolution@gmail.com' target='_blank' rel='noopener noreferrer' className='text-[#D3AA62] hover:text-[#F4D03F] transition-colors duration-300'>
-                      bhumiinteriorsolution@gmail.com
+                    <a href='https://mail.google.com/mail/?view=cm&fs=1&to=lumelightinterior@gmail.com' target='_blank' rel='noopener noreferrer' className='text-[#D3AA62] hover:text-[#F4D03F] transition-colors duration-300'>
+                      lumelightinterior@gmail.com
                     </a>
                   </div>
                 </div>
@@ -103,7 +104,7 @@ function Footer() {
                   <div>
                     <p className='text-sm text-gray-400'>WhatsApp</p>
                     <a href='https://wa.me/9624538770' className='text-[#D3AA62] hover:text-[#F4D03F] transition-colors duration-300'>
-                      +91 96245 38770
+                      +91 99042 67635
                     </a>
                   </div>
                 </div>
@@ -113,12 +114,12 @@ function Footer() {
                   <div>
                     <p className='text-sm text-gray-400'>Phone</p>
                     <div className='space-y-1'>
-                      <a href='tel:+919226104269' className='block text-[#D3AA62] hover:text-[#F4D03F] transition-colors duration-300'>
-                        +91 92261 04269
+                      <a href='tel:9624538770' className='block text-[#D3AA62] hover:text-[#F4D03F] transition-colors duration-300'>
+                        +91 9624538770
                       </a>
-                      <a href='tel:+9909858710' className='block text-[#D3AA62] hover:text-[#F4D03F] transition-colors duration-300'>
-                        +91 99098 58710
-                      </a>
+                      <a href='tel:+919904267635' className='block text-[#D3AA62] hover:text-[#F4D03F] transition-colors duration-300'>
+                          +91 99042 67635
+                        </a>
                     </div>
                   </div>
                 </div>
@@ -127,7 +128,7 @@ function Footer() {
                   <FiClock className='text-[#D3AA62] text-xl' />
                   <div>
                     <p className='text-sm text-gray-400'>Working Hours</p>
-                    <p className='text-white'>Mon - Sat: 9:00 AM - 7:00 PM</p>
+                    <p className='text-white'>9:00 AM - 7:00 PM</p>
                   </div>
                 </div>
               </div>
@@ -173,7 +174,7 @@ function Footer() {
             {/* Copyright */}
             <div className='text-center md:text-right'>
               <p className='text-gray-500 text-sm'>
-                © {new Date().getFullYear()} Bhumi Interior Solution. All Rights Reserved.
+                © {new Date().getFullYear()} Lumelight Interior. All Rights Reserved.
               </p>
               <p className='text-gray-600 text-xs mt-1'>
                 Crafted with ❤️ Created by <a href='https://www.creativitycoder.com' className='text-[#D3AA62] hover:text-[#F4D03F] transition-colors duration-300'>CreativityCoder</a>

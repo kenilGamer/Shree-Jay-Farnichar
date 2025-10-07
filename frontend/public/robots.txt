@@ -1,0 +1,29 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://www.lumelightinterior.in/sitemap.xml
+
+# Crawl-delay
+Crawl-delay: 1
+
+# Disallow admin areas
+Disallow: /admin/
+Disallow: /dashboard/
+Disallow: /login/
+Disallow: /forgot-password/
+
+# Allow important pages
+Allow: /
+Allow: /about
+Allow: /services
+Allow: /contact
+Allow: /gallery
+Allow: /package
+
+# Block unnecessary files
+Disallow: *.json
+Disallow: *.js
+Disallow: *.css
+Disallow: /src/
+Disallow: /node_modules/

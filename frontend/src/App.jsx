@@ -10,7 +10,6 @@ import Dashboard from "./components/Dashboard";
 import Updateanddelete from "./components/Updateanddelete";
 import Topbar from "./partials/Topbar";
 import Navbar from "./partials/Navbar";
-import LocomotiveScroll from "locomotive-scroll";
 import { useState, useEffect } from "react";
 import Loader from "./components/Loader";
 import AuthGuard from "./components/AuthGuard";

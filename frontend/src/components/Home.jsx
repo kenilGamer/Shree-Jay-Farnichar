@@ -58,16 +58,16 @@ function Home() {
           <div className="relative h-screen flex items-center justify-center">
             <div className="text-center px-4 max-w-6xl mx-auto">
               <div className="fade-in">
-                <h1 className="heading-xl gradient-text mb-6">
-                  Transforming Spaces with
+                <h1 className="heading-md gradient-text mb-6">
+                  Premier Interior Design Company in Ahmedabad, Gujarat
                   <br />
-                  <span className="text-white">Timeless Elegance</span>
+                  <span className="text-white">Transforming Spaces with Timeless Elegance</span>
                 </h1>
                 <p className="text-xl md:text-2xl text-gray-300 mb-8 max-w-3xl mx-auto leading-relaxed">
-                  Ahmedabad's Premier Interior Designers - Expertise in Spatial Planning & Furniture Curation
+                  Expert Interior Designers in Ahmedabad specializing in spatial planning, furniture curation, and turnkey projects. 5+ years experience, 500+ projects completed with 100% client satisfaction.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                  <a href="#services" className="btn-primary">
+                  <a href="/gallery" className="btn-primary">
                     Explore Our Work
                   </a>
                   <a href="/contact" className="btn-secondary">

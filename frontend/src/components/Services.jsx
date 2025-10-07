@@ -263,7 +263,7 @@ function Services() {
           <div className="text-center mb-12">
             <h2 className="heading-md gradient-text mb-4">Why Choose Our Services?</h2>
             <p className="text-lg text-gray-300 max-w-3xl mx-auto">
-              We combine decades of experience with modern design trends to deliver exceptional results.
+              We combine years of experience with modern design trends to deliver exceptional results.
             </p>
           </div>
           
@@ -272,7 +272,7 @@ function Services() {
               <div className="w-16 h-16 bg-gradient-to-br from-[#D3AA62] to-[#F4D03F] rounded-full flex items-center justify-center text-black mx-auto mb-4">
                 <FaStar className="text-2xl" />
               </div>
-              <h3 className="text-xl font-bold text-white mb-3">30+ Years Experience</h3>
+              <h3 className="text-xl font-bold text-white mb-3">5+ Years Experience</h3>
               <p className="text-gray-300 leading-relaxed">
                 Three decades of expertise in interior design and furniture making, ensuring quality and reliability.
               </p>
@@ -312,7 +312,7 @@ function Services() {
                 <a href="/contact" className="btn-primary">
                   Get Free Consultation
                 </a>
-                <a href="tel:+919226104269" className="btn-secondary">
+                <a href="tel:9624538770" className="btn-secondary">
                   Call Now
                 </a>
               </div>

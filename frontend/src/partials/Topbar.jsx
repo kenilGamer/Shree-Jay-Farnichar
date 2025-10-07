@@ -5,11 +5,11 @@ import { FaMobileScreenButton } from 'react-icons/fa6';
 function Topbar() {
   const data = [
     { icon: <FaFacebookF />, link: "https://www.facebook.com", label: "Facebook" },
-    { icon: <FaInstagram />, link: "https://www.instagram.com/shreejayfurnitures", label: "Instagram" },
-    { icon: <FaYoutube />, link: "https://www.youtube.com/@nrendrababahai", label: "YouTube" },
-    { icon: <FaWhatsapp />, link: "https://wa.me/9624538770", label: "WhatsApp" },
-    { icon: <FaLinkedin />, link: "https://www.linkedin.com/in/shree-jay-furniture-83567333b/", label: "LinkedIn" },
-    { icon: <FaTwitter />, link: "https://www.twitter.com", label: "Twitter" }
+    { icon: <FaInstagram />, link: "https://www.instagram.com/lumelight_interiers", label: "Instagram" },
+    // { icon: <FaYoutube />, link: "https://www.youtube.com/@nrendrababahai", label: "YouTube" },
+    { icon: <FaWhatsapp />, link: "https://wa.me/919904267635", label: "WhatsApp" },
+    // { icon: <FaLinkedin />, link: "https://www.linkedin.com/in", label: "LinkedIn" },
+    // { icon: <FaTwitter />, link: "https://www.twitter.com", label: "Twitter" }
   ];
 
   return (
@@ -21,11 +21,11 @@ function Topbar() {
             <div className="flex flex-col sm:flex-row items-center gap-4">
               <div className="flex items-center gap-1.5 text-white hover:text-[#D3AA62] transition-all duration-300 group">
                 <FaMobileScreenButton className="text-[#D3AA62] text-sm group-hover:scale-110 transition-transform duration-300" /> 
-                <a href="tel:+919226104269" className="hover:underline font-medium text-sm">+91 92261 04269</a>
+                <a href="tel:+919904267635" className="hover:underline font-medium text-sm">+91 99042 67635</a>
               </div>
               <div className="flex items-center gap-1.5 text-white hover:text-[#D3AA62] transition-all duration-300 group">
                 <FaEnvelope className="text-[#D3AA62] text-sm group-hover:scale-110 transition-transform duration-300" /> 
-                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=bhumiinteriorsolution@gmail.com" target="_blank" rel="noopener noreferrer" className="hover:underline text-sm font-medium">bhumiinteriorsolution@gmail.com</a>
+                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=lumelightinterior@gmail.com" target="_blank" rel="noopener noreferrer" className="hover:underline text-sm font-medium">lumelightinterior@gmail.com</a>
               </div>
             </div>
 

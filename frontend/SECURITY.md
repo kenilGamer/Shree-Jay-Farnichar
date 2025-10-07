@@ -1,7 +1,7 @@
 # Website Structure Overview
 
 Home Page: Showcase key offerings, unique selling points (USPs), and featured designs with images of completed projects.
-About Page: Provide company background, mission, and values. Highlight your 30 years of experience and commitment to high-quality interior design.
+About Page: Provide company background, mission, and values. Highlight your 5+ years of experience and commitment to high-quality interior design.
 Services Page: Detail the services provided, such as interior design, spatial planning, furniture curation, and turnkey projects.
 Portfolio Page: Display a gallery of your best projects to build trust and credibility.
 Contact Page: Include a contact form, business address, phone number, email, and social media links.
@@ -23,7 +23,7 @@ Ensure that your content is SEO-friendly to rank higher on search engines. Keywo
 5. Security Policy Section
 You can use the following template for a Security Policy page on your site:
 
-Security Policy for Bhumi Interior Solution
+Security Policy for Lumelight Interior
 Supported Versions
 We aim to keep your information secure by supporting the latest versions of our platform. Below is our support matrix for security updates:
 
@@ -35,7 +35,7 @@ Version Supported
 Reporting a Vulnerability
 If you discover any vulnerabilities in our platform, we encourage you to report them responsibly. Here’s how:
 
-Where to Report: Send an email to [security@bhumiinteriorsolution.com] with the details of the issue.
+Where to Report: Send an email to [security@lumelightinterior.com] with the details of the issue.
 Update Frequency: We aim to respond to all reports within 72 hours, with an estimated fix timeline based on the severity.
 Accepted Vulnerabilities: Once a vulnerability is confirmed, it will be prioritized based on impact and risk.
 Declined Vulnerabilities: If a report is not accepted, we will notify you with an explanation.

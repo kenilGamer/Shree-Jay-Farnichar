@@ -45,8 +45,8 @@ function Page2() {
   ];
 
   const stats = [
-    { number: "500+", label: "Projects Completed", icon: <FaCheckCircle /> },
-    { number: "30+", label: "Years Experience", icon: <FaStar /> },
+    { number: "50+", label: "Projects Completed", icon: <FaCheckCircle /> },
+    { number: "5+", label: "Years Experience", icon: <FaStar /> },
     { number: "100%", label: "Client Satisfaction", icon: <FaCheckCircle /> },
     { number: "24/7", label: "Support Available", icon: <FaCheckCircle /> }
   ];
@@ -68,7 +68,7 @@ function Page2() {
             Ahmedabad's Premier Interior Designers
           </div>
           
-          <h1 className="heading-xl text-white mb-6 leading-tight">
+          <h1 className="heading-md text-white mb-6 leading-tight">
             Interior Designer, Decorators, Turnkey Solutions in 
             <span className="gradient-text block">Ahmedabad</span>
           </h1>
@@ -105,8 +105,8 @@ function Page2() {
               {/* Experience Badge - Repositioned */}
               <div className="page2-experience-badge absolute top-4 right-4 bg-gradient-to-br from-[#D3AA62] to-[#F4D03F] text-black p-4 rounded-xl shadow-lg group-hover:scale-105 transition-transform duration-300">
                 <div className="text-center">
+                  <span className="text-2xl font-black">5+</span>
                   <h3 className="text-xs font-bold mb-1">Years of Experience</h3>
-                  <span className="text-2xl font-black">30+</span>
                 </div>
               </div>
               
@@ -129,10 +129,10 @@ function Page2() {
                   <RiFileList3Fill className="text-[#D3AA62] text-lg" />
                 </div>
                 <Link 
-                 to='https://mail.google.com/mail/?view=cm&fs=1&to=bhumiinteriorsolution@gmail.com' target='_blank' rel='noopener noreferrer'
+                 to='https://mail.google.com/mail/?view=cm&fs=1&to=lumelightinterior@gmail.com' target='_blank' rel='noopener noreferrer'
                   className="text-[#D3AA62] hover:text-[#F4D03F] transition-colors duration-300 font-semibold flex items-center gap-2 flex-1 min-w-0"
                 >
-                  <span>bhumiinteriorsolution@gmail.com</span>
+                  <span>lumelightinterior@gmail.com</span>
                   <FaArrowRight className="text-sm group-hover:translate-x-1 transition-transform duration-300 flex-shrink-0" />
                 </Link>
               </div>
@@ -210,11 +210,11 @@ function Page2() {
               "We don't just design spaces, we create experiences that transform the way you live, work, and feel in your environment."
             </blockquote>
             <div className="flex items-center justify-center gap-4">
-                <div className="w-16 h-16 rounded-full flex items-center justify-center overflow-hidden bg-white/10 backdrop-blur-sm">
-                  <img src="/logo.png" alt="Bhumi Interior Solution" className="w-full h-full object-contain" />
+                <div className="w-16 h-16  flex items-center justify-center overflow-hidden ">
+                  <img src="/logo.png" alt="Lumelight Interior" className="w-full h-full object-contain scale-[2]" />
                 </div>
               <div className="text-left">
-                <div className="text-white font-semibold text-lg">Bhumi Interior Solution</div>
+                <div className="text-white font-semibold text-lg">Lumelight Interior</div>
                 <div className="text-[#D3AA62] text-sm">Interior Designers & Furniture Makers</div>
               </div>
             </div>

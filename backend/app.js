@@ -191,7 +191,7 @@ app.post('/forgot-password', async (req, res) => {
     const mailOptions = {
       from: process.env.EMAIL_USER,
       to: email,
-      subject: 'Password Reset Request - Bhumi Interior Solution',
+      subject: 'Password Reset Request - Lumelight Interior',
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
           <h2 style="color: #333;">Password Reset Request</h2>
@@ -205,7 +205,7 @@ app.post('/forgot-password', async (req, res) => {
           <p>This link will expire in 1 hour.</p>
           <p>If you didn't request this password reset, please ignore this email.</p>
           <hr style="margin: 30px 0; border: none; border-top: 1px solid #eee;">
-          <p style="color: #666; font-size: 12px;">Bhumi Interior Solution Store</p>
+          <p style="color: #666; font-size: 12px;">Lumelight Interior Store</p>
         </div>
       `
     };

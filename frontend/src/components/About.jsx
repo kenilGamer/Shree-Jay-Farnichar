@@ -49,8 +49,8 @@ const About = () => {
   ];
 
   const stats = [
-    { number: "30+", label: "Years of Experience", icon: <FaAward className="text-3xl text-[#D3AA62]" /> },
-    { number: "500+", label: "Projects Completed", icon: <FaBuilding className="text-3xl text-[#D3AA62]" /> },
+    { number: "5+", label: "Years of Experience", icon: <FaAward className="text-3xl text-[#D3AA62]" /> },
+    { number: "50+", label: "Projects Completed", icon: <FaBuilding className="text-3xl text-[#D3AA62]" /> },
     { number: "100%", label: "Client Satisfaction", icon: <FaStar className="text-3xl text-[#D3AA62]" /> },
     { number: "24/7", label: "Customer Support", icon: <FaCogs className="text-3xl text-[#D3AA62]" /> }
   ];
@@ -61,10 +61,10 @@ const About = () => {
         {/* Hero Section */}
         <div className="text-center mb-20 slide-up">
           <h1 className="heading-lg gradient-text mb-6">
-            About Bhumi Interior Solution
+            About Lumelight Interior - Leading Interior Design Company in Ahmedabad, Gujarat
           </h1>
           <p className="text-xl text-gray-300 max-w-4xl mx-auto leading-relaxed">
-            Transforming Spaces with Excellence - We are passionate creators dedicated to bringing your interior design dreams to life with innovative solutions and unmatched craftsmanship.
+            Lumelight Interior is Ahmedabad's premier interior design company, transforming spaces with excellence. We are passionate creators dedicated to bringing your interior design dreams to life with innovative solutions, spatial planning expertise, and unmatched craftsmanship in furniture curation.
           </p>
         </div>
 
@@ -178,7 +178,7 @@ const About = () => {
                 <a href="/contact" className="btn-primary">
                   Get Free Quote
                 </a>
-                <a href="#services" className="btn-secondary">
+                <a href="/gallery" className="btn-secondary">
                   View Our Work
                 </a>
               </div>

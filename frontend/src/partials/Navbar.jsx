@@ -88,18 +88,18 @@ function Navbar() {
           <Link to="/" className=" flex items-center gap-4 group flex-shrink-0">
             <div className="relative">
               <div className="w-16 h-16 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                <img src="/logo.png" alt="Bhumi Interior Solution" className="w-full h-full object-contain" />
+                <img src="/logo.png" alt="Lumelight Interior" className="w-full h-full object-contain scale-[2]" />
               </div>
             </div>
             <div className="hidden sm:block">
               <h1 className="text-white text-xl font-bold group-hover:text-[#D3AA62] transition-colors duration-300 leading-tight">
-                Bhumi Interior Solution
+                Lumelight Interior
               </h1>
               <p className="text-sm text-[#D3AA62] font-medium">Interior Designers</p>
             </div>
             <div className="sm:hidden w-60">
               <h1 className="text-white text-base font-bold group-hover:text-[#D3AA62] transition-colors duration-300 w-40">
-                Bhumi Interior Solution
+                Lumelight Interior
               </h1>
             </div>
           </Link>

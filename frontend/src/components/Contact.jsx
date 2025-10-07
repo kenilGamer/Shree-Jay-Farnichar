@@ -177,8 +177,8 @@ function Contact() {
                     </div>
                     <div>
                       <h4 className="text-white font-semibold mb-1">Phone</h4>
-                      <a href="tel:+919226104269" className="text-[#D3AA62] hover:text-[#F4D03F] transition-colors duration-300">
-                        +91 92261 04269
+                      <a href="tel:+919904267635" className="text-[#D3AA62] hover:text-[#F4D03F] transition-colors duration-300">
+                        +91 99042 67635
                       </a>
                     </div>
                   </div>
@@ -189,8 +189,8 @@ function Contact() {
                     </div>
                     <div>
                       <h4 className="text-white font-semibold mb-1">Email</h4>
-                      <a href="https://mail.google.com/mail/?view=cm&fs=1&to=bhumiinteriorsolution@gmail.com" target="_blank" rel="noopener noreferrer" className="text-[#D3AA62] hover:text-[#F4D03F] transition-colors duration-300 break-all">
-                        bhumiinteriorsolution@gmail.com
+                      <a href="https://mail.google.com/mail/?view=cm&fs=1&to=lumelightinterior@gmail.com" target="_blank" rel="noopener noreferrer" className="text-[#D3AA62] hover:text-[#F4D03F] transition-colors duration-300 break-all">
+                        lumelightinterior@gmail.com
                       </a>
                     </div>
                   </div>
@@ -212,7 +212,7 @@ function Contact() {
                 <h3 className="heading-md text-white mb-6">Quick Actions</h3>
                 <div className="space-y-4">
                   <a 
-                    href="https://mail.google.com/mail/?view=cm&fs=1&to=bhumiinteriorsolution@gmail.com&su=Free Quote Request"
+                    href="https://mail.google.com/mail/?view=cm&fs=1&to=lumelightinterior@gmail.com&su=Free Quote Request"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="w-full btn-primary text-center block"
@@ -220,7 +220,7 @@ function Contact() {
                     Get Free Quote
                   </a>
                   <a 
-                    href="tel:+919226104269"
+                    href="tel:+919904267635"
                     className="w-full btn-secondary text-center block"
                   >
                     Call Now
