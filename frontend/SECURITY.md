@@ -1,4 +1,5 @@
-. Website Structure Overview
+# Website Structure Overview
+
 Home Page: Showcase key offerings, unique selling points (USPs), and featured designs with images of completed projects.
 About Page: Provide company background, mission, and values. Highlight your 30 years of experience and commitment to high-quality interior design.
 Services Page: Detail the services provided, such as interior design, spatial planning, furniture curation, and turnkey projects.
